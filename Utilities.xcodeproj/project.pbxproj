@@ -417,7 +417,7 @@
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "";
-				VALID_ARCHS = "i386 armv7";
+				VALID_ARCHS = "i386 armv6 armv7";
 			};
 			name = Debug;
 		};
@@ -451,6 +451,7 @@
 				STRIP_INSTALLED_PRODUCT = NO;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "";
+				VALID_ARCHS = "i386 armv6 armv7";
 			};
 			name = Release;
 		};
@@ -462,8 +463,8 @@
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
-				IPHONEOS_DEPLOYMENT_TARGET = 3.1;
-				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				IPHONEOS_DEPLOYMENT_TARGET = 3.2;
+				MACOSX_DEPLOYMENT_TARGET = "";
 				PRODUCT_NAME = Utilities;
 				SDKROOT = iphoneos;
 				VALID_ARCHS = "i386 armv7 armv6";
@@ -478,8 +479,8 @@
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_DYNAMIC_NO_PIC = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 3.1;
-				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				IPHONEOS_DEPLOYMENT_TARGET = 3.2;
+				MACOSX_DEPLOYMENT_TARGET = "";
 				PRODUCT_NAME = Utilities;
 				SDKROOT = iphoneos;
 				VALID_ARCHS = "i386 armv7 armv6";
