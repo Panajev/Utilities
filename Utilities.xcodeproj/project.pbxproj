@@ -1,0 +1,547 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		E62F14B312AEDB4400617438 /* AccelerometerFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = E69F417412AE4709004E4E70 /* AccelerometerFilter.m */; };
+		E62F14B412AEDB4400617438 /* SysTools.h in Headers */ = {isa = PBXBuildFile; fileRef = E69F416F12AE4709004E4E70 /* SysTools.h */; };
+		E62F14B712AEDB4400617438 /* SysTools.m in Sources */ = {isa = PBXBuildFile; fileRef = E69F417F12AE4709004E4E70 /* SysTools.m */; };
+		E62F14B812AEDB4400617438 /* Average.h in Headers */ = {isa = PBXBuildFile; fileRef = E69F415E12AE4709004E4E70 /* Average.h */; };
+		E62F14B912AEDB4400617438 /* stb_truetype.h in Headers */ = {isa = PBXBuildFile; fileRef = E69F416D12AE4709004E4E70 /* stb_truetype.h */; };
+		E62F14BA12AEDB4400617438 /* MathHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = E69F416712AE4709004E4E70 /* MathHelper.h */; };
+		E62F14BB12AEDB4400617438 /* GraphView.h in Headers */ = {isa = PBXBuildFile; fileRef = E69F416512AE4709004E4E70 /* GraphView.h */; };
+		E62F14BC12AEDB4400617438 /* ScreenShot.h in Headers */ = {isa = PBXBuildFile; fileRef = E69F416C12AE4709004E4E70 /* ScreenShot.h */; };
+		E62F14BD12AEDB4400617438 /* ScreenShot.m in Sources */ = {isa = PBXBuildFile; fileRef = E69F417E12AE4709004E4E70 /* ScreenShot.m */; };
+		E62F14BE12AEDB4400617438 /* MultiTouchScreen.mm in Sources */ = {isa = PBXBuildFile; fileRef = E69F417B12AE4709004E4E70 /* MultiTouchScreen.mm */; };
+		E62F14BF12AEDB4400617438 /* OpenGLES_Tools.m in Sources */ = {isa = PBXBuildFile; fileRef = E69F417D12AE4709004E4E70 /* OpenGLES_Tools.m */; };
+		E62F14C012AEDB4400617438 /* MathHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = E69F417A12AE4709004E4E70 /* MathHelper.m */; };
+		E62F14C112AEDB4400617438 /* NSStringExtended.m in Sources */ = {isa = PBXBuildFile; fileRef = E69F417C12AE4709004E4E70 /* NSStringExtended.m */; };
+		E62F14C212AEDB4400617438 /* OpenGLES_Tools.h in Headers */ = {isa = PBXBuildFile; fileRef = E69F416A12AE4709004E4E70 /* OpenGLES_Tools.h */; };
+		E62F14C312AEDB4400617438 /* CoreGraphicsExt.m in Sources */ = {isa = PBXBuildFile; fileRef = E69F417612AE4709004E4E70 /* CoreGraphicsExt.m */; };
+		E62F14C412AEDB4400617438 /* UIImageExt.h in Headers */ = {isa = PBXBuildFile; fileRef = E69F417212AE4709004E4E70 /* UIImageExt.h */; };
+		E62F14C512AEDB4400617438 /* AccelerometerFilter.h in Headers */ = {isa = PBXBuildFile; fileRef = E69F415D12AE4709004E4E70 /* AccelerometerFilter.h */; };
+		E62F14C612AEDB4400617438 /* UIColorExtended.m in Sources */ = {isa = PBXBuildFile; fileRef = E69F418112AE4709004E4E70 /* UIColorExtended.m */; };
+		E62F14C712AEDB4400617438 /* CoreGraphicsExt.h in Headers */ = {isa = PBXBuildFile; fileRef = E69F416012AE4709004E4E70 /* CoreGraphicsExt.h */; };
+		E62F14C812AEDB4400617438 /* DeviceInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = E69F417712AE4709004E4E70 /* DeviceInfo.m */; };
+		E62F14C912AEDB4400617438 /* NSStringExtended.h in Headers */ = {isa = PBXBuildFile; fileRef = E69F416912AE4709004E4E70 /* NSStringExtended.h */; };
+		E62F14CA12AEDB4400617438 /* GraphView.m in Sources */ = {isa = PBXBuildFile; fileRef = E69F417912AE4709004E4E70 /* GraphView.m */; };
+		E62F14CB12AEDB4400617438 /* Average.m in Sources */ = {isa = PBXBuildFile; fileRef = E69F417512AE4709004E4E70 /* Average.m */; };
+		E62F14CC12AEDB4400617438 /* DeviceInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = E69F416112AE4709004E4E70 /* DeviceInfo.h */; };
+		E62F14CD12AEDB4400617438 /* Utilities_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = AA747D9E0F9514B9006C5449 /* Utilities_Prefix.pch */; };
+		E62F14CE12AEDB4400617438 /* UIImageExt.m in Sources */ = {isa = PBXBuildFile; fileRef = E69F418212AE4709004E4E70 /* UIImageExt.m */; };
+		E62F14CF12AEDB4400617438 /* MultiTouchScreen.h in Headers */ = {isa = PBXBuildFile; fileRef = E69F416812AE4709004E4E70 /* MultiTouchScreen.h */; };
+		E62F14D012AEDB4400617438 /* TimerOBJ.m in Sources */ = {isa = PBXBuildFile; fileRef = E69F418012AE4709004E4E70 /* TimerOBJ.m */; };
+		E62F14D112AEDB4400617438 /* TimerOBJ.h in Headers */ = {isa = PBXBuildFile; fileRef = E69F417012AE4709004E4E70 /* TimerOBJ.h */; };
+		E62F14D212AEDB4400617438 /* GeneralDefines.h in Headers */ = {isa = PBXBuildFile; fileRef = E69F416212AE4709004E4E70 /* GeneralDefines.h */; };
+		E62F14D312AEDB4400617438 /* SynthesizeSingleton.h in Headers */ = {isa = PBXBuildFile; fileRef = E69F416E12AE4709004E4E70 /* SynthesizeSingleton.h */; };
+		E62F14D412AEDB4400617438 /* CocoaTouchDefines.h in Headers */ = {isa = PBXBuildFile; fileRef = E69F415F12AE4709004E4E70 /* CocoaTouchDefines.h */; };
+		E62F14D512AEDB4400617438 /* UIColorExtended.h in Headers */ = {isa = PBXBuildFile; fileRef = E69F417112AE4709004E4E70 /* UIColorExtended.h */; };
+		E62F162812AEEEA800617438 /* LogDefines.h in Headers */ = {isa = PBXBuildFile; fileRef = E62F162212AEEE9800617438 /* LogDefines.h */; };
+		E62F162912AEEEA800617438 /* OSDefines.h in Headers */ = {isa = PBXBuildFile; fileRef = E62F162012AEEE9800617438 /* OSDefines.h */; };
+		E62F162A12AEEEA800617438 /* GraphicsDefines.h in Headers */ = {isa = PBXBuildFile; fileRef = E62F162112AEEE9800617438 /* GraphicsDefines.h */; };
+		E699FCF412B625C000931ADD /* FileReader.h in Headers */ = {isa = PBXBuildFile; fileRef = E699FCF012B625C000931ADD /* FileReader.h */; };
+		E699FCF512B625C000931ADD /* FileReader.m in Sources */ = {isa = PBXBuildFile; fileRef = E699FCF112B625C000931ADD /* FileReader.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		AA747D9E0F9514B9006C5449 /* Utilities_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utilities_Prefix.pch; sourceTree = SOURCE_ROOT; };
+		E62F14A612AEDAC000617438 /* libUtilities.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libUtilities.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		E62F14F612AEDB9600617438 /* libUtilities_build.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libUtilities_build.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		E62F162012AEEE9800617438 /* OSDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OSDefines.h; path = include/OSDefines.h; sourceTree = "<group>"; };
+		E62F162112AEEE9800617438 /* GraphicsDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GraphicsDefines.h; path = include/GraphicsDefines.h; sourceTree = "<group>"; };
+		E62F162212AEEE9800617438 /* LogDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LogDefines.h; path = include/LogDefines.h; sourceTree = "<group>"; };
+		E6468C0C12AFC845002862C6 /* Utilities.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = Utilities.bundle; path = resources/Utilities.bundle; sourceTree = "<group>"; };
+		E64EBB3E126DDC100033BA8D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		E671A94F128DAB7400DA97FC /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		E67FBD3C1199B7AF0096E950 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		E67FBD3E1199B7AF0096E950 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		E67FBD421199B7AF0096E950 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		E67FBD441199B7AF0096E950 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		E699FCF012B625C000931ADD /* FileReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FileReader.h; path = include/FileReader.h; sourceTree = "<group>"; };
+		E699FCF112B625C000931ADD /* FileReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FileReader.m; path = src/FileReader.m; sourceTree = "<group>"; };
+		E69F415D12AE4709004E4E70 /* AccelerometerFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AccelerometerFilter.h; path = include/AccelerometerFilter.h; sourceTree = "<group>"; };
+		E69F415E12AE4709004E4E70 /* Average.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Average.h; path = include/Average.h; sourceTree = "<group>"; };
+		E69F415F12AE4709004E4E70 /* CocoaTouchDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CocoaTouchDefines.h; path = include/CocoaTouchDefines.h; sourceTree = "<group>"; };
+		E69F416012AE4709004E4E70 /* CoreGraphicsExt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CoreGraphicsExt.h; path = include/CoreGraphicsExt.h; sourceTree = "<group>"; };
+		E69F416112AE4709004E4E70 /* DeviceInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DeviceInfo.h; path = include/DeviceInfo.h; sourceTree = "<group>"; };
+		E69F416212AE4709004E4E70 /* GeneralDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GeneralDefines.h; path = include/GeneralDefines.h; sourceTree = "<group>"; };
+		E69F416512AE4709004E4E70 /* GraphView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GraphView.h; path = include/GraphView.h; sourceTree = "<group>"; };
+		E69F416712AE4709004E4E70 /* MathHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MathHelper.h; path = include/MathHelper.h; sourceTree = "<group>"; };
+		E69F416812AE4709004E4E70 /* MultiTouchScreen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MultiTouchScreen.h; path = include/MultiTouchScreen.h; sourceTree = "<group>"; };
+		E69F416912AE4709004E4E70 /* NSStringExtended.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NSStringExtended.h; path = include/NSStringExtended.h; sourceTree = "<group>"; };
+		E69F416A12AE4709004E4E70 /* OpenGLES_Tools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OpenGLES_Tools.h; path = include/OpenGLES_Tools.h; sourceTree = "<group>"; };
+		E69F416C12AE4709004E4E70 /* ScreenShot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ScreenShot.h; path = include/ScreenShot.h; sourceTree = "<group>"; };
+		E69F416D12AE4709004E4E70 /* stb_truetype.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = stb_truetype.h; path = include/stb_truetype.h; sourceTree = "<group>"; };
+		E69F416E12AE4709004E4E70 /* SynthesizeSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SynthesizeSingleton.h; path = include/SynthesizeSingleton.h; sourceTree = "<group>"; };
+		E69F416F12AE4709004E4E70 /* SysTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SysTools.h; path = include/SysTools.h; sourceTree = "<group>"; };
+		E69F417012AE4709004E4E70 /* TimerOBJ.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TimerOBJ.h; path = include/TimerOBJ.h; sourceTree = "<group>"; };
+		E69F417112AE4709004E4E70 /* UIColorExtended.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UIColorExtended.h; path = include/UIColorExtended.h; sourceTree = "<group>"; };
+		E69F417212AE4709004E4E70 /* UIImageExt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UIImageExt.h; path = include/UIImageExt.h; sourceTree = "<group>"; };
+		E69F417412AE4709004E4E70 /* AccelerometerFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AccelerometerFilter.m; path = Src/AccelerometerFilter.m; sourceTree = "<group>"; };
+		E69F417512AE4709004E4E70 /* Average.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Average.m; path = Src/Average.m; sourceTree = "<group>"; };
+		E69F417612AE4709004E4E70 /* CoreGraphicsExt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CoreGraphicsExt.m; path = Src/CoreGraphicsExt.m; sourceTree = "<group>"; };
+		E69F417712AE4709004E4E70 /* DeviceInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DeviceInfo.m; path = Src/DeviceInfo.m; sourceTree = "<group>"; };
+		E69F417912AE4709004E4E70 /* GraphView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GraphView.m; path = Src/GraphView.m; sourceTree = "<group>"; };
+		E69F417A12AE4709004E4E70 /* MathHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MathHelper.m; path = Src/MathHelper.m; sourceTree = "<group>"; };
+		E69F417B12AE4709004E4E70 /* MultiTouchScreen.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = MultiTouchScreen.mm; path = Src/MultiTouchScreen.mm; sourceTree = "<group>"; };
+		E69F417C12AE4709004E4E70 /* NSStringExtended.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NSStringExtended.m; path = Src/NSStringExtended.m; sourceTree = "<group>"; };
+		E69F417D12AE4709004E4E70 /* OpenGLES_Tools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OpenGLES_Tools.m; path = Src/OpenGLES_Tools.m; sourceTree = "<group>"; };
+		E69F417E12AE4709004E4E70 /* ScreenShot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ScreenShot.m; path = Src/ScreenShot.m; sourceTree = "<group>"; };
+		E69F417F12AE4709004E4E70 /* SysTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SysTools.m; path = Src/SysTools.m; sourceTree = "<group>"; };
+		E69F418012AE4709004E4E70 /* TimerOBJ.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TimerOBJ.m; path = Src/TimerOBJ.m; sourceTree = "<group>"; };
+		E69F418112AE4709004E4E70 /* UIColorExtended.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UIColorExtended.m; path = Src/UIColorExtended.m; sourceTree = "<group>"; };
+		E69F418212AE4709004E4E70 /* UIImageExt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UIImageExt.m; path = Src/UIImageExt.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E62F14A412AEDAC000617438 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		034768DFFF38A50411DB9C8B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E62F14A612AEDAC000617438 /* libUtilities.a */,
+				E62F14F612AEDB9600617438 /* libUtilities_build.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0867D691FE84028FC02AAC07 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				08FB77AEFE84172EC02AAC07 /* Classes */,
+				32C88DFF0371C24200C91783 /* Other Sources */,
+				0867D69AFE84028FC02AAC07 /* Frameworks */,
+				034768DFFF38A50411DB9C8B /* Products */,
+				E6468C0C12AFC845002862C6 /* Utilities.bundle */,
+			);
+			name = Utilities;
+			sourceTree = "<group>";
+		};
+		0867D69AFE84028FC02AAC07 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E67FBD3C1199B7AF0096E950 /* Foundation.framework */,
+				E67FBD3E1199B7AF0096E950 /* MessageUI.framework */,
+				E67FBD421199B7AF0096E950 /* QuartzCore.framework */,
+				E67FBD441199B7AF0096E950 /* UIKit.framework */,
+				E64EBB3E126DDC100033BA8D /* CoreGraphics.framework */,
+				E671A94F128DAB7400DA97FC /* OpenGLES.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		08FB77AEFE84172EC02AAC07 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				E699FCF612B625C400931ADD /* File Reader */,
+				E6226AC012ACF09300CB3B85 /* Math Helpers */,
+				E69912C512A7A98A00DCB232 /* Cocoa Touch */,
+				E671A943128DAA8D00DA97FC /* OpenGL */,
+				E671A85B128D841900DA97FC /* MultiTouch */,
+				E671A833128D812300DA97FC /* Core Graphics */,
+				E6E0601812734563009EE649 /* Accelerometer */,
+				E69F416D12AE4709004E4E70 /* stb_truetype.h */,
+				E69F416E12AE4709004E4E70 /* SynthesizeSingleton.h */,
+				E69F417112AE4709004E4E70 /* UIColorExtended.h */,
+				E69F418112AE4709004E4E70 /* UIColorExtended.m */,
+				E69F416F12AE4709004E4E70 /* SysTools.h */,
+				E69F417F12AE4709004E4E70 /* SysTools.m */,
+				E69F416912AE4709004E4E70 /* NSStringExtended.h */,
+				E69F417C12AE4709004E4E70 /* NSStringExtended.m */,
+				E69F417012AE4709004E4E70 /* TimerOBJ.h */,
+				E69F418012AE4709004E4E70 /* TimerOBJ.m */,
+				E69F415E12AE4709004E4E70 /* Average.h */,
+				E69F417512AE4709004E4E70 /* Average.m */,
+				E69F415F12AE4709004E4E70 /* CocoaTouchDefines.h */,
+				E69F416112AE4709004E4E70 /* DeviceInfo.h */,
+				E69F417712AE4709004E4E70 /* DeviceInfo.m */,
+				E69F416212AE4709004E4E70 /* GeneralDefines.h */,
+				E62F162012AEEE9800617438 /* OSDefines.h */,
+				E62F162112AEEE9800617438 /* GraphicsDefines.h */,
+				E62F162212AEEE9800617438 /* LogDefines.h */,
+				E69F416C12AE4709004E4E70 /* ScreenShot.h */,
+				E69F417E12AE4709004E4E70 /* ScreenShot.m */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		32C88DFF0371C24200C91783 /* Other Sources */ = {
+			isa = PBXGroup;
+			children = (
+				AA747D9E0F9514B9006C5449 /* Utilities_Prefix.pch */,
+			);
+			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+		E6226AC012ACF09300CB3B85 /* Math Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				E69F416712AE4709004E4E70 /* MathHelper.h */,
+				E69F417A12AE4709004E4E70 /* MathHelper.m */,
+			);
+			name = "Math Helpers";
+			sourceTree = "<group>";
+		};
+		E671A833128D812300DA97FC /* Core Graphics */ = {
+			isa = PBXGroup;
+			children = (
+				E69F416012AE4709004E4E70 /* CoreGraphicsExt.h */,
+				E69F417612AE4709004E4E70 /* CoreGraphicsExt.m */,
+			);
+			name = "Core Graphics";
+			sourceTree = "<group>";
+		};
+		E671A85B128D841900DA97FC /* MultiTouch */ = {
+			isa = PBXGroup;
+			children = (
+				E69F416812AE4709004E4E70 /* MultiTouchScreen.h */,
+				E69F417B12AE4709004E4E70 /* MultiTouchScreen.mm */,
+			);
+			name = MultiTouch;
+			sourceTree = "<group>";
+		};
+		E671A943128DAA8D00DA97FC /* OpenGL */ = {
+			isa = PBXGroup;
+			children = (
+				E69F416A12AE4709004E4E70 /* OpenGLES_Tools.h */,
+				E69F417D12AE4709004E4E70 /* OpenGLES_Tools.m */,
+			);
+			name = OpenGL;
+			sourceTree = "<group>";
+		};
+		E69912C512A7A98A00DCB232 /* Cocoa Touch */ = {
+			isa = PBXGroup;
+			children = (
+				E69F417212AE4709004E4E70 /* UIImageExt.h */,
+				E69F418212AE4709004E4E70 /* UIImageExt.m */,
+			);
+			name = "Cocoa Touch";
+			sourceTree = "<group>";
+		};
+		E699FCF612B625C400931ADD /* File Reader */ = {
+			isa = PBXGroup;
+			children = (
+				E699FCF012B625C000931ADD /* FileReader.h */,
+				E699FCF112B625C000931ADD /* FileReader.m */,
+			);
+			name = "File Reader";
+			sourceTree = "<group>";
+		};
+		E6E0601812734563009EE649 /* Accelerometer */ = {
+			isa = PBXGroup;
+			children = (
+				E69F415D12AE4709004E4E70 /* AccelerometerFilter.h */,
+				E69F416512AE4709004E4E70 /* GraphView.h */,
+				E69F417412AE4709004E4E70 /* AccelerometerFilter.m */,
+				E69F417912AE4709004E4E70 /* GraphView.m */,
+			);
+			name = Accelerometer;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		E62F14A212AEDAC000617438 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E62F14B412AEDB4400617438 /* SysTools.h in Headers */,
+				E62F14B812AEDB4400617438 /* Average.h in Headers */,
+				E62F14B912AEDB4400617438 /* stb_truetype.h in Headers */,
+				E62F14BA12AEDB4400617438 /* MathHelper.h in Headers */,
+				E62F14BB12AEDB4400617438 /* GraphView.h in Headers */,
+				E62F14BC12AEDB4400617438 /* ScreenShot.h in Headers */,
+				E62F14C212AEDB4400617438 /* OpenGLES_Tools.h in Headers */,
+				E62F14C412AEDB4400617438 /* UIImageExt.h in Headers */,
+				E62F14C512AEDB4400617438 /* AccelerometerFilter.h in Headers */,
+				E62F14C712AEDB4400617438 /* CoreGraphicsExt.h in Headers */,
+				E62F14C912AEDB4400617438 /* NSStringExtended.h in Headers */,
+				E62F14CC12AEDB4400617438 /* DeviceInfo.h in Headers */,
+				E62F14CD12AEDB4400617438 /* Utilities_Prefix.pch in Headers */,
+				E62F14CF12AEDB4400617438 /* MultiTouchScreen.h in Headers */,
+				E62F14D112AEDB4400617438 /* TimerOBJ.h in Headers */,
+				E62F14D212AEDB4400617438 /* GeneralDefines.h in Headers */,
+				E62F14D312AEDB4400617438 /* SynthesizeSingleton.h in Headers */,
+				E62F14D412AEDB4400617438 /* CocoaTouchDefines.h in Headers */,
+				E62F14D512AEDB4400617438 /* UIColorExtended.h in Headers */,
+				E62F162812AEEEA800617438 /* LogDefines.h in Headers */,
+				E62F162912AEEEA800617438 /* OSDefines.h in Headers */,
+				E62F162A12AEEEA800617438 /* GraphicsDefines.h in Headers */,
+				E699FCF412B625C000931ADD /* FileReader.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		E62F14A512AEDAC000617438 /* Utilities */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E62F14B112AEDB0F00617438 /* Build configuration list for PBXNativeTarget "Utilities" */;
+			buildPhases = (
+				E62F14A212AEDAC000617438 /* Headers */,
+				E62F14A312AEDAC000617438 /* Sources */,
+				E62F14A412AEDAC000617438 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Utilities;
+			productName = Utilities;
+			productReference = E62F14A612AEDAC000617438 /* libUtilities.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		E62F14F512AEDB9600617438 /* Utilities_build_script */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E62F14FD12AEDBC200617438 /* Build configuration list for PBXNativeTarget "Utilities_build_script" */;
+			buildPhases = (
+				E62F14FA12AEDB9D00617438 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Utilities_build_script;
+			productName = Utilities;
+			productReference = E62F14F612AEDB9600617438 /* libUtilities_build.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		0867D690FE84028FC02AAC07 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+				ORGANIZATIONNAME = IGGS;
+			};
+			buildConfigurationList = 1DEB922208733DC00010E9CD /* Build configuration list for PBXProject "Utilities" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 1;
+			knownRegions = (
+				English,
+				Japanese,
+				French,
+				German,
+			);
+			mainGroup = 0867D691FE84028FC02AAC07 /* Utilities */;
+			productRefGroup = 034768DFFF38A50411DB9C8B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E62F14A512AEDAC000617438 /* Utilities */,
+				E62F14F512AEDB9600617438 /* Utilities_build_script */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		E62F14FA12AEDB9D00617438 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#!/bin/sh\n\nTARGET=\"Utilities\"\n#undefine the following line if you want to move and properly unpack the .zip files into the destination folder specified with DEST_DIR\n#SCRIPT_OPTIONS=\"MOVE_FILE\"\nDEST_DIR=\"../SharedLibs\"\n\n#SVN_REVISION=$(svn info | grep Revision | cut -d ' ' -f 2)\nif [ ! -z $SVN_REVISION ]; then\n    LIB_VERSION=\"-rev$SVN_REVISION\"\nelse\n    LIB_VERSION=\"-unversioned\"\nfi\n\nLIBRARY_NAME=\"lib$TARGET.a\"\nLIBRARY_OUT_NAME_RELATIVE=\"lib$TARGET${LIB_VERSION}.a\"\nLIBRARY_OUT_NAME=\"lib/$LIBRARY_OUT_NAME_RELATIVE\"\nLATEST_SDK_DEVICE=$(xcodebuild -showsdks | grep iphoneos | awk 'BEGIN{FS=\"\\t\";}{print $3}' | cut -d ' ' -f 2 | tail -n 1)\nLATEST_SDK_SIMULATOR=$(xcodebuild -showsdks | grep iphonesimulator | awk 'BEGIN{FS=\"\\t\";}{print $3}' | cut -d ' ' -f 2 | tail -n 1)\n\nlocal_build_root=\"${PROJECT_DIR}/build\"\nbuild_styles=\"Debug Release\"\n\nfor current_style in $build_styles; do\nLIBRARY_ARCHIVE=\"$TARGET${LIB_VERSION}-${current_style}.zip\"\n\nif [ $current_style = \"Debug\" ]; then\n    othercflags=\"OTHER_CFLAGS=$(value)\";\n    LIBRARY_ARCHIVE=\"$TARGET-${current_style}.zip\"\nelse  \n    othercflags=\"OTHER_CFLAGS=$(value) \\\"-DRELEASE_VERSION\\\"\";\n    LIBRARY_ARCHIVE=\"$TARGET.zip\"\nfi\n\n# remove existing output file\nrm -rf ${PROJECT_DIR}/lib\nmkdir -p ${PROJECT_DIR}/lib\n\n# Build library for simulator\nxcodebuild clean -target $TARGET -configuration $current_style -sdk $LATEST_SDK_SIMULATOR\nxcodebuild -target $TARGET -configuration $current_style -sdk $LATEST_SDK_SIMULATOR \"$othercflags\" build\n\n# Build library for device\nxcodebuild clean -target $TARGET -configuration $current_style -sdk $LATEST_SDK_DEVICE\nxcodebuild -target $TARGET -configuration $current_style -sdk $LATEST_SDK_DEVICE \"$othercflags\" build\n\n# Glue together libraries\nlipo \"${local_build_root}/${current_style}-iphoneos/$LIBRARY_NAME\" -arch i386 \"${local_build_root}/${current_style}-iphonesimulator/$LIBRARY_NAME\" -create -output \"${PROJECT_DIR}/$LIBRARY_OUT_NAME\"\n\n# Create symlink\ncd lib\nln -s \"$LIBRARY_OUT_NAME_RELATIVE\" \"$LIBRARY_NAME\"\ncd ..\n\nif [ $? -eq 0 ]; then\nzip -R -y \"${PROJECT_DIR}/$LIBRARY_ARCHIVE\" \"lib/*.a\"\nzip -r -y \"${PROJECT_DIR}/$LIBRARY_ARCHIVE\" \"resources\" \"include\" -x@zip_exclude.lst\n#zip \"${PROJECT_DIR}/$LIBRARY_ARCHIVE\" .packageid\nfi\n\ndone";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E62F14A312AEDAC000617438 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E62F14B312AEDB4400617438 /* AccelerometerFilter.m in Sources */,
+				E62F14B712AEDB4400617438 /* SysTools.m in Sources */,
+				E62F14BD12AEDB4400617438 /* ScreenShot.m in Sources */,
+				E62F14BE12AEDB4400617438 /* MultiTouchScreen.mm in Sources */,
+				E62F14BF12AEDB4400617438 /* OpenGLES_Tools.m in Sources */,
+				E62F14C012AEDB4400617438 /* MathHelper.m in Sources */,
+				E62F14C112AEDB4400617438 /* NSStringExtended.m in Sources */,
+				E62F14C312AEDB4400617438 /* CoreGraphicsExt.m in Sources */,
+				E62F14C612AEDB4400617438 /* UIColorExtended.m in Sources */,
+				E62F14C812AEDB4400617438 /* DeviceInfo.m in Sources */,
+				E62F14CA12AEDB4400617438 /* GraphView.m in Sources */,
+				E62F14CB12AEDB4400617438 /* Average.m in Sources */,
+				E62F14CE12AEDB4400617438 /* UIImageExt.m in Sources */,
+				E62F14D012AEDB4400617438 /* TimerOBJ.m in Sources */,
+				E699FCF512B625C000931ADD /* FileReader.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		1DEB922308733DC00010E9CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COMPRESS_PNG_FILES = NO;
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"IPHONE_SDK_PROJECT=1",
+					"DEBUG=1",
+				);
+				GCC_THUMB_SUPPORT = YES;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "/usr/include/libxml2/**";
+				IPHONEOS_DEPLOYMENT_TARGET = 3.2;
+				OTHER_CFLAGS = "";
+				OTHER_CPLUSPLUSFLAGS = "";
+				OTHER_LDFLAGS = (
+					"-all_load",
+					"-ObjC",
+				);
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				USER_HEADER_SEARCH_PATHS = "";
+				VALID_ARCHS = "i386 armv7";
+			};
+			name = Debug;
+		};
+		1DEB922408733DC00010E9CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COMPRESS_PNG_FILES = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_DEBUGGING_SYMBOLS = full;
+				GCC_PREPROCESSOR_DEFINITIONS = "IPHONE_SDK_PROJECT=1";
+				GCC_THUMB_SUPPORT = YES;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "/usr/include/libxml2/**";
+				IPHONEOS_DEPLOYMENT_TARGET = 3.2;
+				OTHER_CFLAGS = (
+					"-mfpu=neon",
+					"-ftree-vectorize",
+					"-mfloat-abi=softfp",
+				);
+				OTHER_CPLUSPLUSFLAGS = "";
+				OTHER_LDFLAGS = (
+					"-all_load",
+					"-ObjC",
+				);
+				SDKROOT = iphoneos;
+				STRIP_INSTALLED_PRODUCT = NO;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				USER_HEADER_SEARCH_PATHS = "";
+			};
+			name = Release;
+		};
+		E62F14A712AEDAC000617438 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				IPHONEOS_DEPLOYMENT_TARGET = 3.1;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				PRODUCT_NAME = Utilities;
+				SDKROOT = iphoneos;
+				VALID_ARCHS = "i386 armv7 armv6";
+			};
+			name = Debug;
+		};
+		E62F14A812AEDAC000617438 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_DYNAMIC_NO_PIC = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 3.1;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				PRODUCT_NAME = Utilities;
+				SDKROOT = iphoneos;
+				VALID_ARCHS = "i386 armv7 armv6";
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+		E62F14F712AEDB9700617438 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				PRODUCT_NAME = Utilities_build;
+				SDKROOT = iphoneos;
+				VALID_ARCHS = "armv7 armv6 i386";
+			};
+			name = Debug;
+		};
+		E62F14F812AEDB9700617438 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				PRODUCT_NAME = Utilities_build;
+				SDKROOT = iphoneos;
+				VALID_ARCHS = "armv7 armv6 i386";
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1DEB922208733DC00010E9CD /* Build configuration list for PBXProject "Utilities" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DEB922308733DC00010E9CD /* Debug */,
+				1DEB922408733DC00010E9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E62F14B112AEDB0F00617438 /* Build configuration list for PBXNativeTarget "Utilities" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E62F14A712AEDAC000617438 /* Debug */,
+				E62F14A812AEDAC000617438 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E62F14FD12AEDBC200617438 /* Build configuration list for PBXNativeTarget "Utilities_build_script" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E62F14F712AEDB9700617438 /* Debug */,
+				E62F14F812AEDB9700617438 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 0867D690FE84028FC02AAC07 /* Project object */;
+}
