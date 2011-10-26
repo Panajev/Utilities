@@ -13,6 +13,12 @@
 
 @implementation SysTools
 
+SYNTHESIZE_SINGLETON_FOR_CLASS(SysTools);
+
+-(void) gatherDeviceData {
+    
+}
+
 +(NSString *) docsDir {	
 	NSArray *arrayPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,
 															  NSUserDomainMask,YES);

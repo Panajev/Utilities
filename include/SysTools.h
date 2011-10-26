@@ -20,13 +20,19 @@
 #import "LogDefines.h"
 
 #import "GeneralDefines.h" 
+#import "SynthesizeSingleton.h"
 
 //http://struct.ca/2010/xcode-folder-references/
 #define BUNDLE_FULL_PATH(_filePath_) [[NSBundle mainBundle] pathForResource:[_filePath_ lastPathComponent] ofType:nil inDirectory:[_filePath_ stringByDeletingLastPathComponent]]
 
 @interface SysTools : NSObject {
-
+    NSString * deviceFileFix;
+    float screenScale;
 }
+
+SYNTHESIZE_SINGLETON_FOR_CLASS_HEADER(SysTools);
+
+-(void) gatherDeviceData;
 
 +(NSString *) docsDir;
 

@@ -45,6 +45,10 @@
 		E62F162A12AEEEA800617438 /* GraphicsDefines.h in Headers */ = {isa = PBXBuildFile; fileRef = E62F162112AEEE9800617438 /* GraphicsDefines.h */; };
 		E699FCF412B625C000931ADD /* FileReader.h in Headers */ = {isa = PBXBuildFile; fileRef = E699FCF012B625C000931ADD /* FileReader.h */; };
 		E699FCF512B625C000931ADD /* FileReader.m in Sources */ = {isa = PBXBuildFile; fileRef = E699FCF112B625C000931ADD /* FileReader.m */; };
+		E6DEDC4C1458277E008EDEFE /* UIDevice-Hardware.h in Headers */ = {isa = PBXBuildFile; fileRef = E6DEDC481458277E008EDEFE /* UIDevice-Hardware.h */; };
+		E6DEDC4D1458277E008EDEFE /* UIDevice-Orientation.h in Headers */ = {isa = PBXBuildFile; fileRef = E6DEDC491458277E008EDEFE /* UIDevice-Orientation.h */; };
+		E6DEDC4E1458277E008EDEFE /* UIDevice-Hardware.m in Sources */ = {isa = PBXBuildFile; fileRef = E6DEDC4A1458277E008EDEFE /* UIDevice-Hardware.m */; };
+		E6DEDC4F1458277E008EDEFE /* UIDevice-Orientation.m in Sources */ = {isa = PBXBuildFile; fileRef = E6DEDC4B1458277E008EDEFE /* UIDevice-Orientation.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -95,6 +99,10 @@
 		E69F418012AE4709004E4E70 /* TimerOBJ.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TimerOBJ.m; path = Src/TimerOBJ.m; sourceTree = "<group>"; };
 		E69F418112AE4709004E4E70 /* UIColorExtended.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UIColorExtended.m; path = Src/UIColorExtended.m; sourceTree = "<group>"; };
 		E69F418212AE4709004E4E70 /* UIImageExt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UIImageExt.m; path = Src/UIImageExt.m; sourceTree = "<group>"; };
+		E6DEDC481458277E008EDEFE /* UIDevice-Hardware.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIDevice-Hardware.h"; path = "include/UIDevice_ext/UIDevice-Hardware.h"; sourceTree = "<group>"; };
+		E6DEDC491458277E008EDEFE /* UIDevice-Orientation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIDevice-Orientation.h"; path = "include/UIDevice_ext/UIDevice-Orientation.h"; sourceTree = "<group>"; };
+		E6DEDC4A1458277E008EDEFE /* UIDevice-Hardware.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIDevice-Hardware.m"; path = "src/UIDevice_ext/UIDevice-Hardware.m"; sourceTree = "<group>"; };
+		E6DEDC4B1458277E008EDEFE /* UIDevice-Orientation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIDevice-Orientation.m"; path = "src/UIDevice_ext/UIDevice-Orientation.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +153,7 @@
 		08FB77AEFE84172EC02AAC07 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				E6DEDC4614582750008EDEFE /* UIDevice_ext */,
 				E699FCF612B625C400931ADD /* File Reader */,
 				E6226AC012ACF09300CB3B85 /* Math Helpers */,
 				E69912C512A7A98A00DCB232 /* Cocoa Touch */,
@@ -239,6 +248,17 @@
 			name = "File Reader";
 			sourceTree = "<group>";
 		};
+		E6DEDC4614582750008EDEFE /* UIDevice_ext */ = {
+			isa = PBXGroup;
+			children = (
+				E6DEDC481458277E008EDEFE /* UIDevice-Hardware.h */,
+				E6DEDC491458277E008EDEFE /* UIDevice-Orientation.h */,
+				E6DEDC4A1458277E008EDEFE /* UIDevice-Hardware.m */,
+				E6DEDC4B1458277E008EDEFE /* UIDevice-Orientation.m */,
+			);
+			name = UIDevice_ext;
+			sourceTree = "<group>";
+		};
 		E6E0601812734563009EE649 /* Accelerometer */ = {
 			isa = PBXGroup;
 			children = (
@@ -280,6 +300,8 @@
 				E62F162912AEEEA800617438 /* OSDefines.h in Headers */,
 				E62F162A12AEEEA800617438 /* GraphicsDefines.h in Headers */,
 				E699FCF412B625C000931ADD /* FileReader.h in Headers */,
+				E6DEDC4C1458277E008EDEFE /* UIDevice-Hardware.h in Headers */,
+				E6DEDC4D1458277E008EDEFE /* UIDevice-Orientation.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -384,6 +406,8 @@
 				E62F14CE12AEDB4400617438 /* UIImageExt.m in Sources */,
 				E62F14D012AEDB4400617438 /* TimerOBJ.m in Sources */,
 				E699FCF512B625C000931ADD /* FileReader.m in Sources */,
+				E6DEDC4E1458277E008EDEFE /* UIDevice-Hardware.m in Sources */,
+				E6DEDC4F1458277E008EDEFE /* UIDevice-Orientation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
