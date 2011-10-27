@@ -173,6 +173,8 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(SysTools);
     NSString* deviceFamily;
     NSArray * tempArray;
     
+    UIDevice * iDevice = [[UIDevice alloc] init];
+    
     if([SysTools iPadUI]) {
         tempFile = [NSString stringWithFormat:@"ipad_art/%@", file];
         deviceFamily=@"-ipad";
@@ -191,6 +193,10 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(SysTools);
             if(deviceFamily != nil) { 
                 newFilePath = [NSString stringWithFormat:@"%@%@.%@", [tempArray objectAtIndex:0], deviceFamily,
                                [tempArray objectAtIndex:1]];
+            }
+            else if ([[iDevice platformString] isEqualToString:IPHONE_3G_NAMESTRING]) {
+                CMLog(@"iPhone 3G path...");
+                newFilePath = [NSString stringWithFormat:@"%@.png", [tempArray objectAtIndex:0]];
             }
             else {
                 newFilePath = [NSString stringWithFormat:@"%@.%@", [tempArray objectAtIndex:0], 

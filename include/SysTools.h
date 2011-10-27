@@ -21,6 +21,7 @@
 
 #import "GeneralDefines.h" 
 #import "SynthesizeSingleton.h"
+#import "UIDevice-Hardware.h"
 
 //http://struct.ca/2010/xcode-folder-references/
 #define BUNDLE_FULL_PATH(_filePath_) [[NSBundle mainBundle] pathForResource:[_filePath_ lastPathComponent] ofType:nil inDirectory:[_filePath_ stringByDeletingLastPathComponent]]

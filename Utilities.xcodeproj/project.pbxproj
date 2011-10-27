@@ -43,12 +43,10 @@
 		E62F162812AEEEA800617438 /* LogDefines.h in Headers */ = {isa = PBXBuildFile; fileRef = E62F162212AEEE9800617438 /* LogDefines.h */; };
 		E62F162912AEEEA800617438 /* OSDefines.h in Headers */ = {isa = PBXBuildFile; fileRef = E62F162012AEEE9800617438 /* OSDefines.h */; };
 		E62F162A12AEEEA800617438 /* GraphicsDefines.h in Headers */ = {isa = PBXBuildFile; fileRef = E62F162112AEEE9800617438 /* GraphicsDefines.h */; };
+		E678CA8314589C11009D879F /* UIDevice-Hardware.h in Headers */ = {isa = PBXBuildFile; fileRef = E678CA8114589C11009D879F /* UIDevice-Hardware.h */; };
+		E678CA8414589C11009D879F /* UIDevice-Hardware.m in Sources */ = {isa = PBXBuildFile; fileRef = E678CA8214589C11009D879F /* UIDevice-Hardware.m */; };
 		E699FCF412B625C000931ADD /* FileReader.h in Headers */ = {isa = PBXBuildFile; fileRef = E699FCF012B625C000931ADD /* FileReader.h */; };
 		E699FCF512B625C000931ADD /* FileReader.m in Sources */ = {isa = PBXBuildFile; fileRef = E699FCF112B625C000931ADD /* FileReader.m */; };
-		E6DEDC4C1458277E008EDEFE /* UIDevice-Hardware.h in Headers */ = {isa = PBXBuildFile; fileRef = E6DEDC481458277E008EDEFE /* UIDevice-Hardware.h */; };
-		E6DEDC4D1458277E008EDEFE /* UIDevice-Orientation.h in Headers */ = {isa = PBXBuildFile; fileRef = E6DEDC491458277E008EDEFE /* UIDevice-Orientation.h */; };
-		E6DEDC4E1458277E008EDEFE /* UIDevice-Hardware.m in Sources */ = {isa = PBXBuildFile; fileRef = E6DEDC4A1458277E008EDEFE /* UIDevice-Hardware.m */; };
-		E6DEDC4F1458277E008EDEFE /* UIDevice-Orientation.m in Sources */ = {isa = PBXBuildFile; fileRef = E6DEDC4B1458277E008EDEFE /* UIDevice-Orientation.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,6 +59,8 @@
 		E6468C0C12AFC845002862C6 /* Utilities.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = Utilities.bundle; path = resources/Utilities.bundle; sourceTree = "<group>"; };
 		E64EBB3E126DDC100033BA8D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		E671A94F128DAB7400DA97FC /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		E678CA8114589C11009D879F /* UIDevice-Hardware.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice-Hardware.h"; sourceTree = "<group>"; };
+		E678CA8214589C11009D879F /* UIDevice-Hardware.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice-Hardware.m"; sourceTree = "<group>"; };
 		E67FBD3C1199B7AF0096E950 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		E67FBD3E1199B7AF0096E950 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		E67FBD421199B7AF0096E950 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -99,10 +99,6 @@
 		E69F418012AE4709004E4E70 /* TimerOBJ.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TimerOBJ.m; path = Src/TimerOBJ.m; sourceTree = "<group>"; };
 		E69F418112AE4709004E4E70 /* UIColorExtended.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UIColorExtended.m; path = Src/UIColorExtended.m; sourceTree = "<group>"; };
 		E69F418212AE4709004E4E70 /* UIImageExt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UIImageExt.m; path = Src/UIImageExt.m; sourceTree = "<group>"; };
-		E6DEDC481458277E008EDEFE /* UIDevice-Hardware.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIDevice-Hardware.h"; path = "include/UIDevice_ext/UIDevice-Hardware.h"; sourceTree = "<group>"; };
-		E6DEDC491458277E008EDEFE /* UIDevice-Orientation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIDevice-Orientation.h"; path = "include/UIDevice_ext/UIDevice-Orientation.h"; sourceTree = "<group>"; };
-		E6DEDC4A1458277E008EDEFE /* UIDevice-Hardware.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIDevice-Hardware.m"; path = "src/UIDevice_ext/UIDevice-Hardware.m"; sourceTree = "<group>"; };
-		E6DEDC4B1458277E008EDEFE /* UIDevice-Orientation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIDevice-Orientation.m"; path = "src/UIDevice_ext/UIDevice-Orientation.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,7 +149,8 @@
 		08FB77AEFE84172EC02AAC07 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				E6DEDC4614582750008EDEFE /* UIDevice_ext */,
+				E678CA8114589C11009D879F /* UIDevice-Hardware.h */,
+				E678CA8214589C11009D879F /* UIDevice-Hardware.m */,
 				E699FCF612B625C400931ADD /* File Reader */,
 				E6226AC012ACF09300CB3B85 /* Math Helpers */,
 				E69912C512A7A98A00DCB232 /* Cocoa Touch */,
@@ -248,17 +245,6 @@
 			name = "File Reader";
 			sourceTree = "<group>";
 		};
-		E6DEDC4614582750008EDEFE /* UIDevice_ext */ = {
-			isa = PBXGroup;
-			children = (
-				E6DEDC481458277E008EDEFE /* UIDevice-Hardware.h */,
-				E6DEDC491458277E008EDEFE /* UIDevice-Orientation.h */,
-				E6DEDC4A1458277E008EDEFE /* UIDevice-Hardware.m */,
-				E6DEDC4B1458277E008EDEFE /* UIDevice-Orientation.m */,
-			);
-			name = UIDevice_ext;
-			sourceTree = "<group>";
-		};
 		E6E0601812734563009EE649 /* Accelerometer */ = {
 			isa = PBXGroup;
 			children = (
@@ -300,8 +286,7 @@
 				E62F162912AEEEA800617438 /* OSDefines.h in Headers */,
 				E62F162A12AEEEA800617438 /* GraphicsDefines.h in Headers */,
 				E699FCF412B625C000931ADD /* FileReader.h in Headers */,
-				E6DEDC4C1458277E008EDEFE /* UIDevice-Hardware.h in Headers */,
-				E6DEDC4D1458277E008EDEFE /* UIDevice-Orientation.h in Headers */,
+				E678CA8314589C11009D879F /* UIDevice-Hardware.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -406,8 +391,7 @@
 				E62F14CE12AEDB4400617438 /* UIImageExt.m in Sources */,
 				E62F14D012AEDB4400617438 /* TimerOBJ.m in Sources */,
 				E699FCF512B625C000931ADD /* FileReader.m in Sources */,
-				E6DEDC4E1458277E008EDEFE /* UIDevice-Hardware.m in Sources */,
-				E6DEDC4F1458277E008EDEFE /* UIDevice-Orientation.m in Sources */,
+				E678CA8414589C11009D879F /* UIDevice-Hardware.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -418,7 +402,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				ARCHS = (
+					armv6,
+					"$(ARCHS_STANDARD_32_BIT)",
+				);
 				COMPRESS_PNG_FILES = NO;
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -441,7 +428,6 @@
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "";
-				VALID_ARCHS = "i386 armv6 armv7";
 			};
 			name = Debug;
 		};
@@ -449,7 +435,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				ARCHS = (
+					armv6,
+					"$(ARCHS_STANDARD_32_BIT)",
+				);
 				COMPRESS_PNG_FILES = NO;
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = c99;
@@ -475,7 +464,6 @@
 				STRIP_INSTALLED_PRODUCT = NO;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "";
-				VALID_ARCHS = "i386 armv6 armv7";
 			};
 			name = Release;
 		};
@@ -483,15 +471,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				IPHONEOS_DEPLOYMENT_TARGET = 3.2;
 				MACOSX_DEPLOYMENT_TARGET = "";
 				PRODUCT_NAME = Utilities;
-				SDKROOT = iphoneos;
-				VALID_ARCHS = "i386 armv7 armv6";
+				"VALID_ARCHS[sdk=iphonesimulator*]" = i386;
 			};
 			name = Debug;
 		};
@@ -499,15 +485,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_DYNAMIC_NO_PIC = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 3.2;
 				MACOSX_DEPLOYMENT_TARGET = "";
 				PRODUCT_NAME = Utilities;
-				SDKROOT = iphoneos;
-				VALID_ARCHS = "i386 armv7 armv6";
+				"VALID_ARCHS[sdk=iphonesimulator*]" = i386;
 				ZERO_LINK = NO;
 			};
 			name = Release;
@@ -519,8 +503,6 @@
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				PRODUCT_NAME = Utilities_build;
-				SDKROOT = iphoneos;
-				VALID_ARCHS = "armv7 armv6 i386";
 			};
 			name = Debug;
 		};
@@ -530,8 +512,6 @@
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				PRODUCT_NAME = Utilities_build;
-				SDKROOT = iphoneos;
-				VALID_ARCHS = "armv7 armv6 i386";
 				ZERO_LINK = NO;
 			};
 			name = Release;
