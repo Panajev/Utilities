@@ -173,8 +173,6 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(SysTools);
     NSString* deviceFamily;
     NSArray * tempArray;
     
-    UIDevice * iDevice = [[UIDevice alloc] init];
-    
     if([SysTools iPadUI]) {
         tempFile = [NSString stringWithFormat:@"ipad_art/%@", file];
         deviceFamily=@"-ipad";
@@ -189,6 +187,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(SysTools);
     if(tempArray.count == 2) {
         if([tempArray objectAtIndex:0] != nil &&[tempArray objectAtIndex:1] != nil) {
             NSString * newFilePath = nil;
+            UIDevice * iDevice = [[UIDevice alloc] init];
             
             if(deviceFamily != nil) { 
                 newFilePath = [NSString stringWithFormat:@"%@%@.%@", [tempArray objectAtIndex:0], deviceFamily,
@@ -202,6 +201,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(SysTools);
                 newFilePath = [NSString stringWithFormat:@"%@.%@", [tempArray objectAtIndex:0], 
                                [tempArray objectAtIndex:1]];
             }
+            SAFE_RELEASE(iDevice);
             CMLog(@"newFilePath = %@", newFilePath);
             return newFilePath;
         }
