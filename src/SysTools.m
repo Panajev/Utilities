@@ -15,8 +15,17 @@
 
 SYNTHESIZE_SINGLETON_FOR_CLASS(SysTools);
 
+@synthesize deviceFileFix, iDevice;
+
 -(void) gatherDeviceData {
     
+    deviceFileFix=nil;
+    if([SysTools iPadUI]) {
+        deviceFileFix=@"-ipad";
+    }
+    
+    screenScale = [SysTools scalingFactor];
+    iDevice = [[UIDevice alloc] init];
 }
 
 +(NSString *) docsDir {	
@@ -168,45 +177,34 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(SysTools);
     }
 }
 
-+ (NSString*) deviceFile:(NSString*)file {
-    NSString* tempFile;
-    NSString* deviceFamily;
-    NSArray * tempArray;
+- (NSString*) deviceFile:(NSString*)file {
+    NSArray * tempArray = nil;
+    tempArray = [[NSArray alloc] initWithArray:[file componentsSeparatedByString:@"."]];
     
-    if([SysTools iPadUI]) {
-        tempFile = [NSString stringWithFormat:@"ipad_art/%@", file];
-        deviceFamily=@"-ipad";
-    }
-    else {
-        tempFile = [NSString stringWithFormat:@"iphone_art/%@", file];
-        deviceFamily=nil;
-    }
-    
-    
-    tempArray = [tempFile componentsSeparatedByString:@"."];
     if(tempArray.count == 2) {
+        NSString * newFilePath = nil;
+        
         if([tempArray objectAtIndex:0] != nil &&[tempArray objectAtIndex:1] != nil) {
-            NSString * newFilePath = nil;
-            UIDevice * iDevice = [[UIDevice alloc] init];
-            
-            if(deviceFamily != nil) { 
-                newFilePath = [NSString stringWithFormat:@"%@%@.%@", [tempArray objectAtIndex:0], deviceFamily,
+            if(deviceFileFix != nil) { 
+                newFilePath = [NSString stringWithFormat:@"ipad_art/%@%@.%@", [tempArray objectAtIndex:0], deviceFileFix,
                                [tempArray objectAtIndex:1]];
             }
             else if ([[iDevice platformString] isEqualToString:IPHONE_3G_NAMESTRING]) {
                 CMLog(@"iPhone 3G path...");
-                newFilePath = [NSString stringWithFormat:@"%@.png", [tempArray objectAtIndex:0]];
+                newFilePath = [NSString stringWithFormat:@"iphone_art/%@.png", [tempArray objectAtIndex:0]];
             }
             else {
-                newFilePath = [NSString stringWithFormat:@"%@.%@", [tempArray objectAtIndex:0], 
+                newFilePath = [NSString stringWithFormat:@"iphone_art/%@.%@", [tempArray objectAtIndex:0], 
                                [tempArray objectAtIndex:1]];
             }
-            SAFE_RELEASE(iDevice);
             CMLog(@"newFilePath = %@", newFilePath);
-            return newFilePath;
         }
+        SAFE_RELEASE(tempArray);
+        return newFilePath;
     }
-    return tempFile;
+
+    SAFE_RELEASE(tempArray);
+    return nil;
 }
 
 +(void) sendOrientationNotifications:(SEL)callSelector to:(id)object {
@@ -582,15 +580,12 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(SysTools);
 		number_scanned = YES;
 	}
 	
-	
 	[pool drain];
 	return number_scanned;
 }
 
 +(BOOL) isIntNumber:(NSString*)str into:(int*)number {
-	
 	MARK;
-	
 	BOOL result = NO;
 	
 	if (!str) return NO;

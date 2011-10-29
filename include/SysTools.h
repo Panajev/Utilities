@@ -29,11 +29,16 @@
 @interface SysTools : NSObject {
     NSString * deviceFileFix;
     float screenScale;
+    UIDevice * iDevice;
 }
+
+@property (readonly, nonatomic) NSString * deviceFileFix;
+@property (readonly, nonatomic) UIDevice * iDevice;
 
 SYNTHESIZE_SINGLETON_FOR_CLASS_HEADER(SysTools);
 
 -(void) gatherDeviceData;
+-(NSString*) deviceFile:(NSString*)file;
 
 +(NSString *) docsDir;
 
@@ -52,7 +57,6 @@ SYNTHESIZE_SINGLETON_FOR_CLASS_HEADER(SysTools);
 +(BOOL) isOS4x;
 +(BOOL) iPadUI;
 +(BOOL) iPhoneUI:(BOOL)retina;
-+(NSString*) deviceFile:(NSString*)file;
 
 +(void) sendOrientationNotifications:(SEL)callSelector to:(id)object;
 +(UIImage*)screenshotUIKit;
