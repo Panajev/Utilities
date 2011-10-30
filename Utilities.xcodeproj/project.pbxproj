@@ -7,9 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E60DEF87145D631200531EEE /* UIDevice-Hardware.m in Sources */ = {isa = PBXBuildFile; fileRef = E60DEF74145D631200531EEE /* UIDevice-Hardware.m */; };
+		E60DF3F6145D638300531EEE /* SysTools.m in Sources */ = {isa = PBXBuildFile; fileRef = E60DF3F5145D638300531EEE /* SysTools.m */; };
+		E60DF3F9145D63B700531EEE /* UIDevice-Hardware.h in Headers */ = {isa = PBXBuildFile; fileRef = E60DF3F7145D63B700531EEE /* UIDevice-Hardware.h */; };
+		E60DF3FD145D669200531EEE /* Reachability.h in Headers */ = {isa = PBXBuildFile; fileRef = E60DF3FB145D669200531EEE /* Reachability.h */; };
+		E60DF3FE145D669200531EEE /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = E60DF3FC145D669200531EEE /* Reachability.m */; };
 		E62F14B312AEDB4400617438 /* AccelerometerFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = E69F417412AE4709004E4E70 /* AccelerometerFilter.m */; };
 		E62F14B412AEDB4400617438 /* SysTools.h in Headers */ = {isa = PBXBuildFile; fileRef = E69F416F12AE4709004E4E70 /* SysTools.h */; };
-		E62F14B712AEDB4400617438 /* SysTools.m in Sources */ = {isa = PBXBuildFile; fileRef = E69F417F12AE4709004E4E70 /* SysTools.m */; };
 		E62F14B812AEDB4400617438 /* Average.h in Headers */ = {isa = PBXBuildFile; fileRef = E69F415E12AE4709004E4E70 /* Average.h */; };
 		E62F14B912AEDB4400617438 /* stb_truetype.h in Headers */ = {isa = PBXBuildFile; fileRef = E69F416D12AE4709004E4E70 /* stb_truetype.h */; };
 		E62F14BA12AEDB4400617438 /* MathHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = E69F416712AE4709004E4E70 /* MathHelper.h */; };
@@ -43,14 +47,17 @@
 		E62F162812AEEEA800617438 /* LogDefines.h in Headers */ = {isa = PBXBuildFile; fileRef = E62F162212AEEE9800617438 /* LogDefines.h */; };
 		E62F162912AEEEA800617438 /* OSDefines.h in Headers */ = {isa = PBXBuildFile; fileRef = E62F162012AEEE9800617438 /* OSDefines.h */; };
 		E62F162A12AEEEA800617438 /* GraphicsDefines.h in Headers */ = {isa = PBXBuildFile; fileRef = E62F162112AEEE9800617438 /* GraphicsDefines.h */; };
-		E678CA8314589C11009D879F /* UIDevice-Hardware.h in Headers */ = {isa = PBXBuildFile; fileRef = E678CA8114589C11009D879F /* UIDevice-Hardware.h */; };
-		E678CA8414589C11009D879F /* UIDevice-Hardware.m in Sources */ = {isa = PBXBuildFile; fileRef = E678CA8214589C11009D879F /* UIDevice-Hardware.m */; };
 		E699FCF412B625C000931ADD /* FileReader.h in Headers */ = {isa = PBXBuildFile; fileRef = E699FCF012B625C000931ADD /* FileReader.h */; };
 		E699FCF512B625C000931ADD /* FileReader.m in Sources */ = {isa = PBXBuildFile; fileRef = E699FCF112B625C000931ADD /* FileReader.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		AA747D9E0F9514B9006C5449 /* Utilities_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utilities_Prefix.pch; sourceTree = SOURCE_ROOT; };
+		E60DEF74145D631200531EEE /* UIDevice-Hardware.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIDevice-Hardware.m"; path = "src/UIDevice-Hardware.m"; sourceTree = "<group>"; };
+		E60DF3F5145D638300531EEE /* SysTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SysTools.m; path = src/SysTools.m; sourceTree = "<group>"; };
+		E60DF3F7145D63B700531EEE /* UIDevice-Hardware.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIDevice-Hardware.h"; path = "include/UIDevice-Hardware.h"; sourceTree = "<group>"; };
+		E60DF3FB145D669200531EEE /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Reachability.h; path = include/Reachability.h; sourceTree = "<group>"; };
+		E60DF3FC145D669200531EEE /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Reachability.m; path = src/Reachability.m; sourceTree = "<group>"; };
 		E62F14A612AEDAC000617438 /* libUtilities.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libUtilities.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		E62F14F612AEDB9600617438 /* libUtilities_build.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libUtilities_build.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		E62F162012AEEE9800617438 /* OSDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OSDefines.h; path = include/OSDefines.h; sourceTree = "<group>"; };
@@ -59,8 +66,6 @@
 		E6468C0C12AFC845002862C6 /* Utilities.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = Utilities.bundle; path = resources/Utilities.bundle; sourceTree = "<group>"; };
 		E64EBB3E126DDC100033BA8D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		E671A94F128DAB7400DA97FC /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
-		E678CA8114589C11009D879F /* UIDevice-Hardware.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice-Hardware.h"; sourceTree = "<group>"; };
-		E678CA8214589C11009D879F /* UIDevice-Hardware.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice-Hardware.m"; sourceTree = "<group>"; };
 		E67FBD3C1199B7AF0096E950 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		E67FBD3E1199B7AF0096E950 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		E67FBD421199B7AF0096E950 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -95,7 +100,6 @@
 		E69F417C12AE4709004E4E70 /* NSStringExtended.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NSStringExtended.m; path = Src/NSStringExtended.m; sourceTree = "<group>"; };
 		E69F417D12AE4709004E4E70 /* OpenGLES_Tools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OpenGLES_Tools.m; path = Src/OpenGLES_Tools.m; sourceTree = "<group>"; };
 		E69F417E12AE4709004E4E70 /* ScreenShot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ScreenShot.m; path = Src/ScreenShot.m; sourceTree = "<group>"; };
-		E69F417F12AE4709004E4E70 /* SysTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SysTools.m; path = Src/SysTools.m; sourceTree = "<group>"; };
 		E69F418012AE4709004E4E70 /* TimerOBJ.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TimerOBJ.m; path = Src/TimerOBJ.m; sourceTree = "<group>"; };
 		E69F418112AE4709004E4E70 /* UIColorExtended.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UIColorExtended.m; path = Src/UIColorExtended.m; sourceTree = "<group>"; };
 		E69F418212AE4709004E4E70 /* UIImageExt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UIImageExt.m; path = Src/UIImageExt.m; sourceTree = "<group>"; };
@@ -149,8 +153,7 @@
 		08FB77AEFE84172EC02AAC07 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				E678CA8114589C11009D879F /* UIDevice-Hardware.h */,
-				E678CA8214589C11009D879F /* UIDevice-Hardware.m */,
+				E60DEF60145D62A800531EEE /* UIDevice-Extensions */,
 				E699FCF612B625C400931ADD /* File Reader */,
 				E6226AC012ACF09300CB3B85 /* Math Helpers */,
 				E69912C512A7A98A00DCB232 /* Cocoa Touch */,
@@ -163,7 +166,7 @@
 				E69F417112AE4709004E4E70 /* UIColorExtended.h */,
 				E69F418112AE4709004E4E70 /* UIColorExtended.m */,
 				E69F416F12AE4709004E4E70 /* SysTools.h */,
-				E69F417F12AE4709004E4E70 /* SysTools.m */,
+				E60DF3F5145D638300531EEE /* SysTools.m */,
 				E69F416912AE4709004E4E70 /* NSStringExtended.h */,
 				E69F417C12AE4709004E4E70 /* NSStringExtended.m */,
 				E69F417012AE4709004E4E70 /* TimerOBJ.h */,
@@ -189,6 +192,17 @@
 				AA747D9E0F9514B9006C5449 /* Utilities_Prefix.pch */,
 			);
 			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+		E60DEF60145D62A800531EEE /* UIDevice-Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				E60DF3FB145D669200531EEE /* Reachability.h */,
+				E60DF3FC145D669200531EEE /* Reachability.m */,
+				E60DF3F7145D63B700531EEE /* UIDevice-Hardware.h */,
+				E60DEF74145D631200531EEE /* UIDevice-Hardware.m */,
+			);
+			name = "UIDevice-Extensions";
 			sourceTree = "<group>";
 		};
 		E6226AC012ACF09300CB3B85 /* Math Helpers */ = {
@@ -286,7 +300,8 @@
 				E62F162912AEEEA800617438 /* OSDefines.h in Headers */,
 				E62F162A12AEEEA800617438 /* GraphicsDefines.h in Headers */,
 				E699FCF412B625C000931ADD /* FileReader.h in Headers */,
-				E678CA8314589C11009D879F /* UIDevice-Hardware.h in Headers */,
+				E60DF3F9145D63B700531EEE /* UIDevice-Hardware.h in Headers */,
+				E60DF3FD145D669200531EEE /* Reachability.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -377,7 +392,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				E62F14B312AEDB4400617438 /* AccelerometerFilter.m in Sources */,
-				E62F14B712AEDB4400617438 /* SysTools.m in Sources */,
 				E62F14BD12AEDB4400617438 /* ScreenShot.m in Sources */,
 				E62F14BE12AEDB4400617438 /* MultiTouchScreen.mm in Sources */,
 				E62F14BF12AEDB4400617438 /* OpenGLES_Tools.m in Sources */,
@@ -391,7 +405,9 @@
 				E62F14CE12AEDB4400617438 /* UIImageExt.m in Sources */,
 				E62F14D012AEDB4400617438 /* TimerOBJ.m in Sources */,
 				E699FCF512B625C000931ADD /* FileReader.m in Sources */,
-				E678CA8414589C11009D879F /* UIDevice-Hardware.m in Sources */,
+				E60DEF87145D631200531EEE /* UIDevice-Hardware.m in Sources */,
+				E60DF3F6145D638300531EEE /* SysTools.m in Sources */,
+				E60DF3FE145D669200531EEE /* Reachability.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -475,6 +491,18 @@
 				GCC_DYNAMIC_NO_PIC = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				IPHONEOS_DEPLOYMENT_TARGET = 3.2;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/build/Debug-iphoneos\"",
+					"\"$(SRCROOT)/build/Debug-iphonesimulator\"",
+					"\"$(SRCROOT)/build/Release-iphoneos\"",
+					"\"$(SRCROOT)/build/Release-iphonesimulator\"",
+					"\"$(SRCROOT)/build/Utilities.build/Debug-iphoneos/Utilities.build/Objects-normal/armv6\"",
+					"\"$(SRCROOT)/build/Utilities.build/Debug-iphoneos/Utilities.build/Objects-normal/armv7\"",
+					"\"$(SRCROOT)/build/Utilities.build/Release-iphoneos/Utilities.build/Objects-normal/armv6\"",
+					"\"$(SRCROOT)/build/Utilities.build/Release-iphoneos/Utilities.build/Objects-normal/armv7\"",
+					"\"$(SRCROOT)/lib\"",
+				);
 				MACOSX_DEPLOYMENT_TARGET = "";
 				PRODUCT_NAME = Utilities;
 				"VALID_ARCHS[sdk=iphonesimulator*]" = i386;
@@ -489,6 +517,18 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_DYNAMIC_NO_PIC = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 3.2;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/build/Debug-iphoneos\"",
+					"\"$(SRCROOT)/build/Debug-iphonesimulator\"",
+					"\"$(SRCROOT)/build/Release-iphoneos\"",
+					"\"$(SRCROOT)/build/Release-iphonesimulator\"",
+					"\"$(SRCROOT)/build/Utilities.build/Debug-iphoneos/Utilities.build/Objects-normal/armv6\"",
+					"\"$(SRCROOT)/build/Utilities.build/Debug-iphoneos/Utilities.build/Objects-normal/armv7\"",
+					"\"$(SRCROOT)/build/Utilities.build/Release-iphoneos/Utilities.build/Objects-normal/armv6\"",
+					"\"$(SRCROOT)/build/Utilities.build/Release-iphoneos/Utilities.build/Objects-normal/armv7\"",
+					"\"$(SRCROOT)/lib\"",
+				);
 				MACOSX_DEPLOYMENT_TARGET = "";
 				PRODUCT_NAME = Utilities;
 				"VALID_ARCHS[sdk=iphonesimulator*]" = i386;

@@ -39,6 +39,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS_HEADER(SysTools);
 
 -(void) gatherDeviceData;
 -(NSString*) deviceFile:(NSString*)file;
+-(void) sendWarning:(NSString*) msg withTitle:(NSString*) title;
 
 +(NSString *) docsDir;
 
@@ -57,6 +58,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS_HEADER(SysTools);
 +(BOOL) isOS4x;
 +(BOOL) iPadUI;
 +(BOOL) iPhoneUI:(BOOL)retina;
++(float) scalingFactor;
 
 +(void) sendOrientationNotifications:(SEL)callSelector to:(id)object;
 +(UIImage*)screenshotUIKit;

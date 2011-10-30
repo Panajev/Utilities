@@ -168,6 +168,25 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(SysTools);
     }
 }
 
+-(void) sendWarning:(NSString*) msg withTitle:(NSString*) title {
+    if(msg == nil || title == nil) {
+        return;
+    }
+    
+    UIAlertView *message = [[UIAlertView alloc] initWithTitle:title
+                                                      message:msg
+                                                     delegate:self
+                                            cancelButtonTitle:@"OK"
+                                            otherButtonTitles:nil];
+    
+    [message show];
+}
+
+- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
+    
+    [alertView release];
+}
+
 +(float) scalingFactor {
     if ([[UIScreen mainScreen] respondsToSelector:@selector(scale)]){
         return [[UIScreen mainScreen] scale];
@@ -202,7 +221,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(SysTools);
         SAFE_RELEASE(tempArray);
         return newFilePath;
     }
-
+    
     SAFE_RELEASE(tempArray);
     return nil;
 }
