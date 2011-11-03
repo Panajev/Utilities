@@ -149,7 +149,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(SysTools);
         }
         else
         {
-            if ([[UIScreen mainScreen] respondsToSelector:@selector(scale)] && [[UIScreen mainScreen] scale] == 2){
+            if ([[UIScreen mainScreen] respondsToSelector:@selector(scale)] && [[UIScreen mainScreen] scale] > 1.1){
                 return retina;
             }
             else {
@@ -159,7 +159,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(SysTools);
     }
     else
     {
-        if ([SysTools scalingFactor] > 1.0f){
+        if ([SysTools scalingFactor] > 1.1f){
             return retina;
         }
         else {

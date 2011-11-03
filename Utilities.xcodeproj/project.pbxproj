@@ -490,6 +490,7 @@
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
+				"GCC_THUMB_SUPPORT[arch=armv6]" = NO;
 				IPHONEOS_DEPLOYMENT_TARGET = 3.2;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -516,6 +517,7 @@
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_DYNAMIC_NO_PIC = YES;
+				"GCC_THUMB_SUPPORT[arch=armv6]" = NO;
 				IPHONEOS_DEPLOYMENT_TARGET = 3.2;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -530,6 +532,7 @@
 					"\"$(SRCROOT)/lib\"",
 				);
 				MACOSX_DEPLOYMENT_TARGET = "";
+				"OTHER_CFLAGS[arch=armv6]" = "";
 				PRODUCT_NAME = Utilities;
 				"VALID_ARCHS[sdk=iphonesimulator*]" = i386;
 				ZERO_LINK = NO;
