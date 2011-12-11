@@ -346,7 +346,7 @@
 		0867D690FE84028FC02AAC07 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0420;
+				LastUpgradeCheck = 0430;
 				ORGANIZATIONNAME = IGGS;
 			};
 			buildConfigurationList = 1DEB922208733DC00010E9CD /* Build configuration list for PBXProject "Utilities" */;
@@ -418,10 +418,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = (
-					armv6,
-					"$(ARCHS_STANDARD_32_BIT)",
-				);
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				COMPRESS_PNG_FILES = NO;
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -451,10 +448,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = (
-					armv6,
-					"$(ARCHS_STANDARD_32_BIT)",
-				);
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				COMPRESS_PNG_FILES = NO;
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = c99;
@@ -490,7 +484,6 @@
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
-				"GCC_THUMB_SUPPORT[arch=armv6]" = NO;
 				IPHONEOS_DEPLOYMENT_TARGET = 3.2;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -506,7 +499,6 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = "";
 				PRODUCT_NAME = Utilities;
-				"VALID_ARCHS[sdk=iphonesimulator*]" = i386;
 			};
 			name = Debug;
 		};
@@ -517,7 +509,6 @@
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_DYNAMIC_NO_PIC = YES;
-				"GCC_THUMB_SUPPORT[arch=armv6]" = NO;
 				IPHONEOS_DEPLOYMENT_TARGET = 3.2;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -534,7 +525,6 @@
 				MACOSX_DEPLOYMENT_TARGET = "";
 				"OTHER_CFLAGS[arch=armv6]" = "";
 				PRODUCT_NAME = Utilities;
-				"VALID_ARCHS[sdk=iphonesimulator*]" = i386;
 				ZERO_LINK = NO;
 			};
 			name = Release;
