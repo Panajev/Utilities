@@ -10,8 +10,18 @@
 #define LOGDEFINES_H
 
 #if DEBUG==1
-#define CMLog(format, ...) NSLog(@"%s:%@", __PRETTY_FUNCTION__,[NSString stringWithFormat:format, ## __VA_ARGS__]);
-#define MARK	CMLog(@"%s", __PRETTY_FUNCTION__);
+
+#define CMLog(format, ...) do{NSLog(@"(DEBUG_VERSION Logs)\n%s (at %@:%d):%@", __PRETTY_FUNCTION__, \
+[[NSString stringWithFormat:@"%s",__FILE__] lastPathComponent], __LINE__, \
+[NSString stringWithFormat:format, ## __VA_ARGS__]);} while(0)
+
+#define MARK	do{CMLog(@"(DEBUG_VERSION Logs)\n%s, at %s:%d", __PRETTY_FUNCTION__, \
+[[NSString stringWithFormat:@"%s",__FILE__] lastPathComponent], \
+__LINE__);} while(0)
+
+#define XASSERT(test, msg, ...) do {if (!(test)) error(__LINE__, __FILE__, \
+"Assertion failed: %s\n\n" msg, #test,  __VA_ARGS__);} while (0)
+
 #define START_TIMER NSTimeInterval start = [NSDate timeIntervalSinceReferenceDate];
 #define END_TIMER(msg) 	NSTimeInterval stop = [NSDate timeIntervalSinceReferenceDate]; CMLog([NSString stringWithFormat:@"%@ Time = %f", msg, stop-start]);
 #define DPRINTF(message, ...) printf(message, ## __VA_ARGS__);
@@ -25,6 +35,7 @@
 #else
 #define CMLog(format, ...)
 #define MARK
+#define XASSERT(test, msg, ...)
 #define START_TIMER
 #define END_TIMER(msg)
 #define DPRINTF

@@ -407,20 +407,25 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(SysTools);
 		
 #if DEBUG == 1
 		if (resultTest == NSOrderedSame) 
-			NSLog (@"(OK) OS comparison result is: %@ target == %@ current", targetVersion, OS_VERSION);
+            ;
+			//NSLog (@"(OK) OS comparison result is: %@ target == %@ current", targetVersion, OS_VERSION);
 		else 
-			NSLog (@"(OK) OS comparison result is: %@ target < %@ current", targetVersion, OS_VERSION);
+            ;
+			//NSLog (@"(OK) OS comparison result is: %@ target < %@ current", targetVersion, OS_VERSION);
 #endif
 		return  YES;
 		
 	}
 	else if (eq && (resultTest == NSOrderedSame)) {
 #if DEBUG == 1
-		NSLog (@"(OK) OS comparison result is: %@ target == %@ current", targetVersion, OS_VERSION);
+		//NSLog (@"(OK) OS comparison result is: %@ target == %@ current", targetVersion, OS_VERSION);
 #endif
 		return YES;
 	}
-	else return NO;
+	else { 
+        CMLog (@"(OK) OS comparison result is: %@ target > %@ current", targetVersion, OS_VERSION);
+        return NO;
+    }
 }
 
 /*
