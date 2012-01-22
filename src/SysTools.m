@@ -18,7 +18,6 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(SysTools);
 @synthesize deviceFileFix, iDevice;
 
 -(void) gatherDeviceData {
-    
     deviceFileFix=nil;
     if([SysTools iPadUI]) {
         deviceFileFix=@"-ipad";
