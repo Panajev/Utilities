@@ -12,6 +12,11 @@
 
 #ifndef MATHHELPER_H_
 #define MATHHELPER_H_
+
+#ifndef ARC4RANDOM_MAX
+#define ARC4RANDOM_MAX      (0x100000000)
+#endif
+
 //PRAGMA MARK: static convenience methods -->
 CG_EXTERN int rangeRNGi(int min, int max);
 CG_EXTERN CGFloat lerpRanges (CGFloat value, CGFloat minLeft, CGFloat maxLeft, CGFloat minRight, CGFloat maxRight);

@@ -12,6 +12,10 @@ int rangeRNGi(int min, int max){
     return (arc4random()%max)+min;
 }
 
+float rangeRNGf(float max) {
+    return (floorf(((double)arc4random() / ARC4RANDOM_MAX) * max));
+}
+
 CGFloat lerpRanges (CGFloat value, CGFloat minLeft, CGFloat maxLeft, CGFloat minRight, CGFloat maxRight) {
 	CGFloat leftRangeDelta = maxLeft - minLeft; //screenResolution for example
 	CGFloat rightRangeDelta = maxRight - minRight; //local GL view position for example
