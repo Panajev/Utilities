@@ -490,18 +490,7 @@
 				GCC_OPTIMIZATION_LEVEL = 0;
 				HEADER_SEARCH_PATHS = "/usr/include/libxml2/**";
 				IPHONEOS_DEPLOYMENT_TARGET = 3.2;
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/build/Debug-iphoneos\"",
-					"\"$(SRCROOT)/build/Debug-iphonesimulator\"",
-					"\"$(SRCROOT)/build/Release-iphoneos\"",
-					"\"$(SRCROOT)/build/Release-iphonesimulator\"",
-					"\"$(SRCROOT)/build/Utilities.build/Debug-iphoneos/Utilities.build/Objects-normal/armv6\"",
-					"\"$(SRCROOT)/build/Utilities.build/Debug-iphoneos/Utilities.build/Objects-normal/armv7\"",
-					"\"$(SRCROOT)/build/Utilities.build/Release-iphoneos/Utilities.build/Objects-normal/armv6\"",
-					"\"$(SRCROOT)/build/Utilities.build/Release-iphoneos/Utilities.build/Objects-normal/armv7\"",
-					"\"$(SRCROOT)/lib\"",
-				);
+				LLVM_LTO = NO;
 				MACOSX_DEPLOYMENT_TARGET = "";
 				PRODUCT_NAME = Utilities;
 			};
@@ -520,21 +509,11 @@
 				GCC_DYNAMIC_NO_PIC = YES;
 				HEADER_SEARCH_PATHS = "/usr/include/libxml2/**";
 				IPHONEOS_DEPLOYMENT_TARGET = 3.2;
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/build/Debug-iphoneos\"",
-					"\"$(SRCROOT)/build/Debug-iphonesimulator\"",
-					"\"$(SRCROOT)/build/Release-iphoneos\"",
-					"\"$(SRCROOT)/build/Release-iphonesimulator\"",
-					"\"$(SRCROOT)/build/Utilities.build/Debug-iphoneos/Utilities.build/Objects-normal/armv6\"",
-					"\"$(SRCROOT)/build/Utilities.build/Debug-iphoneos/Utilities.build/Objects-normal/armv7\"",
-					"\"$(SRCROOT)/build/Utilities.build/Release-iphoneos/Utilities.build/Objects-normal/armv6\"",
-					"\"$(SRCROOT)/build/Utilities.build/Release-iphoneos/Utilities.build/Objects-normal/armv7\"",
-					"\"$(SRCROOT)/lib\"",
-				);
+				LLVM_LTO = NO;
 				MACOSX_DEPLOYMENT_TARGET = "";
 				"OTHER_CFLAGS[arch=armv6]" = "";
 				PRODUCT_NAME = Utilities;
+				STRIP_INSTALLED_PRODUCT = YES;
 				ZERO_LINK = NO;
 			};
 			name = Release;
