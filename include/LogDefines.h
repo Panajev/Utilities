@@ -15,7 +15,7 @@
 [[NSString stringWithFormat:@"%s",__FILE__] lastPathComponent], __LINE__, \
 [NSString stringWithFormat:format, ## __VA_ARGS__]);} while(0)
 
-#define MARK	do{CMLog(@"(DEBUG_VERSION Logs)\n%s, at %s:%d", __PRETTY_FUNCTION__, \
+#define MARK	do{CMLog(@"(DEBUG_VERSION Logs)\n%s, at %@:%d", __PRETTY_FUNCTION__, \
 [[NSString stringWithFormat:@"%s",__FILE__] lastPathComponent], \
 __LINE__);} while(0)
 

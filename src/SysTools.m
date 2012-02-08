@@ -27,6 +27,13 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(SysTools);
     iDevice = [[UIDevice alloc] init];
 }
 
+-(void) setContentRoot:(NSString*)newRootFolder {
+    if(rootFolder != newRootFolder) {
+        [rootFolder release];
+        rootFolder = [newRootFolder copy];
+    }
+}
+
 +(NSString *) docsDir {	
 	NSArray *arrayPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,
 															  NSUserDomainMask,YES);
@@ -172,11 +179,11 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(SysTools);
         return;
     }
     
-    UIAlertView *message = [[UIAlertView alloc] initWithTitle:title
+    UIAlertView *message = [[[UIAlertView alloc] initWithTitle:title
                                                       message:msg
                                                      delegate:self
                                             cancelButtonTitle:@"OK"
-                                            otherButtonTitles:nil];
+                                            otherButtonTitles:nil] autorelease];
     
     [message show];
 }
@@ -198,10 +205,9 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(SysTools);
 - (NSString*) deviceFile:(NSString*)file {
     NSArray * tempArray = nil;
     tempArray = [[NSArray alloc] initWithArray:[file componentsSeparatedByString:@"."]];
+    NSString * newFilePath = nil;
     
     if(tempArray.count == 2) {
-        NSString * newFilePath = nil;
-        
         if([tempArray objectAtIndex:0] != nil &&[tempArray objectAtIndex:1] != nil) {
             if(deviceFileFix != nil) { 
                 newFilePath = [NSString stringWithFormat:@"ipad_art/%@%@.%@", [tempArray objectAtIndex:0], deviceFileFix,
@@ -217,12 +223,33 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(SysTools);
             }
             CMLog(@"newFilePath = %@", newFilePath);
         }
-        SAFE_RELEASE(tempArray);
-        return newFilePath;
+        
+        if(rootFolder != nil) {
+            newFilePath = [NSString stringWithFormat:@"%@/%@", rootFolder, newFilePath];
+        }
     }
     
     SAFE_RELEASE(tempArray);
-    return nil;
+    return newFilePath;
+}
+
+- (NSString*) deviceFileRandom:(NSString*)file minRange:(NSUInteger)min maxRange:(NSUInteger)max {
+    NSString * fileName = [self deviceFile:file];
+    
+    NSArray * tempArray = nil;
+    tempArray = [[NSArray alloc] initWithArray:[fileName componentsSeparatedByString:@"."]];
+    NSString * newFilePath = nil;
+    
+    if(tempArray.count == 2) {
+        if([tempArray objectAtIndex:0] != nil &&[tempArray objectAtIndex:1] != nil) {
+            newFilePath = [NSString stringWithFormat:@"%@%d.%@", [tempArray objectAtIndex:0],
+                           [SysTools randomInt:min peak:max],
+                           [tempArray objectAtIndex:1]];
+        }
+    }
+    
+    SAFE_RELEASE(tempArray);
+    return newFilePath;
 }
 
 +(void) sendOrientationNotifications:(SEL)callSelector to:(id)object {
@@ -324,11 +351,11 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(SysTools);
 +(BOOL) createFile:(NSString *) filename
 {
 	LOCAL_AR_POOL_ALLOC();
-	NSString *filePath = [NSString stringWithString:[SysTools pathDocuments:filename]];
-	filePath = filePath; //suppress "Unused variable" warning
+	//NSString *filePath = [NSString stringWithString:[SysTools pathDocuments:filename]];
+	//filePath = filePath; //suppress "Unused variable" warning
 	
 #if DEBUG==1
-	NSLog(@"Filepath of %@ is \"%@\"", filename, filePath);
+	//NSLog(@"Filepath of %@ is \"%@\"", filename, filePath);
 #endif
 	
 	//TODO: complete function template	

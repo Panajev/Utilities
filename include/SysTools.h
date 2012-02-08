@@ -30,6 +30,7 @@
     NSString * deviceFileFix;
     float screenScale;
     UIDevice * iDevice;
+    NSString * rootFolder;
 }
 
 @property (readonly, nonatomic) NSString * deviceFileFix;
@@ -38,7 +39,9 @@
 SYNTHESIZE_SINGLETON_FOR_CLASS_HEADER(SysTools);
 
 -(void) gatherDeviceData;
+-(void) setContentRoot:(NSString*)newRootFolder;
 -(NSString*) deviceFile:(NSString*)file;
+-(NSString*) deviceFileRandom:(NSString*)file minRange:(NSUInteger)min maxRange:(NSUInteger)max;
 -(void) sendWarning:(NSString*) msg withTitle:(NSString*) title;
 
 +(NSString *) docsDir;
