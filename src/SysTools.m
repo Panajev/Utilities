@@ -7,6 +7,7 @@
 //
 
 #import "SysTools.h"
+#import "MathHelper.h"
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
 #import <stdio.h>
@@ -243,7 +244,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(SysTools);
     if(tempArray.count == 2) {
         if([tempArray objectAtIndex:0] != nil &&[tempArray objectAtIndex:1] != nil) {
             newFilePath = [NSString stringWithFormat:@"%@%d.%@", [tempArray objectAtIndex:0],
-                           [SysTools randomInt:min peak:max],
+                           rangeRNGi(min, max),
                            [tempArray objectAtIndex:1]];
         }
     }
@@ -260,10 +261,12 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(SysTools);
     if(tempArray.count == 2) {
         if([tempArray objectAtIndex:0] != nil &&[tempArray objectAtIndex:1] != nil) {
             newFilePath = [NSString stringWithFormat:@"%@%d.%@", [tempArray objectAtIndex:0],
-                           [SysTools randomInt:min peak:max],
+                           rangeRNGi(min, max),
                            [tempArray objectAtIndex:1]];
         }
     }
+    
+    CMLog(@"newFilePath = %@", newFilePath);
     
     SAFE_RELEASE(tempArray);
     return newFilePath;
