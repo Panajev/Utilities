@@ -252,6 +252,23 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(SysTools);
     return newFilePath;
 }
 
+- (NSString*) simpleFileRandom:(NSString*)file minRange:(NSUInteger)min maxRange:(NSUInteger)max {
+    NSArray * tempArray = nil;
+    tempArray = [[NSArray alloc] initWithArray:[file componentsSeparatedByString:@"."]];
+    NSString * newFilePath = nil;
+    
+    if(tempArray.count == 2) {
+        if([tempArray objectAtIndex:0] != nil &&[tempArray objectAtIndex:1] != nil) {
+            newFilePath = [NSString stringWithFormat:@"%@%d.%@", [tempArray objectAtIndex:0],
+                           [SysTools randomInt:min peak:max],
+                           [tempArray objectAtIndex:1]];
+        }
+    }
+    
+    SAFE_RELEASE(tempArray);
+    return newFilePath;
+}
+
 +(void) sendOrientationNotifications:(SEL)callSelector to:(id)object {
 	
 	[[UIDevice currentDevice] beginGeneratingDeviceOrientationNotifications];
