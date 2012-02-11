@@ -43,6 +43,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS_HEADER(SysTools);
 -(NSString*) deviceFile:(NSString*)file;
 -(NSString*) deviceFileRandom:(NSString*)file minRange:(NSUInteger)min maxRange:(NSUInteger)max;
 -(NSString*) simpleFileRandom:(NSString*)file minRange:(NSUInteger)min maxRange:(NSUInteger)max;
+- (NSString*) sequentialFile:(NSString*)file minID:(NSUInteger)min maxID:(NSUInteger)max reset:(BOOL)flag;
 
 -(void) sendWarning:(NSString*) msg withTitle:(NSString*) title;
 

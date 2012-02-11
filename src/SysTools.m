@@ -181,10 +181,10 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(SysTools);
     }
     
     UIAlertView *message = [[[UIAlertView alloc] initWithTitle:title
-                                                      message:msg
-                                                     delegate:self
-                                            cancelButtonTitle:@"OK"
-                                            otherButtonTitles:nil] autorelease];
+                                                       message:msg
+                                                      delegate:self
+                                             cancelButtonTitle:@"OK"
+                                             otherButtonTitles:nil] autorelease];
     
     [message show];
 }
@@ -265,6 +265,34 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(SysTools);
                            [tempArray objectAtIndex:1]];
         }
     }
+    
+    CMLog(@"newFilePath = %@", newFilePath);
+    
+    SAFE_RELEASE(tempArray);
+    return newFilePath;
+}
+
+- (NSString*) sequentialFile:(NSString*)file minID:(NSUInteger)min maxID:(NSUInteger)max reset:(BOOL)flag {
+    NSArray * tempArray = nil;
+    tempArray = [[NSArray alloc] initWithArray:[file componentsSeparatedByString:@"."]];
+    NSString * newFilePath = nil;
+    
+    static NSUInteger cIndex = 1;
+    static NSUInteger maxIndex = 1;
+    
+    if(flag == YES) {
+        cIndex = min;
+        maxIndex = max;
+    }
+    
+    if(tempArray.count == 2) {
+        if([tempArray objectAtIndex:0] != nil &&[tempArray objectAtIndex:1] != nil) {
+            newFilePath = [NSString stringWithFormat:@"%@%d.%@", [tempArray objectAtIndex:0],
+                           cIndex%maxIndex,
+                           [tempArray objectAtIndex:1]];
+        }
+    }
+    cIndex++;
     
     CMLog(@"newFilePath = %@", newFilePath);
     
@@ -454,10 +482,10 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(SysTools);
 #if DEBUG == 1
 		if (resultTest == NSOrderedSame) 
             ;
-			//NSLog (@"(OK) OS comparison result is: %@ target == %@ current", targetVersion, OS_VERSION);
+        //NSLog (@"(OK) OS comparison result is: %@ target == %@ current", targetVersion, OS_VERSION);
 		else 
             ;
-			//NSLog (@"(OK) OS comparison result is: %@ target < %@ current", targetVersion, OS_VERSION);
+        //NSLog (@"(OK) OS comparison result is: %@ target < %@ current", targetVersion, OS_VERSION);
 #endif
 		return  YES;
 		
