@@ -54,7 +54,7 @@
 /* Begin PBXFileReference section */
 		AA747D9E0F9514B9006C5449 /* Utilities_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utilities_Prefix.pch; sourceTree = SOURCE_ROOT; };
 		E60DEF74145D631200531EEE /* UIDevice-Hardware.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIDevice-Hardware.m"; path = "src/UIDevice-Hardware.m"; sourceTree = "<group>"; };
-		E60DF3F5145D638300531EEE /* SysTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SysTools.m; path = src/SysTools.m; sourceTree = "<group>"; };
+		E60DF3F5145D638300531EEE /* SysTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SysTools.m; path = src/SysTools.m; sourceTree = "<group>"; wrapsLines = 1; };
 		E60DF3F7145D63B700531EEE /* UIDevice-Hardware.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIDevice-Hardware.h"; path = "include/UIDevice-Hardware.h"; sourceTree = "<group>"; };
 		E60DF3FB145D669200531EEE /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Reachability.h; path = include/Reachability.h; sourceTree = "<group>"; };
 		E60DF3FC145D669200531EEE /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Reachability.m; path = src/Reachability.m; sourceTree = "<group>"; };

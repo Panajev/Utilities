@@ -420,6 +420,36 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(SysTools);
 	return TRUE;	
 }
 
+-(void) moveToDocumentsFolder:(NSString*)filename forceInstall:(BOOL)installFlag overwrite:(BOOL)overwriteFlag {
+    NSFileManager *defFM = [NSFileManager defaultManager];
+    NSString *docsDir = [SysTools docsDir];
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    
+    //..Stuff that is done only once when installing a new version....
+    static NSString *AppVersionKey = @"AppVersion";
+    NSString * lastVersion = [userDefaults stringForKey: AppVersionKey];
+    NSString * thisVersion = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleVersion"];
+    
+    if( [SysTools compareVersion:lastVersion with:thisVersion] != NSOrderedSame || installFlag) {
+        [userDefaults setObject:thisVersion forKey:AppVersionKey];
+        NSString *appDir = [[NSBundle mainBundle] resourcePath];
+        NSString *src = [appDir stringByAppendingPathComponent:filename];
+        NSString *dest = [docsDir stringByAppendingPathComponent:filename];
+        
+        if (overwriteFlag == YES) {
+            [defFM removeItemAtPath:dest error:NULL];  //..remove old copy
+        }
+        else if ([defFM fileExistsAtPath:dest]) {
+            return;
+        }
+        
+        BOOL errors = [defFM copyItemAtPath:src toPath:dest error: NULL];
+        if(errors == NO) {
+            CMLog(@"File %@ copied to @%", src, dest);
+        }
+    }
+}
+
 +(int) randomInt:(int)minV peak:(int)maxV {
 	int nValue;
 	float r;
