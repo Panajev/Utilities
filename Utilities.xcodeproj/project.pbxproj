@@ -481,12 +481,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = (
-					"$(ARCHS_STANDARD_32_BIT)",
-					armv6,
-				);
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				COPY_PHASE_STRIP = NO;
-				GCC_DYNAMIC_NO_PIC = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				HEADER_SEARCH_PATHS = "/usr/include/libxml2/**";
 				IPHONEOS_DEPLOYMENT_TARGET = 3.2;
@@ -500,18 +496,20 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = (
-					"$(ARCHS_STANDARD_32_BIT)",
-					armv6,
-				);
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				GCC_DYNAMIC_NO_PIC = YES;
+				GCC_UNROLL_LOOPS = YES;
 				HEADER_SEARCH_PATHS = "/usr/include/libxml2/**";
 				IPHONEOS_DEPLOYMENT_TARGET = 3.2;
 				LLVM_LTO = NO;
 				MACOSX_DEPLOYMENT_TARGET = "";
-				"OTHER_CFLAGS[arch=armv6]" = "";
+				OTHER_CFLAGS = "";
+				"OTHER_CFLAGS[sdk=iphoneos*][arch=armv7]" = (
+					"-mfpu=neon",
+					"-ftree-vectorize",
+					"-mfloat-abi=softfp",
+				);
 				PRODUCT_NAME = Utilities;
 				STRIP_INSTALLED_PRODUCT = YES;
 				ZERO_LINK = NO;
