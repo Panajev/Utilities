@@ -39,28 +39,28 @@
 SYNTHESIZE_SINGLETON_FOR_CLASS_HEADER(SysTools);
 
 -(void) gatherDeviceData;
+-(void) sendWarning:(NSString*) msg withTitle:(NSString*) title;
+
+//File management methods
 -(void) setContentRoot:(NSString*)newRootFolder;
 -(NSString*) deviceFile:(NSString*)file;
 -(NSString*) deviceFileRandom:(NSString*)file minRange:(NSUInteger)min maxRange:(NSUInteger)max;
 -(NSString*) simpleFileRandom:(NSString*)file minRange:(NSUInteger)min maxRange:(NSUInteger)max;
 -(NSString*) sequentialFile:(NSString*)file minID:(NSUInteger)min maxID:(NSUInteger)max reset:(BOOL)flag;
 
--(void) sendWarning:(NSString*) msg withTitle:(NSString*) title;
-
 +(NSString *) docsDir;
-
 +(NSString *) pathBundle:(NSString *)fileName;
 +(NSString *) pathBundle:(NSString *)fileName extension:(NSString *)type;
 +(NSString *) pathDocuments:(NSString *)fileName;
-
 +(NSData *) dataForBundleFile:(NSString *)fileName extension:(NSString *)type;
+
+//
 
 #if IPHONE_SDK_PROJECT==1
 +(UIImage *) uiImage:(NSString *) fileName cached:(BOOL)flag;
 +(UIImage *) uiImageCompressed:(NSString *)fileName;
 
 +(UIImage *) decompressImage:(UIImage *) uiImage;
-//+(UIImage*) getImageFromBundleFile:(NSString*)fileName;
 +(BOOL) isOS4x;
 +(BOOL) iPadUI;
 +(BOOL) iPhoneUI:(BOOL)retina;

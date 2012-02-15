@@ -28,45 +28,6 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(SysTools);
     iDevice = [[UIDevice alloc] init];
 }
 
--(void) setContentRoot:(NSString*)newRootFolder {
-    if(rootFolder != newRootFolder) {
-        [rootFolder release];
-        rootFolder = [newRootFolder copy];
-    }
-}
-
-+(NSString *) docsDir {	
-	NSArray *arrayPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,
-															  NSUserDomainMask,YES);
-    NSString *path_docs = [NSString stringWithString:[arrayPaths objectAtIndex:0]];
-	return path_docs;
-}
-
-+(NSString *) pathBundle:(NSString *)fileName {
-    return [[[NSBundle mainBundle] bundlePath] stringByAppendingPathComponent:fileName];
-	//example: path = /var/mobile/Applications/C253637D-6A6B-4E44-AFF6-20E7B9E5D2E8/WapTool.app/temp.csv
-}
-
-+(NSString *) pathBundle:(NSString *)fileName extension: (NSString *) type {
-	return [[NSBundle mainBundle] pathForResource:fileName ofType:type];
-	//example: path = /var/mobile/Applications/C253637D-6A6B-4E44-AFF6-20E7B9E5D2E8/WapTool.app/temp.csv
-}
-
-+(NSString *) pathDocuments:(NSString *)fileName {
-    return[[SysTools docsDir] stringByAppendingPathComponent:fileName];
-	//example: path = /var/mobile/Applications/35530667-4960-4F48-843A-1B830855914A/Documents/temp.csv
-}
-
-
-
-/* +(UIImage*)getImageFromBundleFile:(NSString*)fileName;
- {
- NSString* bundlePath = [[NSBundle mainBundle] bundlePath];
- return [UIImage imageWithContentsOfFile:[NSString stringWithFormat:@"%@/%@", bundlePath,fileName]];
- }
- */
-
-
 #if IPHONE_SDK_PROJECT==1
 ///////////////////////////////////////
 //////// iPhone specific functions ////
@@ -203,6 +164,40 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(SysTools);
     }
 }
 
+
+#pragma mark -
+#pragma mark File handling
+
+-(void) setContentRoot:(NSString*)newRootFolder {
+    if(rootFolder != newRootFolder) {
+        [rootFolder release];
+        rootFolder = [newRootFolder copy];
+    }
+}
+
++(NSString *) docsDir {	
+	NSArray *arrayPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,
+															  NSUserDomainMask,YES);
+    NSString *path_docs = [NSString stringWithString:[arrayPaths objectAtIndex:0]];
+	return path_docs;
+}
+
++(NSString *) pathBundle:(NSString *)fileName {
+    return [[[NSBundle mainBundle] bundlePath] stringByAppendingPathComponent:fileName];
+	//example: path = /var/mobile/Applications/C253637D-6A6B-4E44-AFF6-20E7B9E5D2E8/WapTool.app/temp.csv
+}
+
++(NSString *) pathBundle:(NSString *)fileName extension: (NSString *) type {
+	return [[NSBundle mainBundle] pathForResource:fileName ofType:type];
+	//example: path = /var/mobile/Applications/C253637D-6A6B-4E44-AFF6-20E7B9E5D2E8/WapTool.app/temp.csv
+}
+
++(NSString *) pathDocuments:(NSString *)fileName {
+    return[[SysTools docsDir] stringByAppendingPathComponent:fileName];
+	//example: path = /var/mobile/Applications/35530667-4960-4F48-843A-1B830855914A/Documents/temp.csv
+}
+
+//TODO: adjust the file management functions for MacOS X compatibility too.
 - (NSString*) deviceFile:(NSString*)file {
     NSArray * tempArray = nil;
     tempArray = [[NSArray alloc] initWithArray:[file componentsSeparatedByString:@"."]];
@@ -234,6 +229,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(SysTools);
     return newFilePath;
 }
 
+
 - (NSString*) deviceFileRandom:(NSString*)file minRange:(NSUInteger)min maxRange:(NSUInteger)max {
     NSString * fileName = [self deviceFile:file];
     
@@ -246,6 +242,42 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(SysTools);
             newFilePath = [NSString stringWithFormat:@"%@%d.%@", [tempArray objectAtIndex:0],
                            rangeRNGi(min, max),
                            [tempArray objectAtIndex:1]];
+        }
+    }
+    
+    SAFE_RELEASE(tempArray);
+    return newFilePath;
+}
+
+- (NSString*) simpleFile:(NSString*)file {
+    NSString * newFilePath = file;
+    
+    if(rootFolder != nil) {
+        newFilePath = [NSString stringWithFormat:@"%@/%@", rootFolder, newFilePath];
+    }
+    return newFilePath;
+}
+
+- (NSString*) simpleDeviceFile:(NSString*)file {
+    NSArray * tempArray = nil;
+    tempArray = [[NSArray alloc] initWithArray:[file componentsSeparatedByString:@"."]];
+    NSString * newFilePath = nil;
+    
+    if(tempArray.count == 2) {
+        if([tempArray objectAtIndex:0] != nil &&[tempArray objectAtIndex:1] != nil) {
+            if(deviceFileFix != nil) { 
+                newFilePath = [NSString stringWithFormat:@"ipad_art/%@.%@", [tempArray objectAtIndex:0], 
+                               [tempArray objectAtIndex:1]];
+            }
+            else {
+                newFilePath = [NSString stringWithFormat:@"iphone_art/%@.%@", [tempArray objectAtIndex:0], 
+                               [tempArray objectAtIndex:1]];
+            }
+            CMLog(@"newFilePath = %@", newFilePath);
+        }
+        
+        if(rootFolder != nil) {
+            newFilePath = [NSString stringWithFormat:@"%@/%@", rootFolder, newFilePath];
         }
     }
     
@@ -299,6 +331,8 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(SysTools);
     SAFE_RELEASE(tempArray);
     return newFilePath;
 }
+
+#pragma mark -
 
 +(void) sendOrientationNotifications:(SEL)callSelector to:(id)object {
 	
