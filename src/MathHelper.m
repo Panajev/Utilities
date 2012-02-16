@@ -144,6 +144,11 @@ Color4b Color4bMake(u_char inR, u_char inG, u_char inB, u_char inA)
 	return ret;
 }
 
+float findAngleBetweenVectors(CGPoint v1,CGPoint v2) {
+    float angle = atanf(v2.y/v2.x) - atanf(v1.y/v1.x);
+    return RADIANS_TO_DEGREES(angle);
+}
+
 void QuadToTrianglesWindCWSet(u_short *vertex, CGFloat ul, CGFloat ur, CGFloat ll, CGFloat lr)
 {
 	// Break a quad into two triangles, since OpenGL ES does not support quads. Clockwise winding.

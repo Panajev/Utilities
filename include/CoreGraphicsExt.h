@@ -16,6 +16,11 @@
 #ifndef COREGRAPHICSEXT_H_
 #define COREGRAPHICSEXT_H_
 
+CG_EXTERN BOOL CGCircleContainsPoint (CGFloat circleRadius, CGPoint origin, CGPoint p);
+CG_EXTERN CGFloat CGAngleDifference(float angleA, float angleB);
+CG_EXTERN CGFloat CGVectorToRadians(CGPoint vector);
+CG_EXTERN CGPoint CGRadiansToVector(float radians);
+
 CG_EXTERN CGPoint CGVectorBetweenPoints(CGPoint firstPoint, CGPoint secondPoint);
 CG_EXTERN CGFloat CGDistanceBetweenPoints(CGPoint firstPoint, CGPoint secondPoint);
 CG_EXTERN CGFloat CGAngleBetweenCGPoints(CGPoint firstPoint, CGPoint secondPoint);

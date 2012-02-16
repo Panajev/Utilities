@@ -229,6 +229,37 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(SysTools);
     return newFilePath;
 }
 
+- (NSString*) deviceGeneralFile:(NSString*)file {
+    NSArray * tempArray = nil;
+    tempArray = [[NSArray alloc] initWithArray:[file componentsSeparatedByString:@"."]];
+    NSString * newFilePath = nil;
+    
+    if(tempArray.count == 2) {
+        if([tempArray objectAtIndex:0] != nil &&[tempArray objectAtIndex:1] != nil) {
+            if(deviceFileFix != nil) { 
+                newFilePath = [NSString stringWithFormat:@"ipad_art/%@.%@", [tempArray objectAtIndex:0], 
+                               [tempArray objectAtIndex:1]];
+            }
+            else if (screenScale > 1.0f) {
+                newFilePath = [NSString stringWithFormat:@"iphone_art/%@-hd.%@", [tempArray objectAtIndex:0], 
+                               [tempArray objectAtIndex:1]];
+            }
+            else {
+                newFilePath = [NSString stringWithFormat:@"iphone_art/%@.%@", [tempArray objectAtIndex:0], 
+                               [tempArray objectAtIndex:1]];
+            }
+            CMLog(@"newFilePath = %@", newFilePath);
+        }
+        
+        if(rootFolder != nil) {
+            newFilePath = [NSString stringWithFormat:@"%@/%@", rootFolder, newFilePath];
+        }
+    }
+    
+    SAFE_RELEASE(tempArray);
+    return newFilePath;
+}
+
 
 - (NSString*) deviceFileRandom:(NSString*)file minRange:(NSUInteger)min maxRange:(NSUInteger)max {
     NSString * fileName = [self deviceFile:file];

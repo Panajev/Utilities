@@ -50,32 +50,28 @@ CG_EXTERN Vector3ui Vector3uiMake(u_int inX, u_int inY, u_int inZ);
 
 CG_EXTERN Color4b Color4bMake(u_char inR, u_char inG, u_char inB, u_char inA);
 
+CG_EXTERN float findAngleBetweenVectors(CGPoint v1,CGPoint v2);
+
 CG_EXTERN void QuadToTrianglesWindCWSet(u_short *vertex, CGFloat ul, CGFloat ur, CGFloat ll, CGFloat lr);
 
 CG_EXTERN void QuadToTrianglesWindCCWSet(u_short *vertex, CGFloat ul, CGFloat ur, CGFloat ll, CGFloat lr);
-
 
 
 CG_EXTERN void vec2Diff( vec2 *_v1, vec2 *_v2, vec2 *_v3 );
 
 CG_EXTERN void vec3Add( vec3 *_v1, vec3 *_v2, vec3 *_v3 );
 
-
 CG_EXTERN void vec3Diff( vec3 *_v1, vec3 *_v2, vec3 *_v3 );
-
 
 CG_EXTERN float magnitude( vec3 *_v1 );
 
 CG_EXTERN float distance( vec3 *_v1, vec3 *_v2 );
 
-
 CG_EXTERN float normalize( vec3 *_v1, vec3 *_v2 );
-
 
 CG_EXTERN float dotProduct( vec3 *_v1, vec3 *_v2 );
 
 CG_EXTERN float dotProductToDeg( vec3 *_v1, vec3 *_v2 );
-
 
 CG_EXTERN void crossProduct( vec3 *_v1, vec3 *_v2, vec3 *_v3 );
 

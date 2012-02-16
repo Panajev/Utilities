@@ -12,6 +12,41 @@
 #import "LogDefines.h"
 #import "GeneralDefines.h"
 
+
+BOOL CGCircleContainsPoint (CGFloat circleRadius, CGPoint origin, CGPoint p) {
+    BOOL isInCircle = false;
+	if(CGDistanceBetweenPoints(p, origin) <= circleRadius){
+		isInCircle = true;
+	}
+	return isInCircle;
+}
+CGFloat CGAngleDifference(CGFloat angleA, CGFloat angleB) {
+    float diff = fabs(angleA-angleB);
+	if(fabs((angleA+360)-angleB) < diff){
+		diff = fabs((angleA+360)-angleB);
+	}
+	if(fabs((angleA-360)-angleB) < diff){
+		diff = fabs((angleA-360)-angleB);
+	}
+	if(fabs(angleA-(angleB+360)) < diff){
+		diff = fabs(angleA-(angleB+360));
+	}
+	if(fabs(angleA-(angleB-360)) < diff){
+		diff = fabs(angleA-(angleB-360));
+	}
+	return diff;
+}
+
+CGFloat CGVectorToRadians(CGPoint vector){
+	if(vector.y == 0){ vector.y = 0.000001f; }
+	float baseRadians = atanf(vector.x/vector.y);
+	if(vector.y < 0){ baseRadians += M_PI; }	//Adjust for -Y
+	return baseRadians;
+}
+CGPoint CGRadiansToVector(CGFloat radians){
+	return CGPointMake(sinf(radians-M_PI/2), cosf(radians-M_PI/2));
+};
+
 /* Math code all pulled (and modified) from http://forums.macrumors.com/showthread.php?t=508042 */
 
 CGPoint CGVectorBetweenPoints(CGPoint firstPoint, CGPoint secondPoint) {
