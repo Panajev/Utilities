@@ -229,6 +229,33 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(SysTools);
     return newFilePath;
 }
 
+- (NSString*) deviceRelFile:(NSString*)file {
+    NSArray * tempArray = nil;
+    tempArray = [[NSArray alloc] initWithArray:[file componentsSeparatedByString:@"."]];
+    NSString * newFilePath = nil;
+    
+    if(tempArray.count == 2) {
+        if([tempArray objectAtIndex:0] != nil &&[tempArray objectAtIndex:1] != nil) {
+            if(deviceFileFix != nil) { 
+                newFilePath = [NSString stringWithFormat:@"%@%@.%@", [tempArray objectAtIndex:0], deviceFileFix,
+                               [tempArray objectAtIndex:1]];
+            }
+            else {
+                newFilePath = [NSString stringWithFormat:@"%@.%@", [tempArray objectAtIndex:0], 
+                               [tempArray objectAtIndex:1]];
+            }
+            CMLog(@"newFilePath = %@", newFilePath);
+        }
+        
+        if(rootFolder != nil) {
+            newFilePath = [NSString stringWithFormat:@"%@/%@", rootFolder, newFilePath];
+        }
+    }
+    
+    SAFE_RELEASE(tempArray);
+    return newFilePath;
+}
+
 - (NSString*) deviceGeneralFile:(NSString*)file {
     NSArray * tempArray = nil;
     tempArray = [[NSArray alloc] initWithArray:[file componentsSeparatedByString:@"."]];

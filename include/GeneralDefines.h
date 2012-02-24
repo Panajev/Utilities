@@ -16,8 +16,6 @@
 #define DT (1.0f/30.f)
 
 #define aEPS (0.0001f)
-#define SCREEN_H (460.0f)
-#define SCREEN_W (340.0f)
 
 #define LARGE_OBJ (128)
 #define MID_OBJ (64)

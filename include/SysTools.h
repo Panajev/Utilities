@@ -44,6 +44,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS_HEADER(SysTools);
 //File management methods
 -(void) setContentRoot:(NSString*)newRootFolder;
 -(NSString*) deviceFile:(NSString*)file;
+-(NSString*) deviceRelFile:(NSString*)file;
 -(NSString*) deviceGeneralFile:(NSString*)file;
 -(NSString*) deviceFileRandom:(NSString*)file minRange:(NSUInteger)min maxRange:(NSUInteger)max;
 -(NSString*) simpleFile:(NSString*)file;
@@ -109,3 +110,4 @@ SYNTHESIZE_SINGLETON_FOR_CLASS_HEADER(SysTools);
 +(BOOL) readLineUTF8:(char *)output size:(int)nbytes;
 
 @end
+
