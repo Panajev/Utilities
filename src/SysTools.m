@@ -20,11 +20,17 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(SysTools);
 
 -(void) gatherDeviceData {
     deviceFileFix=nil;
+    screenScale = [SysTools scalingFactor];
+    
     if([SysTools iPadUI]) {
-        deviceFileFix=@"-ipad";
+        if(screenScale > 1.1f) {
+            deviceFileFix=@"-ipad-hd";
+        }
+        else {
+            deviceFileFix=@"-ipad";
+        }
     }
     
-    screenScale = [SysTools scalingFactor];
     iDevice = [[UIDevice alloc] init];
 }
 
@@ -108,26 +114,36 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(SysTools);
         return NO;
     }
 }
-+(BOOL) iPhoneUI:(BOOL)retina {
-    if([SysTools isOS:@"3.2" strict:NO]) {
-        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
-        {
-            // The device is an iPad running iPhone 3.2 or later.
-            return NO;
+
++(BOOL) iPadUI:(BOOL)retina {
+    if(![SysTools isOS:@"3.2" strict:NO]) {
+        return NO;
+    }
+    
+    if ([SysTools iPadUI])
+    {
+        // The device is an iPad running iPhone 3.2 or later.
+        if ([SysTools scalingFactor] > 1.1f){
+            return retina;
         }
-        else
-        {
-            if ([[UIScreen mainScreen] respondsToSelector:@selector(scale)] && [[UIScreen mainScreen] scale] > 1.1){
-                return retina;
-            }
-            else {
-                return (!retina);
-            }
+        else {
+            return (!retina);
         }
     }
     else
     {
-        if ([SysTools scalingFactor] > 1.1f){
+        // The device is an iPhone or iPod touch.
+        return NO;
+    }
+}
+
++(BOOL) iPhoneUI:(BOOL)retina {
+    if ([SysTools iPadUI]) {
+        // The device is an iPad running iPhone 3.2 or later.
+        return NO;
+    }
+    else { 
+        if ([SysTools scalingFactor] > 1.1){
             return retina;
         }
         else {

@@ -67,6 +67,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS_HEADER(SysTools);
 +(UIImage *) decompressImage:(UIImage *) uiImage;
 +(BOOL) isOS4x;
 +(BOOL) iPadUI;
++(BOOL) iPadUI:(BOOL)retina;
 +(BOOL) iPhoneUI:(BOOL)retina;
 +(float) scalingFactor;
 
