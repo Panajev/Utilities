@@ -24,7 +24,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(SysTools);
     
     if([SysTools iPadUI]) {
         if(screenScale > 1.1f) {
-            deviceFileFix=@"-ipad-hd";
+            deviceFileFix=@"-ipadhd";
         }
         else {
             deviceFileFix=@"-ipad";
