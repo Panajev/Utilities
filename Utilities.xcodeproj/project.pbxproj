@@ -47,6 +47,8 @@
 		E62F162812AEEEA800617438 /* LogDefines.h in Headers */ = {isa = PBXBuildFile; fileRef = E62F162212AEEE9800617438 /* LogDefines.h */; };
 		E62F162912AEEEA800617438 /* OSDefines.h in Headers */ = {isa = PBXBuildFile; fileRef = E62F162012AEEE9800617438 /* OSDefines.h */; };
 		E62F162A12AEEEA800617438 /* GraphicsDefines.h in Headers */ = {isa = PBXBuildFile; fileRef = E62F162112AEEE9800617438 /* GraphicsDefines.h */; };
+		E67E3DFA151BDB9300A2972D /* DejalActivityView.h in Headers */ = {isa = PBXBuildFile; fileRef = E67E3DF8151BDB9300A2972D /* DejalActivityView.h */; };
+		E67E3DFB151BDB9300A2972D /* DejalActivityView.m in Sources */ = {isa = PBXBuildFile; fileRef = E67E3DF9151BDB9300A2972D /* DejalActivityView.m */; };
 		E699FCF412B625C000931ADD /* FileReader.h in Headers */ = {isa = PBXBuildFile; fileRef = E699FCF012B625C000931ADD /* FileReader.h */; };
 		E699FCF512B625C000931ADD /* FileReader.m in Sources */ = {isa = PBXBuildFile; fileRef = E699FCF112B625C000931ADD /* FileReader.m */; };
 /* End PBXBuildFile section */
@@ -67,6 +69,8 @@
 		E6468C0C12AFC845002862C6 /* Utilities.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = Utilities.bundle; path = resources/Utilities.bundle; sourceTree = "<group>"; };
 		E64EBB3E126DDC100033BA8D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		E671A94F128DAB7400DA97FC /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		E67E3DF8151BDB9300A2972D /* DejalActivityView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DejalActivityView.h; path = include/DejalActivityView.h; sourceTree = "<group>"; };
+		E67E3DF9151BDB9300A2972D /* DejalActivityView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DejalActivityView.m; path = src/DejalActivityView.m; sourceTree = "<group>"; };
 		E67FBD3C1199B7AF0096E950 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		E67FBD3E1199B7AF0096E950 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		E67FBD421199B7AF0096E950 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -155,6 +159,7 @@
 		08FB77AEFE84172EC02AAC07 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				E606C656151BDAD300084B26 /* LoadingView */,
 				E60DEF60145D62A800531EEE /* UIDevice-Extensions */,
 				E699FCF612B625C400931ADD /* File Reader */,
 				E6226AC012ACF09300CB3B85 /* Math Helpers */,
@@ -194,6 +199,15 @@
 				AA747D9E0F9514B9006C5449 /* Utilities_Prefix.pch */,
 			);
 			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+		E606C656151BDAD300084B26 /* LoadingView */ = {
+			isa = PBXGroup;
+			children = (
+				E67E3DF8151BDB9300A2972D /* DejalActivityView.h */,
+				E67E3DF9151BDB9300A2972D /* DejalActivityView.m */,
+			);
+			name = LoadingView;
 			sourceTree = "<group>";
 		};
 		E60DEF60145D62A800531EEE /* UIDevice-Extensions */ = {
@@ -304,6 +318,7 @@
 				E699FCF412B625C000931ADD /* FileReader.h in Headers */,
 				E60DF3F9145D63B700531EEE /* UIDevice-Hardware.h in Headers */,
 				E60DF3FD145D669200531EEE /* Reachability.h in Headers */,
+				E67E3DFA151BDB9300A2972D /* DejalActivityView.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -410,6 +425,7 @@
 				E60DEF87145D631200531EEE /* UIDevice-Hardware.m in Sources */,
 				E60DF3F6145D638300531EEE /* SysTools.m in Sources */,
 				E60DF3FE145D669200531EEE /* Reachability.m in Sources */,
+				E67E3DFB151BDB9300A2972D /* DejalActivityView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
