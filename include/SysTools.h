@@ -57,6 +57,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS_HEADER(SysTools);
 +(NSString *) pathBundle:(NSString *)fileName extension:(NSString *)type;
 +(NSString *) pathDocuments:(NSString *)fileName;
 +(NSData *) dataForBundleFile:(NSString *)fileName extension:(NSString *)type;
++(BOOL)addSkipBackupAttributeToItemAtURL:(NSURL *)URL;
 
 //
 

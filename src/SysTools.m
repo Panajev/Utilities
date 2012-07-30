@@ -11,6 +11,7 @@
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
 #import <stdio.h>
+#import <sys/xattr.h>
 
 @implementation SysTools
 
@@ -31,6 +32,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(SysTools);
         }
     }
     
+    SAFE_RELEASE(iDevice);
     iDevice = [[UIDevice alloc] init];
 }
 
@@ -135,6 +137,53 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(SysTools);
         // The device is an iPhone or iPod touch.
         return NO;
     }
+}
+
++ (BOOL)addSkipBackupAttributeToItemAtURL:(NSURL *)URL
+{
+    if ([SysTools isOS:@"5.1" strict:NO]) {
+        NSLog(@"iOS >= 5.1");
+        assert([[NSFileManager defaultManager] fileExistsAtPath: [URL path]]);
+        
+        NSError *error = nil;
+        
+        BOOL success = [URL setResourceValue: [NSNumber numberWithBool: YES]
+                        
+                                      forKey: NSURLIsExcludedFromBackupKey error: &error];
+        
+        if(!success){
+            
+            NSLog(@"Error excluding %@ from backup %@", [URL lastPathComponent], error);
+            
+        }
+        else {
+            NSLog(@"Success excluding %@ from backup %@", [URL lastPathComponent], error);
+        }
+        return success;
+    }
+    else if ([SysTools isOS:@"5.0.1" strict:NO]) {
+         NSLog(@"iOS < 5.1 && iOS >= 5.0.1");
+        assert([[NSFileManager defaultManager] fileExistsAtPath: [URL path]]);
+        
+        const char* filePath = [[URL path] fileSystemRepresentation];
+        
+        const char* attrName = "com.apple.MobileBackup";
+        
+        u_int8_t attrValue = 1;
+        
+        int result = setxattr(filePath, attrName, &attrValue, sizeof(attrValue), 0, 0);
+        
+        if (result == 0) {
+            NSLog(@"Success excluding %@ from backup", [URL lastPathComponent]);
+        }
+        
+        return result == 0;
+    }
+    else {
+        NSLog(@"iOS < 5.0.1");
+    }
+    
+    return NO;
 }
 
 +(BOOL) iPhoneUI:(BOOL)retina {
