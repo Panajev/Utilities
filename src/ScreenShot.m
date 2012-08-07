@@ -3,7 +3,7 @@
 //  Utilities
 //
 //  Created by Goffredo Marocchi on 10/19/10.
-//  Copyright 2010 IGGS. All rights reserved.
+//  Copyright 2010 AddictiveColors. All rights reserved.
 //
 
 #import "ScreenShot.h"

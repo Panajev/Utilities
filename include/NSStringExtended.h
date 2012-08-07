@@ -3,7 +3,7 @@
 //  WapTool
 //
 //  Created by Goffredo Marocchi on 1/20/10.
-//  Copyright 2010 IGGS. All rights reserved.
+//  Copyright 2010 AddictiveColors. All rights reserved.
 //
 
 //portions of this file have been created thanks to the following work:
