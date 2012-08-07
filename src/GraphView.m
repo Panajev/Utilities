@@ -198,11 +198,6 @@ void DrawGridlines(CGContextRef context, CGFloat x, CGFloat width)
 	return self;
 }
 
--(void)dealloc
-{
-	[layer release];
-	[super dealloc];
-}
 
 -(void)reset
 {
@@ -350,9 +345,9 @@ void DrawGridlines(CGContextRef context, CGFloat x, CGFloat width)
 @interface GraphView()
 
 // Internal accessors
-@property(nonatomic, retain) NSMutableArray *segments;
-@property(nonatomic, assign) GraphViewSegment *current;
-@property(nonatomic, assign) GraphTextView *text;
+@property(nonatomic, strong) NSMutableArray *segments;
+@property(nonatomic, weak) GraphViewSegment *current;
+@property(nonatomic) GraphTextView *text;
 
 // A common init routine for use with -initWithFrame: and -initWithCoder:
 -(void)commonInit;
@@ -397,7 +392,6 @@ void DrawGridlines(CGContextRef context, CGFloat x, CGFloat width)
 	// to that view afterwards for laying out the segment layers.
 	text = [[GraphTextView alloc] initWithFrame:CGRectMake(0.0, 0.0, 32.0, 112.0)];
 	[self addSubview:text];
-	[text release];
 	
 	// Create a mutable array to store segments, which is required by -addSegment
 	segments = [[NSMutableArray alloc] init];
@@ -407,13 +401,6 @@ void DrawGridlines(CGContextRef context, CGFloat x, CGFloat width)
 	current = [self addSegment];
 }
 
--(void)dealloc
-{
-	// Since 'text' and 'current' are weak references, we do not release them here.
-	// [super dealloc] will take care to release 'text' as a subview, and releasing 'segments' will release 'current'.
-	[segments release];
-	[super dealloc];
-}
 
 -(void)addX:(UIAccelerationValue)x y:(UIAccelerationValue)y z:(UIAccelerationValue)z
 {
@@ -451,7 +438,7 @@ void DrawGridlines(CGContextRef context, CGFloat x, CGFloat width)
 	// to be at the end of the array. As long as we always insert the youngest segment at the front
 	// this will be true.
 	[segments insertObject:segment atIndex:0];
-	[segment release]; // this is now a weak reference
+	 // this is now a weak reference
 	
 	// Ensure that newly added segment layers are placed after the text view's layer so that the text view
 	// always renders above the segment layer.

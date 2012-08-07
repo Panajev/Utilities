@@ -71,11 +71,6 @@ int GetTouchCount()
 }
 
 
-- (void)dealloc
-{
-	[touchScreenLock release];
-	[super dealloc];
-}
 
 
 - (touchInfo_t *)GetTouchValues
@@ -148,7 +143,7 @@ int GetTouchCount()
 - (void)StoreTouchInfo:(UITouch *)touch
 {
 	int     pos = -1;
-	void * touchPtr = (void *)touch;
+	void * touchPtr = (__bridge void *)touch;
 	
 	CGPoint location     = [touch locationInView:self];
 	CGPoint prevLocation = [touch previousLocationInView:self];

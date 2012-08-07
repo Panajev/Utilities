@@ -1,9 +1,11 @@
-//
-// Prefix header for all source files of the 'CocoaTouchStaticLibrary' target in the 'CocoaTouchStaticLibrary' project.
-//
+//  Permission is given to use this source code file without charge in any
+//  project, commercial or otherwise, entirely at your risk, with the condition
+//  that any redistribution (in part or whole) of source code must retain
+//  this copyright and permission notice. Attribution in compiled projects is
+//  appreciated but not required.
 
 #ifdef __OBJC__
 #import <Foundation/Foundation.h>
 #endif
 
-#import "SynthesizeSingleton.h"
+#import "MKNetworkKit.h"

@@ -74,7 +74,7 @@ typedef struct touchSlot
 {
 @private
 	int TouchCount;
-	NSObject * renderLock;
+	NSObject * __weak renderLock;
 	NSObject * touchScreenLock;
 	
 	UIEvent * lastTouchBeganEvent;
@@ -85,7 +85,7 @@ typedef struct touchSlot
 	touchInfo_t touchValues[kMultiTouchMaxEntries];
 }
 
-@property (readwrite, assign) NSObject *renderLock;
+@property (readwrite, weak) NSObject *renderLock;
 
 - (touchInfo_t *)GetTouchValues;
 - (int) GetTouchCount;

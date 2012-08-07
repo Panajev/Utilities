@@ -51,12 +51,11 @@
     if ((self =[super init])) {
         fileHandle = [NSFileHandle fileHandleForReadingAtPath:aPath];
         if (fileHandle == nil) {
-            [self release]; return nil;
+             return nil;
         }
 		
-        lineDelimiter = [[NSString alloc] initWithString:@"\n"];
-        [fileHandle retain];
-        filePath = [aPath retain];
+        lineDelimiter = @"\n";
+        filePath = aPath;
         currentOffset = 0ULL;
         chunkSize = 10;
         [fileHandle seekToEndOfFile];
@@ -68,11 +67,10 @@
 
 - (void) dealloc {
     [fileHandle closeFile];
-    [fileHandle release], fileHandle = nil;
-    [filePath release], filePath = nil;
-    [lineDelimiter release], lineDelimiter = nil;
+    fileHandle = nil;
+    filePath = nil;
+    lineDelimiter = nil;
     currentOffset = 0ULL;
-    [super dealloc];
 }
 
 - (NSString *) readLine {
@@ -83,25 +81,24 @@
     NSMutableData * currentData = [[NSMutableData alloc] init];
     BOOL shouldReadMore = YES;
 	
-    NSAutoreleasePool * readPool = [[NSAutoreleasePool alloc] init];
-    while (shouldReadMore) {
-        if (currentOffset >= totalFileLength) { break; }
-        NSData * chunk = [fileHandle readDataOfLength:chunkSize];
-        NSRange newLineRange = [chunk rangeOfData_dd:newLineData];
-        if (newLineRange.location != NSNotFound) {
+    @autoreleasepool {
+        while (shouldReadMore) {
+            if (currentOffset >= totalFileLength) { break; }
+            NSData * chunk = [fileHandle readDataOfLength:chunkSize];
+            NSRange newLineRange = [chunk rangeOfData_dd:newLineData];
+            if (newLineRange.location != NSNotFound) {
 			
-            //include the length so we can include the delimiter in the string
-            chunk = [chunk subdataWithRange:NSMakeRange(0, newLineRange.location+[newLineData length])];
-            shouldReadMore = NO;
+                //include the length so we can include the delimiter in the string
+                chunk = [chunk subdataWithRange:NSMakeRange(0, newLineRange.location+[newLineData length])];
+                shouldReadMore = NO;
+            }
+            [currentData appendData:chunk];
+            currentOffset += [chunk length];
         }
-        [currentData appendData:chunk];
-        currentOffset += [chunk length];
     }
-    [readPool release];
 	
     NSString * line = [[NSString alloc] initWithData:currentData encoding:NSUTF8StringEncoding];
-    [currentData release];
-    return [line autorelease];
+    return line;
 }
 
 - (NSString *) readTrimmedLine {

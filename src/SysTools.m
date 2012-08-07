@@ -5,6 +5,11 @@
 //  Created by Goffredo Marocchi on 12/16/09.
 //  Copyright 2009 IGGS. All rights reserved.
 //
+//  Permission is given to use this source code file without charge in any
+//  project, commercial or otherwise, entirely at your risk, with the condition
+//  that any redistribution (in part or whole) of source code must retain
+//  this copyright and permission notice. Attribution in compiled projects is
+//  appreciated but not required.
 
 #import "SysTools.h"
 #import "MathHelper.h"
@@ -32,7 +37,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(SysTools);
         }
     }
     
-    SAFE_RELEASE(iDevice);
+    //SAFE_RELEASE(iDevice);
     iDevice = [[UIDevice alloc] init];
 }
 
@@ -206,18 +211,17 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(SysTools);
         return;
     }
     
-    UIAlertView *message = [[[UIAlertView alloc] initWithTitle:title
+    UIAlertView *message = [[UIAlertView alloc] initWithTitle:title
                                                        message:msg
                                                       delegate:self
                                              cancelButtonTitle:@"OK"
-                                             otherButtonTitles:nil] autorelease];
+                                             otherButtonTitles:nil];
     
     [message show];
 }
 
 - (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
     
-    [alertView release];
 }
 
 +(float) scalingFactor {
@@ -235,7 +239,6 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(SysTools);
 
 -(void) setContentRoot:(NSString*)newRootFolder {
     if(rootFolder != newRootFolder) {
-        [rootFolder release];
         rootFolder = [newRootFolder copy];
     }
 }
@@ -290,7 +293,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(SysTools);
         }
     }
     
-    SAFE_RELEASE(tempArray);
+    //SAFE_RELEASE(tempArray);
     return newFilePath;
 }
 
@@ -317,7 +320,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(SysTools);
         }
     }
     
-    SAFE_RELEASE(tempArray);
+    //SAFE_RELEASE(tempArray);
     return newFilePath;
 }
 
@@ -348,7 +351,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(SysTools);
         }
     }
     
-    SAFE_RELEASE(tempArray);
+    //SAFE_RELEASE(tempArray);
     return newFilePath;
 }
 
@@ -368,7 +371,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(SysTools);
         }
     }
     
-    SAFE_RELEASE(tempArray);
+    //SAFE_RELEASE(tempArray);
     return newFilePath;
 }
 
@@ -404,7 +407,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(SysTools);
         }
     }
     
-    SAFE_RELEASE(tempArray);
+    //SAFE_RELEASE(tempArray);
     return newFilePath;
 }
 
@@ -423,7 +426,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(SysTools);
     
     CMLog(@"newFilePath = %@", newFilePath);
     
-    SAFE_RELEASE(tempArray);
+    //SAFE_RELEASE(tempArray);
     return newFilePath;
 }
 
@@ -451,7 +454,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(SysTools);
     
     CMLog(@"newFilePath = %@", newFilePath);
     
-    SAFE_RELEASE(tempArray);
+    //SAFE_RELEASE(tempArray);
     return newFilePath;
 }
 
@@ -555,7 +558,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(SysTools);
  */
 +(BOOL) createFile:(NSString *) filename
 {
-	LOCAL_AR_POOL_ALLOC();
+	@autoreleasepool {
 	//NSString *filePath = [NSString stringWithString:[SysTools pathDocuments:filename]];
 	//filePath = filePath; //suppress "Unused variable" warning
 	
@@ -565,15 +568,15 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(SysTools);
 	
 	//TODO: complete function template	
 	
-	LOCAL_AR_POOL_DRAIN();
+	}
 	return TRUE;
 }
 
 +(BOOL) writeToFile:(NSString *) filename {
-	LOCAL_AR_POOL_ALLOC();
-	[filename compare:filename];
+	@autoreleasepool {
+		[filename compare:filename];
 	//TODO: complete function template	
-	LOCAL_AR_POOL_DRAIN();
+	}
 	return TRUE;	
 }
 
@@ -720,14 +723,10 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(SysTools);
 	for(i = 0; i < [leftFields count]; i++) {
 		NSComparisonResult result = [[leftFields objectAtIndex:i] compare:[rightFields objectAtIndex:i] options:NSNumericSearch];
 		if (result != NSOrderedSame) {
-			[leftFields release];
-			[rightFields release];
 			return result;
 		}
 	}
 	
-	[leftFields release];
-	[rightFields release];	
 	
 	//LOCAL_AR_POOL_DRAIN();
 	
@@ -808,65 +807,65 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(SysTools);
 	
 	if (!str) return NO;
 	
-	NSAutoreleasePool* pool = [[NSAutoreleasePool alloc] init];
-	BOOL number_scanned = NO;
-	
-	char last_c = '\0';
-	char c = '\0';
-	
-	char const* cStr = [str UTF8String];
-	
-	for (int i = 0; cStr[i] != '\0'; i++){
-#if DEBUG_VERBOSE==1
-		printf("\nEntering the for loop...\n");
-#endif		
-		c = cStr[i] ;
+	@autoreleasepool {
+		BOOL number_scanned = NO;
 		
-		if (c == '\n' || c == '\r') {
-			if ([SysTools isDigit:last_c]) number_scanned = YES;
-			break;
-		}
-		else if (c == ' ') {
+		char last_c = '\0';
+		char c = '\0';
+		
+		char const* cStr = [str UTF8String];
+		
+		for (int i = 0; cStr[i] != '\0'; i++){
 #if DEBUG_VERBOSE==1
-			NSLog(@"White space found...%c... Testing last digit last_c", c);
+			printf("\nEntering the for loop...\n");
+#endif		
+			c = cStr[i] ;
+			
+			if (c == '\n' || c == '\r') {
+				if ([SysTools isDigit:last_c]) number_scanned = YES;
+				break;
+			}
+			else if (c == ' ') {
+#if DEBUG_VERBOSE==1
+				NSLog(@"White space found...%c... Testing last digit last_c", c);
 #endif
-			if ([SysTools isDigit:last_c]) number_scanned = YES;
-			last_c = c;
-		}
-		else if (c == '-') {
-			if ([SysTools isDigit:last_c] || (last_c == '-') || number_scanned) {
+				if ([SysTools isDigit:last_c]) number_scanned = YES;
+				last_c = c;
+			}
+			else if (c == '-') {
+				if ([SysTools isDigit:last_c] || (last_c == '-') || number_scanned) {
+					last_c = '\0';
+					number_scanned = NO;
+					break;
+				}
+				last_c = '-';
+			}
+			else if ([SysTools isDigit:c]) {
+				if (number_scanned) {
+					number_scanned = NO; //we already got our number, if we detect another one it means that the 
+					//user submitted more than one value in the current string
+					break;
+				}
+				else last_c = c;
+			}
+			else {
 				last_c = '\0';
 				number_scanned = NO;
 				break;
 			}
-			last_c = '-';
-		}
-		else if ([SysTools isDigit:c]) {
-			if (number_scanned) {
-				number_scanned = NO; //we already got our number, if we detect another one it means that the 
-				//user submitted more than one value in the current string
-				break;
-			}
-			else last_c = c;
-		}
-		else {
-			last_c = '\0';
-			number_scanned = NO;
-			break;
-		}
 #if DEBUG_VERBOSE==1
-		printf("Looping back in the for loop...");
+			printf("Looping back in the for loop...");
 #endif
-	}
+		}
 #if DEBUG_VERBOSE==1	
-	printf("\nOut of the for loop... Testing last digit last_c\n");
+		printf("\nOut of the for loop... Testing last digit last_c\n");
 #endif
-	if ([SysTools isDigit:last_c]) {
-		number_scanned = YES;
+		if ([SysTools isDigit:last_c]) {
+			number_scanned = YES;
+		}
+		
+		return number_scanned;
 	}
-	
-	[pool drain];
-	return number_scanned;
 }
 
 +(BOOL) isIntNumber:(NSString*)str into:(int*)number {
@@ -1351,60 +1350,60 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(SysTools);
 	
 	if (!str[0]) return;
 	
-	LOCAL_AR_POOL_ALLOC();
-	int indexString = 0;
-	while ('\0' != str[indexString]) {
-		indexString++;
-	}
-	int i = reverse? (indexString) : 0;
-	int stopIndex = reverse? 0 : (indexString);
-	
-#if DEBUG==1
-	NSLog(@"(Start Index) i = %i, (Stop Index) stopIndex = %i", i, stopIndex);
-	NSLog(@"Printing src digits in %@ order", reverse?@"reverse":@"normal");
-#endif
-	
-	while( reverse? (i>=stopIndex) : (i<=stopIndex) ) {
-		switch (str[i]) {
-			case '0':
-				printf("Zero\n");
-				break;
-			case '1':
-				printf("One\n");
-				break;
-			case '2':
-				printf("Two\n");
-				break;
-			case '3':
-				printf("Three\n");
-				break;
-			case '4':
-				printf("Four\n");
-				break;
-			case '5':
-				printf("Five\n");
-				break;
-			case '6':
-				printf("Six\n");
-				break;
-			case '7':
-				printf("Seven\n");
-				break;
-			case '8':
-				printf("Eight\n");
-				break;
-			case '9':
-				printf("Nine\n");
-				break;
-			default:
-				CMLog(@"(!) index = %i, str[i] = %c", i ,str[i]);
-				break;
+	@autoreleasepool {
+		int indexString = 0;
+		while ('\0' != str[indexString]) {
+			indexString++;
 		}
-		i = reverse? (i-1) : (i+1);//potentially very branchy... using two functions would be better
-		//print_normal and print_reverse
+		int i = reverse? (indexString) : 0;
+		int stopIndex = reverse? 0 : (indexString);
+		
+#if DEBUG==1
+		NSLog(@"(Start Index) i = %i, (Stop Index) stopIndex = %i", i, stopIndex);
+		NSLog(@"Printing src digits in %@ order", reverse?@"reverse":@"normal");
+#endif
+		
+		while( reverse? (i>=stopIndex) : (i<=stopIndex) ) {
+			switch (str[i]) {
+				case '0':
+					printf("Zero\n");
+					break;
+				case '1':
+					printf("One\n");
+					break;
+				case '2':
+					printf("Two\n");
+					break;
+				case '3':
+					printf("Three\n");
+					break;
+				case '4':
+					printf("Four\n");
+					break;
+				case '5':
+					printf("Five\n");
+					break;
+				case '6':
+					printf("Six\n");
+					break;
+				case '7':
+					printf("Seven\n");
+					break;
+				case '8':
+					printf("Eight\n");
+					break;
+				case '9':
+					printf("Nine\n");
+					break;
+				default:
+					CMLog(@"(!) index = %i, str[i] = %c", i ,str[i]);
+					break;
+			}
+			i = reverse? (i-1) : (i+1);//potentially very branchy... using two functions would be better
+			//print_normal and print_reverse
+		}
+		printf("\n");
 	}
-	printf("\n");
-	LOCAL_AR_POOL_DRAIN();
 }
 
 +(BOOL) readLineUTF8:(char *)output size:(int)nbytes {

@@ -5,6 +5,11 @@
 //  Created by Goffredo Marocchi on 1/25/10.
 //  Copyright 2010 IGGS. All rights reserved.
 //
+//  Permission is given to use this source code file without charge in any
+//  project, commercial or otherwise, entirely at your risk, with the condition
+//  that any redistribution (in part or whole) of source code must retain
+//  this copyright and permission notice. Attribution in compiled projects is
+//  appreciated but not required.
 
 #import "TimerOBJ.h"
 #import "SysTools.h"
@@ -19,8 +24,6 @@
 
 -(void) setCal:(NSCalendar *)c {
 	CMLog (@"cal setter called");
-	[c retain];
-	[cal release];
 	cal = c;
 }
 
@@ -38,13 +41,6 @@
 	return self;
 }
 
--(void) dealloc {
-	
-	[day release];
-	[cal release];
-	[comps release];
-	[super dealloc];
-}
 
 -(void) recordTime {	
 	self.day = [NSDate date];
@@ -59,7 +55,6 @@
 	[outputFormatter setDateFormat:@"yyyy-MM-dd"];
 	NSString* str = [outputFormatter stringFromDate:[self day]];
 	
-	[outputFormatter release];
 	return str;
 }
 
@@ -68,7 +63,6 @@
 	[outputFormatter setDateFormat:@"HH:mm:ss"];
 	NSString* str = [outputFormatter stringFromDate:[self day]];
 	
-	[outputFormatter release];
 	return str;
 }
 
@@ -97,8 +91,6 @@
 							 initWithCalendarIdentifier:NSGregorianCalendar];
 	NSDate* date = [gregorian dateFromComponents:c];
 	
-	[c release];
-	[gregorian release];
 	
 	return date;
 }

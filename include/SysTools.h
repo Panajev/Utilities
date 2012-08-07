@@ -5,6 +5,11 @@
 //  Created by Goffredo Marocchi on 12/16/09.
 //  Copyright 2009 IGGS. All rights reserved.
 //
+//  Permission is given to use this source code file without charge in any
+//  project, commercial or otherwise, entirely at your risk, with the condition
+//  that any redistribution (in part or whole) of source code must retain
+//  this copyright and permission notice. Attribution in compiled projects is
+//  appreciated but not required.
 
 #import <Foundation/Foundation.h>
 #if IPHONE_SDK_PROJECT==1
@@ -27,13 +32,13 @@
 #define BUNDLE_FULL_PATH(_filePath_) [[NSBundle mainBundle] pathForResource:[_filePath_ lastPathComponent] ofType:nil inDirectory:[_filePath_ stringByDeletingLastPathComponent]]
 
 @interface SysTools : NSObject {
-    NSString * deviceFileFix;
+    NSString * __weak deviceFileFix;
     float screenScale;
     UIDevice * iDevice;
     NSString * rootFolder;
 }
 
-@property (readonly, nonatomic) NSString * deviceFileFix;
+@property (weak, readonly, nonatomic) NSString * deviceFileFix;
 @property (readonly, nonatomic) UIDevice * iDevice;
 
 SYNTHESIZE_SINGLETON_FOR_CLASS_HEADER(SysTools);

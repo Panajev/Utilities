@@ -84,12 +84,11 @@
 - (NSString *)trimWhitespace
 {
 	NSMutableString *mStr = [self mutableCopy];
-	CFStringTrimWhitespace((CFMutableStringRef)mStr);
+	CFStringTrimWhitespace((__bridge CFMutableStringRef)mStr);
 	
 	NSString *result = [mStr copy];
 	
-	[mStr release];
-	return [result autorelease];
+	return result;
 }
 #endif
 

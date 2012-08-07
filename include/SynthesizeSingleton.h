@@ -45,7 +45,7 @@
  * Calling purgeSharedInstance will destroy the shared instance and return the swizzled
  * methods to their former selves.
  *
- * 
+ *
  * Usage:
  *
  * MyClass.h:
@@ -94,26 +94,21 @@
 + (void) purgeSharedInstance;
 
 
-#define SYNTHESIZE_SINGLETON_FOR_CLASS_PROTOTYPE(SS_CLASSNAME) \
-@interface SS_CLASSNAME (SynthesizeSingletonPrivate)	\
-- (NSUInteger)retainCountDoNothing;	\
-- (NSUInteger)retainCountDoSomething;	\
-- (void)releaseDoNothing;	\
-- (void)releaseDoSomething;	\
-- (id)autoreleaseDoNothing;	\
-- (id)autoreleaseDoSomething; \
-@end
+#if __has_feature(objc_arc) // ARC Version
+
+#define SYNTHESIZE_SINGLETON_FOR_CLASS_PROTOTYPE(SS_CLASSNAME)
 
 #define SYNTHESIZE_SINGLETON_FOR_CLASS(SS_CLASSNAME)	\
 \
 static volatile SS_CLASSNAME* _##SS_CLASSNAME##_sharedInstance = nil;	\
 \
-+ (volatile SS_CLASSNAME*) sharedInstanceNoSynch	\
++ (SS_CLASSNAME*) sharedInstanceNoSynch	\
 {	\
-return (volatile SS_CLASSNAME*) _##SS_CLASSNAME##_sharedInstance;	\
+SS_CLASSNAME* instance = (SS_CLASSNAME*) _##SS_CLASSNAME##_sharedInstance; \
+return instance;	\
 }	\
 \
-+ (volatile SS_CLASSNAME*) sharedInstanceSynch	\
++ (SS_CLASSNAME*) sharedInstanceSynch	\
 {	\
 @synchronized(self)	\
 {	\
@@ -122,12 +117,89 @@ if(nil == _##SS_CLASSNAME##_sharedInstance)	\
 _##SS_CLASSNAME##_sharedInstance = [[self alloc] init];	\
 }	\
 }	\
-return (volatile SS_CLASSNAME*) _##SS_CLASSNAME##_sharedInstance;	\
+return (SS_CLASSNAME*) _##SS_CLASSNAME##_sharedInstance;	\
 }	\
 \
-+ (volatile SS_CLASSNAME*) sharedInstance	\
++ (SS_CLASSNAME*) sharedInstance	\
 {	\
-return (volatile SS_CLASSNAME*)[self sharedInstanceSynch]; \
+return [self sharedInstanceSynch]; \
+}	\
+\
++ (id)allocWithZone:(NSZone*) zone	\
+{	\
+@synchronized(self)	\
+{	\
+if (nil == _##SS_CLASSNAME##_sharedInstance)	\
+{	\
+_##SS_CLASSNAME##_sharedInstance = [super allocWithZone:zone];	\
+if(nil != _##SS_CLASSNAME##_sharedInstance)	\
+{	\
+Method newSharedInstanceMethod = class_getClassMethod(self, @selector(sharedInstanceNoSynch));	\
+method_setImplementation(class_getClassMethod(self, @selector(sharedInstance)), method_getImplementation(newSharedInstanceMethod));	\
+}	\
+}	\
+}	\
+SS_CLASSNAME* instance = (SS_CLASSNAME*) _##SS_CLASSNAME##_sharedInstance; \
+return instance;	\
+}	\
+\
++ (void)purgeSharedInstance	\
+{	\
+@synchronized(self)	\
+{	\
+if(nil != _##SS_CLASSNAME##_sharedInstance)	\
+{	\
+Method newSharedInstanceMethod = class_getClassMethod(self, @selector(sharedInstanceSynch));	\
+method_setImplementation(class_getClassMethod(self, @selector(sharedInstance)), method_getImplementation(newSharedInstanceMethod));	\
+_##SS_CLASSNAME##_sharedInstance = nil;	\
+}	\
+}	\
+}	\
+\
+- (id)copyWithZone:(NSZone *)zone	\
+{	\
+_Pragma ( "unused(zone)" ) \
+return self;	\
+}	\
+\
+
+#else // Non-ARC Version
+
+#define SYNTHESIZE_SINGLETON_FOR_CLASS_PROTOTYPE(SS_CLASSNAME) \
+@interface SS_CLASSNAME (SynthesizeSingletonPrivate)	\
+- (NSUInteger)retainCountDoNothing;	\
+- (NSUInteger)retainCountDoSomething;	\
+- (oneway void)releaseDoNothing;	\
+- (oneway void)releaseDoSomething;	\
+- (id)autoreleaseDoNothing;	\
+- (id)autoreleaseDoSomething; \
+@end
+
+#define SYNTHESIZE_SINGLETON_FOR_CLASS(SS_CLASSNAME)	\
+\
+static volatile SS_CLASSNAME* _##SS_CLASSNAME##_sharedInstance = nil;	\
+\
++ (SS_CLASSNAME*) sharedInstanceNoSynch	\
+{	\
+SS_CLASSNAME* instance = (SS_CLASSNAME*) _##SS_CLASSNAME##_sharedInstance; \
+return instance;	\
+}	\
+\
++ (SS_CLASSNAME*) sharedInstanceSynch	\
+{	\
+@synchronized(self)	\
+{	\
+if(nil == _##SS_CLASSNAME##_sharedInstance)	\
+{	\
+_##SS_CLASSNAME##_sharedInstance = [[self alloc] init];	\
+}	\
+}	\
+return (SS_CLASSNAME*) _##SS_CLASSNAME##_sharedInstance;	\
+}	\
+\
++ (SS_CLASSNAME*) sharedInstance	\
+{	\
+return [self sharedInstanceSynch]; \
 }	\
 \
 + (id)allocWithZone:(NSZone*) zone	\
@@ -147,7 +219,8 @@ method_setImplementation(class_getInstanceMethod(self, @selector(autorelease)), 
 }	\
 }	\
 }	\
-return (id)_##SS_CLASSNAME##_sharedInstance;	\
+SS_CLASSNAME* instance = (SS_CLASSNAME*) _##SS_CLASSNAME##_sharedInstance; \
+return instance;	\
 }	\
 \
 + (void)purgeSharedInstance	\
@@ -169,6 +242,7 @@ _##SS_CLASSNAME##_sharedInstance = nil;	\
 \
 - (id)copyWithZone:(NSZone *)zone	\
 {	\
+_Pragma ( "unused(zone)" ) \
 return self;	\
 }	\
 \
@@ -190,16 +264,16 @@ return NSUIntegerMax;	\
 - (NSUInteger)retainCountDoSomething	\
 {	\
 return [super retainCount];	\
-}\
+}	\
 \
 - (oneway void)release	\
 {	\
 NSAssert1(1==0, @"SynthesizeSingleton: %@ ERROR: -(void)release method did not get swizzled.", self);	\
 }	\
 \
-- (void)releaseDoNothing{}	\
+- (oneway void)releaseDoNothing{}	\
 \
-- (void)releaseDoSomething	\
+- (oneway void)releaseDoSomething	\
 {	\
 @synchronized(self)	\
 {	\
@@ -222,6 +296,8 @@ return self;	\
 {	\
 return [super autorelease];	\
 }
+
+#endif
 
 
 #pragma mark -
@@ -298,7 +374,8 @@ static volatile SS_CLASSNAME* _##SS_CLASSNAME##_sharedInstance = nil;	\
 \
 + (SS_CLASSNAME*) sharedInstanceNoSynch	\
 {	\
-return (SS_CLASSNAME*) _##SS_CLASSNAME##_sharedInstance;	\
+SS_CLASSNAME* instance = (SS_CLASSNAME*) _##SS_CLASSNAME##_sharedInstance; \
+return instance;	\
 }	\
 \
 + (SS_CLASSNAME*) sharedInstanceSynch	\
@@ -315,12 +392,13 @@ method_setImplementation(class_getClassMethod(self, @selector(sharedInstance)), 
 }	\
 }	\
 }	\
-return (SS_CLASSNAME*) _##SS_CLASSNAME##_sharedInstance;	\
+SS_CLASSNAME* instance = (SS_CLASSNAME*) _##SS_CLASSNAME##_sharedInstance; \
+return instance;	\
 }	\
 \
-+ (volatile SS_CLASSNAME*)sharedInstance	\
++ (SS_CLASSNAME*) sharedInstance	\
 {	\
-return (volatile SS_CLASSNAME*) [self sharedInstanceSynch]; \
+return [self sharedInstanceSynch]; \
 }	\
 \
 + (void)purgeSharedInstance	\
