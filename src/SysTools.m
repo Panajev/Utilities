@@ -615,7 +615,7 @@ SINGLETON_GCD(SysTools);
         
         BOOL errors = [defFM copyItemAtPath:src toPath:dest error: NULL];
         if(errors == NO) {
-            CMLog(@"File %@ copied to @%", src, dest);
+            CMLog(@"File %@ copied to %@", src, dest);
         }
     }
 }
