@@ -45,6 +45,8 @@
 		E62F162812AEEEA800617438 /* LogDefines.h in Headers */ = {isa = PBXBuildFile; fileRef = E62F162212AEEE9800617438 /* LogDefines.h */; };
 		E62F162912AEEEA800617438 /* OSDefines.h in Headers */ = {isa = PBXBuildFile; fileRef = E62F162012AEEE9800617438 /* OSDefines.h */; };
 		E62F162A12AEEEA800617438 /* GraphicsDefines.h in Headers */ = {isa = PBXBuildFile; fileRef = E62F162112AEEE9800617438 /* GraphicsDefines.h */; };
+		E63054C115DFDB7E00DC1F64 /* SVProgressHUD.h in Headers */ = {isa = PBXBuildFile; fileRef = E63054BF15DFDB7E00DC1F64 /* SVProgressHUD.h */; };
+		E63054C215DFDB7E00DC1F64 /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = E63054C015DFDB7E00DC1F64 /* SVProgressHUD.m */; };
 		E67E3DFA151BDB9300A2972D /* DejalActivityView.h in Headers */ = {isa = PBXBuildFile; fileRef = E67E3DF8151BDB9300A2972D /* DejalActivityView.h */; };
 		E67E3DFB151BDB9300A2972D /* DejalActivityView.m in Sources */ = {isa = PBXBuildFile; fileRef = E67E3DF9151BDB9300A2972D /* DejalActivityView.m */; };
 		E699FCF412B625C000931ADD /* FileReader.h in Headers */ = {isa = PBXBuildFile; fileRef = E699FCF012B625C000931ADD /* FileReader.h */; };
@@ -83,6 +85,8 @@
 		E62F162012AEEE9800617438 /* OSDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OSDefines.h; path = include/OSDefines.h; sourceTree = "<group>"; };
 		E62F162112AEEE9800617438 /* GraphicsDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GraphicsDefines.h; path = include/GraphicsDefines.h; sourceTree = "<group>"; };
 		E62F162212AEEE9800617438 /* LogDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LogDefines.h; path = include/LogDefines.h; sourceTree = "<group>"; };
+		E63054BF15DFDB7E00DC1F64 /* SVProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SVProgressHUD.h; path = include/SVProgressHUD.h; sourceTree = "<group>"; };
+		E63054C015DFDB7E00DC1F64 /* SVProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SVProgressHUD.m; path = src/SVProgressHUD.m; sourceTree = "<group>"; };
 		E6468C0C12AFC845002862C6 /* Utilities.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = Utilities.bundle; path = resources/Utilities.bundle; sourceTree = "<group>"; };
 		E64EBB3E126DDC100033BA8D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		E671A94F128DAB7400DA97FC /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -250,6 +254,8 @@
 		E606C656151BDAD300084B26 /* LoadingView */ = {
 			isa = PBXGroup;
 			children = (
+				E63054BF15DFDB7E00DC1F64 /* SVProgressHUD.h */,
+				E63054C015DFDB7E00DC1F64 /* SVProgressHUD.m */,
 				E67E3DF8151BDB9300A2972D /* DejalActivityView.h */,
 				E67E3DF9151BDB9300A2972D /* DejalActivityView.m */,
 			);
@@ -414,6 +420,7 @@
 				E6A7C94915D0025800ACC440 /* MKNetworkEngine.h in Headers */,
 				E6A7C94A15D0025800ACC440 /* MKNetworkKit.h in Headers */,
 				E6A7C94B15D0025800ACC440 /* MKNetworkOperation.h in Headers */,
+				E63054C115DFDB7E00DC1F64 /* SVProgressHUD.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -528,6 +535,7 @@
 				E6A7C95D15D0026A00ACC440 /* Reachability.m in Sources */,
 				E6A7C95E15D0026A00ACC440 /* MKNetworkEngine.m in Sources */,
 				E6A7C95F15D0026A00ACC440 /* MKNetworkOperation.m in Sources */,
+				E63054C215DFDB7E00DC1F64 /* SVProgressHUD.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

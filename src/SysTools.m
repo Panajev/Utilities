@@ -30,7 +30,7 @@
 
 @implementation SysTools
 
-SYNTHESIZE_SINGLETON_FOR_CLASS(SysTools);
+SINGLETON_GCD(SysTools);
 
 @synthesize deviceFileFix, iDevice;
 

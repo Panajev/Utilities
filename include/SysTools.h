@@ -35,7 +35,7 @@
 #import "LogDefines.h"
 
 #import "GeneralDefines.h" 
-#import "SynthesizeSingleton.h"
+#import "SynthesizeSingletonGCD.h"
 #import "UIDevice-Hardware.h"
 
 //http://struct.ca/2010/xcode-folder-references/
@@ -51,7 +51,7 @@
 @property (weak, readonly, nonatomic) NSString * deviceFileFix;
 @property (readonly, nonatomic) UIDevice * iDevice;
 
-SYNTHESIZE_SINGLETON_FOR_CLASS_HEADER(SysTools);
+SINGLETON_GCD_HEADERS(SysTools);
 
 -(void) gatherDeviceData;
 -(void) sendWarning:(NSString*) msg withTitle:(NSString*) title;
