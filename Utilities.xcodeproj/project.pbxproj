@@ -88,6 +88,7 @@
 		E63054BF15DFDB7E00DC1F64 /* SVProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SVProgressHUD.h; path = include/SVProgressHUD.h; sourceTree = "<group>"; };
 		E63054C015DFDB7E00DC1F64 /* SVProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SVProgressHUD.m; path = src/SVProgressHUD.m; sourceTree = "<group>"; };
 		E630552B15DFE66300DC1F64 /* SVProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = SVProgressHUD.bundle; path = resources/SVProgressHUD.bundle; sourceTree = "<group>"; };
+		E6381D1C15FF54B6008FCAAA /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		E64EBB3E126DDC100033BA8D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		E671A94F128DAB7400DA97FC /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		E67E3DF8151BDB9300A2972D /* DejalActivityView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DejalActivityView.h; path = include/DejalActivityView.h; sourceTree = "<group>"; };
@@ -178,6 +179,7 @@
 		0867D691FE84028FC02AAC07 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				E6381D1C15FF54B6008FCAAA /* README.md */,
 				E6A7C96015D005DC00ACC440 /* CoreFoundation.framework */,
 				E6A7C96115D005DC00ACC440 /* Security.framework */,
 				E6A7C96215D005DC00ACC440 /* SystemConfiguration.framework */,
