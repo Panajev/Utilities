@@ -24,7 +24,7 @@
 #ifndef OSDEFINES_H
 #define OSDEFINES_H
 
-#ifdef IPHONE_SDK_PROJECT
+#ifdef __CC_PLATFORM_IOS
 ////////////////////////////
 //OS defaults///////////////
 ////////////////////////////

@@ -33,7 +33,7 @@
 
 @implementation NSString (HexColor)
 
-#if IPHONE_SDK_PROJECT==1
+#if __CC_PLATFORM_IOS
 
 - (UIColor *)colorFromHex
 {

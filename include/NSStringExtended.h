@@ -26,24 +26,24 @@ The above copyright notice and this permission notice shall be included in all c
  
 #import <Foundation/Foundation.h>
 
-#if IPHONE_SDK_PROJECT==1
+#if __CC_PLATFORM_IOS
 #import <UIKit/UIKit.h>
 #import <libxml/tree.h>
 #endif
 
-#if OSX_PROJECT==1
+#if __CC_PLATFORM_MAC
 #import <AppKit/AppKit.h>
 #endif
 
 @interface NSString (HexColor)
 
-#if IPHONE_SDK_PROJECT==1
+#if __CC_PLATFORM_IOS
 - (UIColor *)colorFromHex;
 - (const xmlChar *)xmlChar;
 - (NSString *)trimWhitespace;
 #endif
 
-#if OSX_PROJECT==1
+#if __CC_PLATFORM_MAC
 
 #endif
 
