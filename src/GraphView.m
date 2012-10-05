@@ -45,6 +45,8 @@
  
 */
 
+#ifdef __CC_PLATFORM_IOS
+
 #import "GraphView.h"
 
 #pragma mark - Overview of operation
@@ -505,3 +507,5 @@ void DrawGridlines(CGContextRef context, CGFloat x, CGFloat width)
 }
 
 @end
+
+#endif

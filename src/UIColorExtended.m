@@ -24,7 +24,7 @@
 #import "UIColorExtended.h"
 #import "SysTools.h"
 
-#if IPHONE_SDK_PROJECT==1
+#ifdef __CC_PLATFORM_IOS
 
 @implementation UIColor (UIColorExtended)
 

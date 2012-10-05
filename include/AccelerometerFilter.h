@@ -45,6 +45,8 @@
  
 */
 
+#ifdef __CC_PLATFORM_IOS
+
 #import <UIKit/UIKit.h>
 
 // Basic filter object. 
@@ -87,3 +89,5 @@
 -(id)initWithSampleRate:(double)rate cutoffFrequency:(double)freq;
 
 @end
+
+#endif

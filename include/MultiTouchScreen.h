@@ -22,6 +22,8 @@
  3. This notice may not be removed or altered from any source distribution.
  */
 
+#ifdef __CC_PLATFORM_IOS
+
 #ifndef MULTI_TOUCH_SCREEN_H
 #define MULTI_TOUCH_SCREEN_H
 
@@ -100,3 +102,5 @@ int GetTouchCount();
 
 
 #endif //MULTI_TOUCH_SCREEN_H
+
+#endif

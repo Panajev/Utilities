@@ -4,6 +4,8 @@
  BSD License, Use at your own risk
  */
 
+#ifdef __CC_PLATFORM_IOS
+
 #import <UIKit/UIKit.h>
 
 #define IFPGA_NAMESTRING                @"iFPGA"
@@ -83,3 +85,5 @@ typedef enum {
 
 - (NSString *) macaddress;
 @end
+
+#endif

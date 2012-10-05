@@ -23,7 +23,6 @@
 
 #import "SysTools.h"
 #import "MathHelper.h"
-#import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
 #import <stdio.h>
 #import <sys/xattr.h>
@@ -32,219 +31,53 @@
 
 SINGLETON_GCD(SysTools);
 
-@synthesize deviceFileFix, iDevice;
-
 -(void) gatherDeviceData {
-    deviceFileFix=nil;
+    _deviceFileFix=nil;
     screenScale = [SysTools scalingFactor];
     
+#ifdef __CC_PLATFORM_IOS
     if([SysTools iPadUI]) {
         if(screenScale > 1.1f) {
-            deviceFileFix=@"-ipadhd";
+            _deviceFileFix=@"-ipadhd";
         }
         else {
-            deviceFileFix=@"-ipad";
+            _deviceFileFix=@"-ipad";
         }
     }
     
     //SAFE_RELEASE(iDevice);
-    iDevice = [[UIDevice alloc] init];
-}
-
-#if IPHONE_SDK_PROJECT==1
-///////////////////////////////////////
-//////// iPhone specific functions ////
-///////////////////////////////////////
-//////vvvvvvvvvvvvvvvvvvvvvvvvvvv//////
-
-+(UIImage *) uiImage:(NSString *)fileName cached:(BOOL)flag {
-	UIImage * temp = nil;
-	NSString *fileLocation = [SysTools pathBundle:fileName];
-	
-	if (flag) {
-		return [UIImage imageNamed:fileName];
-	}
-	else {
-		temp = [UIImage imageWithContentsOfFile:fileLocation];
-		temp = [SysTools decompressImage:temp];
-	}
-	return temp;
-}
-
-+(UIImage *) uiImageCompressed:(NSString *) fileName {
-	NSString *fileLocation = [SysTools pathBundle:fileName];
-	return [UIImage imageWithContentsOfFile:fileLocation]; //decompression happens at display time
-}
-
-+(UIImage *) decompressImage:(UIImage *) uiImage {
-	/*
-	 this can fail, so while the code doesn't have any error checking, 
-	 in particular you should check that CGDataProviderCopyData() returns a valid CFDataRef 
-	 (it can return NULL for various reasons).
-	 */
-	
-	CGImageRef originalImage = uiImage.CGImage;
-	CFDataRef imageData = CGDataProviderCopyData(
-												 CGImageGetDataProvider(originalImage));
-	if (imageData == NULL) return nil;
-	
-	CGDataProviderRef imageDataProvider = CGDataProviderCreateWithCFData(imageData);
-	CFRelease(imageData);
-	CGImageRef image = CGImageCreate(
-									 CGImageGetWidth(originalImage),
-									 CGImageGetHeight(originalImage),
-									 CGImageGetBitsPerComponent(originalImage),
-									 CGImageGetBitsPerPixel(originalImage),
-									 CGImageGetBytesPerRow(originalImage),
-									 CGImageGetColorSpace(originalImage),
-									 CGImageGetBitmapInfo(originalImage),
-									 imageDataProvider,
-									 CGImageGetDecode(originalImage),
-									 CGImageGetShouldInterpolate(originalImage),
-									 CGImageGetRenderingIntent(originalImage));
-	CGDataProviderRelease(imageDataProvider);
-	UIImage *decompressedImage = [UIImage imageWithCGImage:image];
-	CGImageRelease(image);	
-	return decompressedImage;
-}
-
-/**
- *The following function checks if the OS version is >= 4.0
- */
-+(BOOL) isOS4x {
-	return [SysTools isOS:@"4.0" strict:NO];
-}
-
-+(BOOL) iPadUI {
-    if(![SysTools isOS:@"3.2" strict:NO]) {
-        return NO;
-    }
+    _iDevice = [[UIDevice alloc] init];
     
-    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
-    {
-        // The device is an iPad running iPhone 3.2 or later.
-        return YES;
-    }
-    else
-    {
-        // The device is an iPhone or iPod touch.
-        return NO;
-    }
-}
-
-+(BOOL) iPadUI:(BOOL)retina {
-    if(![SysTools isOS:@"3.2" strict:NO]) {
-        return NO;
-    }
-    
-    if ([SysTools iPadUI])
-    {
-        // The device is an iPad running iPhone 3.2 or later.
-        if ([SysTools scalingFactor] > 1.1f){
-            return retina;
-        }
-        else {
-            return (!retina);
-        }
-    }
-    else
-    {
-        // The device is an iPhone or iPod touch.
-        return NO;
-    }
-}
-
-+ (BOOL)addSkipBackupAttributeToItemAtURL:(NSURL *)URL
-{
-    if ([SysTools isOS:@"5.1" strict:NO]) {
-        NSLog(@"iOS >= 5.1");
-        assert([[NSFileManager defaultManager] fileExistsAtPath: [URL path]]);
+#else
+    if(screenScale > 1.1f) {
+        _deviceFileFix =@"-hd";
         
-        NSError *error = nil;
-        
-        BOOL success = [URL setResourceValue: [NSNumber numberWithBool: YES]
-                        
-                                      forKey: NSURLIsExcludedFromBackupKey error: &error];
-        
-        if(!success){
-            
-            NSLog(@"Error excluding %@ from backup %@", [URL lastPathComponent], error);
-            
-        }
-        else {
-            NSLog(@"Success excluding %@ from backup %@", [URL lastPathComponent], error);
-        }
-        return success;
-    }
-    else if ([SysTools isOS:@"5.0.1" strict:NO]) {
-         NSLog(@"iOS < 5.1 && iOS >= 5.0.1");
-        assert([[NSFileManager defaultManager] fileExistsAtPath: [URL path]]);
-        
-        const char* filePath = [[URL path] fileSystemRepresentation];
-        
-        const char* attrName = "com.apple.MobileBackup";
-        
-        u_int8_t attrValue = 1;
-        
-        int result = setxattr(filePath, attrName, &attrValue, sizeof(attrValue), 0, 0);
-        
-        if (result == 0) {
-            NSLog(@"Success excluding %@ from backup", [URL lastPathComponent]);
-        }
-        
-        return result == 0;
     }
     else {
-        NSLog(@"iOS < 5.0.1");
+        _deviceFileFix = @"";
     }
     
-    return NO;
-}
-
-+(BOOL) iPhoneUI:(BOOL)retina {
-    if ([SysTools iPadUI]) {
-        // The device is an iPad running iPhone 3.2 or later.
-        return NO;
-    }
-    else { 
-        if ([SysTools scalingFactor] > 1.1){
-            return retina;
-        }
-        else {
-            return (!retina);
-        }
-    }
-}
-
--(void) sendWarning:(NSString*) msg withTitle:(NSString*) title {
-    if(msg == nil || title == nil) {
-        return;
-    }
-    
-    UIAlertView *message = [[UIAlertView alloc] initWithTitle:title
-                                                       message:msg
-                                                      delegate:self
-                                             cancelButtonTitle:@"OK"
-                                             otherButtonTitles:nil];
-    
-    [message show];
-}
-
-- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
-    
+#endif
 }
 
 +(float) scalingFactor {
+#ifdef __CC_PLATFORM_IOS
     if ([[UIScreen mainScreen] respondsToSelector:@selector(scale)]){
         return [[UIScreen mainScreen] scale];
     }
     else {
         return 1.0f;
     }
+#else
+    if ([[NSScreen mainScreen] respondsToSelector:@selector(backingScaleFactor)]){
+        return [[NSScreen mainScreen] backingScaleFactor];
+    }
+    else {
+        return 1.0f;
+    }
+#endif
 }
 
-
-#pragma mark -
 #pragma mark File handling
 
 -(void) setContentRoot:(NSString*)newRootFolder {
@@ -253,7 +86,7 @@ SINGLETON_GCD(SysTools);
     }
 }
 
-+(NSString *) docsDir {	
++(NSString *) docsDir {
 	NSArray *arrayPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,
 															  NSUserDomainMask,YES);
     NSString *path_docs = [NSString stringWithString:[arrayPaths objectAtIndex:0]];
@@ -283,19 +116,26 @@ SINGLETON_GCD(SysTools);
     
     if(tempArray.count == 2) {
         if([tempArray objectAtIndex:0] != nil &&[tempArray objectAtIndex:1] != nil) {
-            if(deviceFileFix != nil) { 
-                newFilePath = [NSString stringWithFormat:@"ipad_art/%@%@.%@", [tempArray objectAtIndex:0], deviceFileFix,
+#ifdef __CC_PLATFORM_IOS
+            if(_deviceFileFix != nil) {
+                newFilePath = [NSString stringWithFormat:@"ipad_art/%@%@.%@", [tempArray objectAtIndex:0], _deviceFileFix,
                                [tempArray objectAtIndex:1]];
             }
-            else if ([[iDevice platformString] isEqualToString:IPHONE_3G_NAMESTRING]) {
+
+            else if ([[_iDevice platformString] isEqualToString:IPHONE_3G_NAMESTRING]) {
                 CMLog(@"iPhone 3G path...");
                 newFilePath = [NSString stringWithFormat:@"iphone_art/%@.png", [tempArray objectAtIndex:0]];
             }
+
             else {
-                newFilePath = [NSString stringWithFormat:@"iphone_art/%@.%@", [tempArray objectAtIndex:0], 
+                newFilePath = [NSString stringWithFormat:@"iphone_art/%@.%@", [tempArray objectAtIndex:0],
                                [tempArray objectAtIndex:1]];
             }
+#else
+            newFilePath = [NSString stringWithFormat:@"mac_art/%@.%@", [tempArray objectAtIndex:0],
+                               [tempArray objectAtIndex:1]];
             CMLog(@"newFilePath = %@", newFilePath);
+#endif
         }
         
         if(rootFolder != nil) {
@@ -314,12 +154,12 @@ SINGLETON_GCD(SysTools);
     
     if(tempArray.count == 2) {
         if([tempArray objectAtIndex:0] != nil &&[tempArray objectAtIndex:1] != nil) {
-            if(deviceFileFix != nil) { 
-                newFilePath = [NSString stringWithFormat:@"%@%@.%@", [tempArray objectAtIndex:0], deviceFileFix,
+            if(_deviceFileFix != nil) {
+                newFilePath = [NSString stringWithFormat:@"%@%@.%@", [tempArray objectAtIndex:0], _deviceFileFix,
                                [tempArray objectAtIndex:1]];
             }
             else {
-                newFilePath = [NSString stringWithFormat:@"%@.%@", [tempArray objectAtIndex:0], 
+                newFilePath = [NSString stringWithFormat:@"%@.%@", [tempArray objectAtIndex:0],
                                [tempArray objectAtIndex:1]];
             }
             CMLog(@"newFilePath = %@", newFilePath);
@@ -341,16 +181,16 @@ SINGLETON_GCD(SysTools);
     
     if(tempArray.count == 2) {
         if([tempArray objectAtIndex:0] != nil &&[tempArray objectAtIndex:1] != nil) {
-            if(deviceFileFix != nil) { 
-                newFilePath = [NSString stringWithFormat:@"ipad_art/%@.%@", [tempArray objectAtIndex:0], 
+            if(_deviceFileFix != nil) {
+                newFilePath = [NSString stringWithFormat:@"ipad_art/%@.%@", [tempArray objectAtIndex:0],
                                [tempArray objectAtIndex:1]];
             }
             else if (screenScale > 1.0f) {
-                newFilePath = [NSString stringWithFormat:@"iphone_art/%@-hd.%@", [tempArray objectAtIndex:0], 
+                newFilePath = [NSString stringWithFormat:@"iphone_art/%@-hd.%@", [tempArray objectAtIndex:0],
                                [tempArray objectAtIndex:1]];
             }
             else {
-                newFilePath = [NSString stringWithFormat:@"iphone_art/%@.%@", [tempArray objectAtIndex:0], 
+                newFilePath = [NSString stringWithFormat:@"iphone_art/%@.%@", [tempArray objectAtIndex:0],
                                [tempArray objectAtIndex:1]];
             }
             CMLog(@"newFilePath = %@", newFilePath);
@@ -401,12 +241,12 @@ SINGLETON_GCD(SysTools);
     
     if(tempArray.count == 2) {
         if([tempArray objectAtIndex:0] != nil &&[tempArray objectAtIndex:1] != nil) {
-            if(deviceFileFix != nil) { 
-                newFilePath = [NSString stringWithFormat:@"ipad_art/%@.%@", [tempArray objectAtIndex:0], 
+            if(_deviceFileFix != nil) {
+                newFilePath = [NSString stringWithFormat:@"ipad_art/%@.%@", [tempArray objectAtIndex:0],
                                [tempArray objectAtIndex:1]];
             }
             else {
-                newFilePath = [NSString stringWithFormat:@"iphone_art/%@.%@", [tempArray objectAtIndex:0], 
+                newFilePath = [NSString stringWithFormat:@"iphone_art/%@.%@", [tempArray objectAtIndex:0],
                                [tempArray objectAtIndex:1]];
             }
             CMLog(@"newFilePath = %@", newFilePath);
@@ -455,9 +295,15 @@ SINGLETON_GCD(SysTools);
     
     if(tempArray.count == 2) {
         if([tempArray objectAtIndex:0] != nil &&[tempArray objectAtIndex:1] != nil) {
+#ifdef __CC_PLATFORM_IOS
             newFilePath = [NSString stringWithFormat:@"%@%d.%@", [tempArray objectAtIndex:0],
                            cIndex%maxIndex,
                            [tempArray objectAtIndex:1]];
+#else
+            newFilePath = [NSString stringWithFormat:@"%@%ld.%@", [tempArray objectAtIndex:0],
+                           cIndex%maxIndex,
+                           [tempArray objectAtIndex:1]];
+#endif
         }
     }
     cIndex++;
@@ -468,92 +314,27 @@ SINGLETON_GCD(SysTools);
     return newFilePath;
 }
 
-#pragma mark -
 
-+(void) sendOrientationNotifications:(SEL)callSelector to:(id)object {
-	
-	[[UIDevice currentDevice] beginGeneratingDeviceOrientationNotifications];
-	
-	[[NSNotificationCenter defaultCenter] removeObserver:object name:UIDeviceOrientationDidChangeNotification object:nil];
-	[[NSNotificationCenter defaultCenter] addObserver:object
-											 selector:callSelector
-												 name:UIDeviceOrientationDidChangeNotification object:nil];
-}
 
-+(UIImage*)screenshotUIKit {
-    // Create a graphics context with the target size
-    // On iOS 4 and later, use UIGraphicsBeginImageContextWithOptions to take the scale into consideration
-    // On iOS prior to 4, fall back to use UIGraphicsBeginImageContext
-    CGSize imageSize = [[UIScreen mainScreen] bounds].size;
-    if (NULL != UIGraphicsBeginImageContextWithOptions)
-        UIGraphicsBeginImageContextWithOptions(imageSize, NO, 0);
-    else
-        UIGraphicsBeginImageContext(imageSize);
-	
-    CGContextRef context = UIGraphicsGetCurrentContext();
-	
-    // Iterate over every window from back to front
-    for (UIWindow *window in [[UIApplication sharedApplication] windows]) 
-    {
-        if (![window respondsToSelector:@selector(screen)] || [window screen] == [UIScreen mainScreen])
-        {
-            // -renderInContext: renders in the coordinate space of the layer,
-            // so we must first apply the layer's geometry to the graphics context
-            CGContextSaveGState(context);
-            // Center the context around the window's anchor point
-            CGContextTranslateCTM(context, [window center].x, [window center].y);
-            // Apply the window's transform about the anchor point
-            CGContextConcatCTM(context, [window transform]);
-            // Offset by the portion of the bounds left of and above the anchor point
-            CGContextTranslateCTM(context,
-                                  -[window bounds].size.width * [(CALayer*)[window layer] anchorPoint].x,
-                                  -[window bounds].size.height * [[window layer] anchorPoint].y);
-			
-            // Render the layer hierarchy to the current context
-            [[window layer] renderInContext:context];
-			
-            // Restore the context
-            CGContextRestoreGState(context);
-        }
+-(void) sendWarning:(NSString*) msg withTitle:(NSString*) title {
+    if(msg == nil || title == nil) {
+        return;
     }
-	
-    // Retrieve the screenshot image
-    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
-	
-    UIGraphicsEndImageContext();
-	
-    return image;
-}
-
-//////^^^^^^^^^^^^^^^^^^^^^^^^^^^//////
-///////////////////////////////////////
-//////// iPhone specific functions ////
-///////////////////////////////////////
+    
+#ifdef __CC_PLATFORM_IOS
+    
+    UIAlertView *message = [[UIAlertView alloc] initWithTitle:title
+                                                      message:msg
+                                                     delegate:self
+                                            cancelButtonTitle:@"OK"
+                                            otherButtonTitles:nil];
+    
+    [message show];
+#else
+    
+    
 #endif
-
-
-#if OSX_PROJECT==1
-///////////////////////////////////////
-//////// OS X specific functions //////
-///////////////////////////////////////
-//////vvvvvvvvvvvvvvvvvvvvvvvvvvv//////
-
-+(float) contentViewAspectRatio:(NSWindow *)wFrame {
-	return ([wFrame contentAspectRatio].width /
-			[wFrame contentAspectRatio].height);	
 }
-
-+(float) windowBarHeight:(NSWindow *) wFrame {
-	return ((float)[wFrame frame].size.height - 
-			[(NSView*)[wFrame contentView] frame].size.height);
-}
-
-
-//////^^^^^^^^^^^^^^^^^^^^^^^^^^^//////
-///////////////////////////////////////
-//////// OS X specific functions //////
-///////////////////////////////////////
-#endif
 
 +(NSData *) dataForBundleFile: (NSString *)fileName extension: (NSString *) type {
 	
@@ -563,21 +344,77 @@ SINGLETON_GCD(SysTools);
 	return myData;
 }
 
+
+
++ (BOOL)addSkipBackupAttributeToItemAtURL:(NSURL *)URL
+{
+#ifdef __CC_PLATFORM_IOS
+    if ([SysTools isOS:@"5.1" strict:NO]) {
+        NSLog(@"iOS >= 5.1");
+        assert([[NSFileManager defaultManager] fileExistsAtPath: [URL path]]);
+        
+        NSError *error = nil;
+        
+        BOOL success = [URL setResourceValue: [NSNumber numberWithBool: YES]
+                        
+                                      forKey: NSURLIsExcludedFromBackupKey error: &error];
+        
+        if(!success){
+            
+            NSLog(@"Error excluding %@ from backup %@", [URL lastPathComponent], error);
+            
+        }
+        else {
+            NSLog(@"Success excluding %@ from backup %@", [URL lastPathComponent], error);
+        }
+        return success;
+    }
+    else if ([SysTools isOS:@"5.0.1" strict:NO]) {
+        NSLog(@"iOS < 5.1 && iOS >= 5.0.1");
+        assert([[NSFileManager defaultManager] fileExistsAtPath: [URL path]]);
+        
+        const char* filePath = [[URL path] fileSystemRepresentation];
+        
+        const char* attrName = "com.apple.MobileBackup";
+        
+        u_int8_t attrValue = 1;
+        
+        int result = setxattr(filePath, attrName, &attrValue, sizeof(attrValue), 0, 0);
+        
+        if (result == 0) {
+            NSLog(@"Success excluding %@ from backup", [URL lastPathComponent]);
+        }
+        
+        return result == 0;
+    }
+    else {
+        NSLog(@"iOS < 5.0.1");
+    }
+    
+    return NO;
+#else
+    //Deployment target is set at MacOS X Lion/10.7
+    //iCloud is natively supported there.
+    //TODO: Check iCloud support
+    return YES;
+#endif
+}
+
 /**
  * File created in the Documents directory
  */
 +(BOOL) createFile:(NSString *) filename
 {
 	@autoreleasepool {
-	//NSString *filePath = [NSString stringWithString:[SysTools pathDocuments:filename]];
-	//filePath = filePath; //suppress "Unused variable" warning
-	
+        //NSString *filePath = [NSString stringWithString:[SysTools pathDocuments:filename]];
+        //filePath = filePath; //suppress "Unused variable" warning
+        
 #if DEBUG==1
-	//NSLog(@"Filepath of %@ is \"%@\"", filename, filePath);
+        //NSLog(@"Filepath of %@ is \"%@\"", filename, filePath);
 #endif
-	
-	//TODO: complete function template	
-	
+        
+        //TODO: complete function template
+        
 	}
 	return TRUE;
 }
@@ -585,9 +422,9 @@ SINGLETON_GCD(SysTools);
 +(BOOL) writeToFile:(NSString *) filename {
 	@autoreleasepool {
 		[filename compare:filename];
-	//TODO: complete function template	
+        //TODO: complete function template
 	}
-	return TRUE;	
+	return TRUE;
 }
 
 -(void) moveToDocumentsFolder:(NSString*)filename forceInstall:(BOOL)installFlag overwrite:(BOOL)overwriteFlag {
@@ -630,7 +467,7 @@ SINGLETON_GCD(SysTools);
 	
 	//CMLog (@"float is %f\n", (float)nValue);
 	
-	return nValue;	
+	return nValue;
 }
 
 +(void) printArr:(NSArray *)arr {
@@ -666,24 +503,15 @@ SINGLETON_GCD(SysTools);
  *The following function checks if the OS version is >= targetVersion
  */
 +(BOOL) isOS:(NSString*)targetVersion strict:(BOOL)eq {
-	
-#if OSX_PROJECT==1
-	
-#if DEBUG == 1
-	NSLog (@"(NO) This function currently targets iOS releases only", targetVersion, OS_VERSION);
-#endif
-	return NO;
-#else
 	NSComparisonResult resultTest = [SysTools compareVersion:targetVersion with:OS_VERSION];
-#endif
 	
 	if ((!eq) && ((resultTest == NSOrderedSame) || (resultTest == NSOrderedAscending))) {
 		
 #if DEBUG == 1
-		if (resultTest == NSOrderedSame) 
+		if (resultTest == NSOrderedSame)
             ;
         //NSLog (@"(OK) OS comparison result is: %@ target == %@ current", targetVersion, OS_VERSION);
-		else 
+		else
             ;
         //NSLog (@"(OK) OS comparison result is: %@ target < %@ current", targetVersion, OS_VERSION);
 #endif
@@ -696,7 +524,7 @@ SINGLETON_GCD(SysTools);
 #endif
 		return YES;
 	}
-	else { 
+	else {
         CMLog (@"(OK) OS comparison result is: %@ target > %@ current", targetVersion, OS_VERSION);
         return NO;
     }
@@ -768,7 +596,7 @@ SINGLETON_GCD(SysTools);
 #endif
 		}
 			break;
-	}	
+	}
 	return isArithmetic;
 }
 
@@ -828,7 +656,7 @@ SINGLETON_GCD(SysTools);
 		for (int i = 0; cStr[i] != '\0'; i++){
 #if DEBUG_VERBOSE==1
 			printf("\nEntering the for loop...\n");
-#endif		
+#endif
 			c = cStr[i] ;
 			
 			if (c == '\n' || c == '\r') {
@@ -852,7 +680,7 @@ SINGLETON_GCD(SysTools);
 			}
 			else if ([SysTools isDigit:c]) {
 				if (number_scanned) {
-					number_scanned = NO; //we already got our number, if we detect another one it means that the 
+					number_scanned = NO; //we already got our number, if we detect another one it means that the
 					//user submitted more than one value in the current string
 					break;
 				}
@@ -867,7 +695,7 @@ SINGLETON_GCD(SysTools);
 			printf("Looping back in the for loop...");
 #endif
 		}
-#if DEBUG_VERBOSE==1	
+#if DEBUG_VERBOSE==1
 		printf("\nOut of the for loop... Testing last digit last_c\n");
 #endif
 		if ([SysTools isDigit:last_c]) {
@@ -894,7 +722,7 @@ SINGLETON_GCD(SysTools);
 	
 	if ([tokens count] == 0) return NO;
 	
-	NSString* tok = [tokens objectAtIndex:0];	
+	NSString* tok = [tokens objectAtIndex:0];
 	result = ([tokens count] == 1)? ([SysTools isTokenIntNumber:tok]) : NO;
 	
 	if (result && (NULL != number)) (*number) = [tok intValue];
@@ -906,7 +734,7 @@ SINGLETON_GCD(SysTools);
 	
 	MARK;
 	
-	//like componentsSeparatedByString: and componentsSeparatedByCharactersInSet: 
+	//like componentsSeparatedByString: and componentsSeparatedByCharactersInSet:
 	//but it skips empty tokens and it treats consecutive divisor characters as a single one
 	
 	NSString* token;
@@ -915,7 +743,7 @@ SINGLETON_GCD(SysTools);
 	
 	while (![scan isAtEnd]) {
 		token = nil;
-		[scan scanCharactersFromSet:div intoString:NULL]; //it scans past a block of divisor characters 
+		[scan scanCharactersFromSet:div intoString:NULL]; //it scans past a block of divisor characters
 		
 		if ([scan scanUpToCharactersFromSet:div intoString:&token]){
 			[arrTokens addObject:token];
@@ -933,7 +761,7 @@ SINGLETON_GCD(SysTools);
 	
 	kindValue = nil;
 	
-#if TEST_FP_DIGITS==1	
+#if TEST_FP_DIGITS==1
 	kindValue = @"FP";
 	NSString *	str = [NSString stringWithString:@""];
 	test=[SysTools isIntNumber:str into:NULL];
@@ -1086,7 +914,7 @@ SINGLETON_GCD(SysTools);
 #ifndef TEST_INT_DIGITS
 	//NSLog(@"TEST_INT_DIGITS = %i", (int)TEST_INT_DIGITS);
 	NSAssert (NO, @"This TEST_INT_DIGITS define should be set");
-#else 
+#else
 	NSLog(@"TEST_INT_DIGITS = %i", (int)TEST_INT_DIGITS);
 #endif
 	
@@ -1346,14 +1174,14 @@ SINGLETON_GCD(SysTools);
 		if ([SysTools isIntNumber:(NSString*)number into:NULL]) {
 			return [str UTF8String];
 		}
-	}	
+	}
 	else if ([number class] == [NSNumber class]) {
 		
 		str = [NSString stringWithFormat:@"%i",[(NSNumber*)number intValue]];
 		return [str UTF8String];
 	}
 	
-	return NULL;	
+	return NULL;
 }
 
 +(void) printDigitsInUTF8CString:(char const*)str reverseOrder:(BOOL)reverse {
@@ -1425,5 +1253,217 @@ SINGLETON_GCD(SysTools);
 	
 	return YES;
 }
+
+#pragma mark -
+#pragma mark iOS
+#ifdef __CC_PLATFORM_IOS
+///////////////////////////////////////
+//////// iPhone specific functions ////
+///////////////////////////////////////
+//////vvvvvvvvvvvvvvvvvvvvvvvvvvv//////
+
++(UIImage *) uiImage:(NSString *)fileName cached:(BOOL)flag {
+	UIImage * temp = nil;
+	NSString *fileLocation = [SysTools pathBundle:fileName];
+	
+	if (flag) {
+		return [UIImage imageNamed:fileName];
+	}
+	else {
+		temp = [UIImage imageWithContentsOfFile:fileLocation];
+		temp = [SysTools decompressImage:temp];
+	}
+	return temp;
+}
+
++(UIImage *) uiImageCompressed:(NSString *) fileName {
+	NSString *fileLocation = [SysTools pathBundle:fileName];
+	return [UIImage imageWithContentsOfFile:fileLocation]; //decompression happens at display time
+}
+
++(UIImage *) decompressImage:(UIImage *) uiImage {
+	/*
+	 this can fail, so while the code doesn't have any error checking, 
+	 in particular you should check that CGDataProviderCopyData() returns a valid CFDataRef 
+	 (it can return NULL for various reasons).
+	 */
+	
+	CGImageRef originalImage = uiImage.CGImage;
+	CFDataRef imageData = CGDataProviderCopyData(
+												 CGImageGetDataProvider(originalImage));
+	if (imageData == NULL) return nil;
+	
+	CGDataProviderRef imageDataProvider = CGDataProviderCreateWithCFData(imageData);
+	CFRelease(imageData);
+	CGImageRef image = CGImageCreate(
+									 CGImageGetWidth(originalImage),
+									 CGImageGetHeight(originalImage),
+									 CGImageGetBitsPerComponent(originalImage),
+									 CGImageGetBitsPerPixel(originalImage),
+									 CGImageGetBytesPerRow(originalImage),
+									 CGImageGetColorSpace(originalImage),
+									 CGImageGetBitmapInfo(originalImage),
+									 imageDataProvider,
+									 CGImageGetDecode(originalImage),
+									 CGImageGetShouldInterpolate(originalImage),
+									 CGImageGetRenderingIntent(originalImage));
+	CGDataProviderRelease(imageDataProvider);
+	UIImage *decompressedImage = [UIImage imageWithCGImage:image];
+	CGImageRelease(image);	
+	return decompressedImage;
+}
+
+/**
+ *The following function checks if the OS version is >= 4.0
+ */
++(BOOL) isOS4x {
+	return [SysTools isOS:@"4.0" strict:NO];
+}
+
++(BOOL) iPadUI {
+    if(![SysTools isOS:@"3.2" strict:NO]) {
+        return NO;
+    }
+    
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+    {
+        // The device is an iPad running iPhone 3.2 or later.
+        return YES;
+    }
+    else
+    {
+        // The device is an iPhone or iPod touch.
+        return NO;
+    }
+}
+
++(BOOL) iPadUI:(BOOL)retina {
+    if(![SysTools isOS:@"3.2" strict:NO]) {
+        return NO;
+    }
+    
+    if ([SysTools iPadUI])
+    {
+        // The device is an iPad running iPhone 3.2 or later.
+        if ([SysTools scalingFactor] > 1.1f){
+            return retina;
+        }
+        else {
+            return (!retina);
+        }
+    }
+    else
+    {
+        // The device is an iPhone or iPod touch.
+        return NO;
+    }
+}
+
++(BOOL) iPhoneUI:(BOOL)retina {
+    if ([SysTools iPadUI]) {
+        // The device is an iPad running iPhone 3.2 or later.
+        return NO;
+    }
+    else { 
+        if ([SysTools scalingFactor] > 1.1){
+            return retina;
+        }
+        else {
+            return (!retina);
+        }
+    }
+}
+
+- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
+    
+}
+
++(void) sendOrientationNotifications:(SEL)callSelector to:(id)object {
+	
+	[[UIDevice currentDevice] beginGeneratingDeviceOrientationNotifications];
+	
+	[[NSNotificationCenter defaultCenter] removeObserver:object name:UIDeviceOrientationDidChangeNotification object:nil];
+	[[NSNotificationCenter defaultCenter] addObserver:object
+											 selector:callSelector
+												 name:UIDeviceOrientationDidChangeNotification object:nil];
+}
+
++(UIImage*)screenshotUIKit {
+    // Create a graphics context with the target size
+    // On iOS 4 and later, use UIGraphicsBeginImageContextWithOptions to take the scale into consideration
+    // On iOS prior to 4, fall back to use UIGraphicsBeginImageContext
+    CGSize imageSize = [[UIScreen mainScreen] bounds].size;
+    if (NULL != UIGraphicsBeginImageContextWithOptions)
+        UIGraphicsBeginImageContextWithOptions(imageSize, NO, 0);
+    else
+        UIGraphicsBeginImageContext(imageSize);
+	
+    CGContextRef context = UIGraphicsGetCurrentContext();
+	
+    // Iterate over every window from back to front
+    for (UIWindow *window in [[UIApplication sharedApplication] windows]) 
+    {
+        if (![window respondsToSelector:@selector(screen)] || [window screen] == [UIScreen mainScreen])
+        {
+            // -renderInContext: renders in the coordinate space of the layer,
+            // so we must first apply the layer's geometry to the graphics context
+            CGContextSaveGState(context);
+            // Center the context around the window's anchor point
+            CGContextTranslateCTM(context, [window center].x, [window center].y);
+            // Apply the window's transform about the anchor point
+            CGContextConcatCTM(context, [window transform]);
+            // Offset by the portion of the bounds left of and above the anchor point
+            CGContextTranslateCTM(context,
+                                  -[window bounds].size.width * [(CALayer*)[window layer] anchorPoint].x,
+                                  -[window bounds].size.height * [[window layer] anchorPoint].y);
+			
+            // Render the layer hierarchy to the current context
+            [[window layer] renderInContext:context];
+			
+            // Restore the context
+            CGContextRestoreGState(context);
+        }
+    }
+	
+    // Retrieve the screenshot image
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+	
+    UIGraphicsEndImageContext();
+	
+    return image;
+}
+
+//////^^^^^^^^^^^^^^^^^^^^^^^^^^^//////
+///////////////////////////////////////
+//////// iPhone specific functions ////
+///////////////////////////////////////
+#endif
+
+
+#ifdef __CC_PLATFORM_MAC
+#pragma mark -
+#pragma mark MacOS X
+///////////////////////////////////////
+//////// OS X specific functions //////
+///////////////////////////////////////
+//////vvvvvvvvvvvvvvvvvvvvvvvvvvv//////
+
++(float) contentViewAspectRatio:(NSWindow *)wFrame {
+	return ([wFrame contentAspectRatio].width /
+			[wFrame contentAspectRatio].height);	
+}
+
++(float) windowBarHeight:(NSWindow *) wFrame {
+	return ((float)[wFrame frame].size.height - 
+			[(NSView*)[wFrame contentView] frame].size.height);
+}
+
+
+//////^^^^^^^^^^^^^^^^^^^^^^^^^^^//////
+///////////////////////////////////////
+//////// OS X specific functions //////
+///////////////////////////////////////
+#endif
+#pragma mark -
 
 @end

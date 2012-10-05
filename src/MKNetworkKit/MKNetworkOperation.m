@@ -759,7 +759,11 @@
   }];
   
   if (postLength >= 1)
-    [self.request setValue:[NSString stringWithFormat:@"%lu", postLength] forHTTPHeaderField:@"content-length"];
+#ifdef __CC_PLATFORM_IOS
+    [self.request setValue:[NSString stringWithFormat:@"%u", postLength] forHTTPHeaderField:@"content-length"];
+#else
+        [self.request setValue:[NSString stringWithFormat:@"%lu", postLength] forHTTPHeaderField:@"content-length"];
+#endif
   
   [body appendData: [[NSString stringWithFormat:@"--%@--\r\n", boundary] dataUsingEncoding:self.stringEncoding]];
   
@@ -768,8 +772,11 @@
   if(([self.filesToBePosted count] > 0) || ([self.dataToBePosted count] > 0)) {
     [self.request setValue:[NSString stringWithFormat:@"multipart/form-data; charset=%@; boundary=%@", charset, boundary] 
         forHTTPHeaderField:@"Content-Type"];
-    
+#ifdef __CC_PLATFORM_IOS
     [self.request setValue:[NSString stringWithFormat:@"%d", [body length]] forHTTPHeaderField:@"Content-Length"];
+#else
+     [self.request setValue:[NSString stringWithFormat:@"%ld", [body length]] forHTTPHeaderField:@"Content-Length"]; 
+#endif
   }
   
   return body;
@@ -1099,7 +1106,11 @@
       NSString *bytesText = [rangeString substringWithRange:NSMakeRange(6, [rangeString length] - 7)];
       self.startPosition = [bytesText integerValue];
       self.downloadedDataSize = self.startPosition;
+#ifdef __CC_PLATFORM_IOS
       DLog(@"Resuming at %d bytes", self.startPosition);
+#else
+       DLog(@"Resuming at %ld bytes", self.startPosition); 
+#endif
     }
   }
   

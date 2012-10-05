@@ -9,7 +9,7 @@
 #import "ScreenShot.h"
 #import <QuartzCore/QuartzCore.h>
 
-#if IPHONE_SDK_PROJECT==1
+#ifdef __CC_PLATFORM_IOS
 
 @implementation UIScreen(Screenshot)
 
@@ -135,6 +135,8 @@
 	
     return image;
 }
-#endif
-
 @end
+
+#else
+
+#endif

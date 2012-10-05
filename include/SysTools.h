@@ -22,12 +22,13 @@
 //  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #import <Foundation/Foundation.h>
-#if IPHONE_SDK_PROJECT==1
+#ifdef __CC_PLATFORM_IOS
 #import <UIKit/UIKit.h>
 #import "CocoaTouchDefines.h"
+#import "UIDevice-Hardware.h"
 #endif
 
-#if OSX_PROJECT==1
+#ifdef __CC_PLATFORM_MAC
 #import <AppKit/AppKit.h>
 #endif
 
@@ -36,20 +37,21 @@
 
 #import "GeneralDefines.h" 
 #import "SynthesizeSingletonGCD.h"
-#import "UIDevice-Hardware.h"
+
 
 //http://struct.ca/2010/xcode-folder-references/
 #define BUNDLE_FULL_PATH(_filePath_) [[NSBundle mainBundle] pathForResource:[_filePath_ lastPathComponent] ofType:nil inDirectory:[_filePath_ stringByDeletingLastPathComponent]]
 
 @interface SysTools : NSObject {
-    NSString * __weak deviceFileFix;
     float screenScale;
-    UIDevice * iDevice;
     NSString * rootFolder;
 }
 
 @property (weak, readonly, nonatomic) NSString * deviceFileFix;
+
+#ifdef __CC_PLATFORM_IOS
 @property (readonly, nonatomic) UIDevice * iDevice;
+#endif
 
 SINGLETON_GCD_HEADERS(SysTools);
 
@@ -73,31 +75,6 @@ SINGLETON_GCD_HEADERS(SysTools);
 +(NSString *) pathDocuments:(NSString *)fileName;
 +(NSData *) dataForBundleFile:(NSString *)fileName extension:(NSString *)type;
 +(BOOL)addSkipBackupAttributeToItemAtURL:(NSURL *)URL;
-
-//
-
-#if IPHONE_SDK_PROJECT==1
-+(UIImage *) uiImage:(NSString *) fileName cached:(BOOL)flag;
-+(UIImage *) uiImageCompressed:(NSString *)fileName;
-
-+(UIImage *) decompressImage:(UIImage *) uiImage;
-+(BOOL) isOS4x;
-+(BOOL) iPadUI;
-+(BOOL) iPadUI:(BOOL)retina;
-+(BOOL) iPhoneUI:(BOOL)retina;
-+(float) scalingFactor;
-
-+(void) sendOrientationNotifications:(SEL)callSelector to:(id)object;
-+(UIImage*)screenshotUIKit;
-#endif
-
-#if OSX_PROJECT==1
-
-+(float) contentViewAspectRatio:(NSWindow *)wFrame;
-+(float) windowBarHeight:(NSWindow *)wFrame;
-
-#endif
-
 +(BOOL) createFile:(NSString *) filename;
 +(BOOL) writeToFile:(NSString *) filename;
 -(void) moveToDocumentsFolder:(NSString*)filename forceInstall:(BOOL)installFlag overwrite:(BOOL)overwriteFlag;
@@ -111,8 +88,6 @@ SINGLETON_GCD_HEADERS(SysTools);
 
 +(NSComparisonResult) compareVersion:(NSString*)targetVersion with:(NSString*)currentVersion;
 
-+(BOOL) isOS:(NSString*)targetVersion strict:(BOOL)eq;
-+(float) scalingFactor;
 +(BOOL) testRightShift;
 
 +(NSArray*) splitInTokens:(NSString *)str separator:(NSCharacterSet*)div;
@@ -123,8 +98,32 @@ SINGLETON_GCD_HEADERS(SysTools);
 +(void) testIsNumber;
 +(char const*) spellDigitsUTF8:(id)number;
 +(void) printDigitsInUTF8CString:(char const*)str reverseOrder:(BOOL)reverse;
-
 +(BOOL) readLineUTF8:(char *)output size:(int)nbytes;
+//
+
+#ifdef __CC_PLATFORM_IOS
++(UIImage *) uiImage:(NSString *) fileName cached:(BOOL)flag;
++(UIImage *) uiImageCompressed:(NSString *)fileName;
+
++(UIImage *) decompressImage:(UIImage *) uiImage;
++(BOOL) isOS4x;
++(BOOL) iPadUI;
++(BOOL) iPadUI:(BOOL)retina;
++(BOOL) iPhoneUI:(BOOL)retina;
+
++(void) sendOrientationNotifications:(SEL)callSelector to:(id)object;
++(UIImage*)screenshotUIKit;
+#endif
+
++(BOOL) isOS:(NSString*)targetVersion strict:(BOOL)eq;
++(float) scalingFactor;
+
+#ifdef __CC_PLATFORM_MAC
+
++(float) contentViewAspectRatio:(NSWindow *)wFrame;
++(float) windowBarHeight:(NSWindow *)wFrame;
+
+#endif
 
 @end
 

@@ -44,6 +44,7 @@
  Copyright (C) 2010 Apple Inc. All Rights Reserved.
  
 */
+#ifdef __CC_PLATFORM_IOS
 
 #import "AccelerometerFilter.h"
 
@@ -162,3 +163,5 @@ double Clamp(double v, double min, double max)
 }
 
 @end
+
+#endif

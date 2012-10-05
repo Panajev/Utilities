@@ -6,6 +6,8 @@
 
 // Thanks to Emanuele Vulcano, Kevin Ballard/Eridius, Ryandjohnson, Matt Brown, etc.
 
+#ifdef __CC_PLATFORM_IOS
+
 #include <sys/socket.h> // Per msqr
 #include <sys/sysctl.h>
 #include <net/if.h>
@@ -263,3 +265,5 @@ if ([btclass respondsToSelector:@selector(bluetoothStatus)])
 }
 */
 @end
+
+#endif

@@ -39,7 +39,9 @@ __LINE__);} while(0)
 
 #define START_TIMER NSTimeInterval start = [NSDate timeIntervalSinceReferenceDate];
 #define END_TIMER(msg) 	NSTimeInterval stop = [NSDate timeIntervalSinceReferenceDate]; CMLog([NSString stringWithFormat:@"%@ Time = %f", msg, stop-start]);
+#ifndef DPRINTF
 #define DPRINTF(message, ...) printf(message, ## __VA_ARGS__);
+#endif
 #define PRINT_VEC(v) printf("\n(vector) x= %f, y= %f, z = %f\n", (v).x, (v).y, (v).z);
 #define PRINT_SVEC(str,v) printf("\n%s x= %f, y= %f, z = %f\n", str, (v).x, (v).y, (v).z);
 #define PRINT_VEC2(v) printf("\n(vector) x= %f, y= %f\n", (v).x, (v).y);
@@ -53,7 +55,9 @@ __LINE__);} while(0)
 #define XASSERT(test, msg, ...)
 #define START_TIMER
 #define END_TIMER(msg)
+#ifndef DPRINTF
 #define DPRINTF
+#endif
 #define PRINT_VEC(v)
 #define PRINT_SVEC(str,v)
 #define PRINT_VEC2(v) 

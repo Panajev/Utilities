@@ -22,6 +22,8 @@
  3. This notice may not be removed or altered from any source distribution.
  */
 
+#ifdef __CC_PLATFORM_IOS
+
 #import "MultiTouchScreen.h"
 
 id idFrame;
@@ -233,5 +235,5 @@ int GetTouchCount()
 
 @end
 
-
+#endif
 

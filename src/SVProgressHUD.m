@@ -6,6 +6,7 @@
 //
 //  https://github.com/samvermette/SVProgressHUD
 //
+#ifdef __CC_PLATFORM_IOS
 
 #import "SVProgressHUD.h"
 #import <QuartzCore/QuartzCore.h>
@@ -531,3 +532,5 @@
 }
 
 @end
+
+#endif

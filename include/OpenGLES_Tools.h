@@ -21,6 +21,8 @@
 //  CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 //  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
+#ifdef __CC_PLATFORM_IOS
+
 #import <Foundation/Foundation.h>
 #import "GraphicsDefines.h"
 
@@ -61,3 +63,5 @@ glDisableVertexAttribArray(ATTRIB_TEXCOORD);}while(0)
 					   withMView:(float*)model withProjection:(float*)proj withViewport:(int*)viewport
 					   toScreenX:(float*) winx toScreenY:(float*) winy toScreenZ:(float*) winz;
 @end
+
+#endif

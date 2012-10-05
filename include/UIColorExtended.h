@@ -22,7 +22,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#if IPHONE_SDK_PROJECT==1
+#ifdef __CC_PLATFORM_IOS
 #import <UIKit/UIKit.h>
 
 @interface UIColor (UIColorExtended)
@@ -33,7 +33,7 @@
 
 #endif
 
-#if OSX_PROJECT==1
+#ifdef __CC_PLATFORM_MAC
 #import <AppKit/AppKit.h>
 #endif
 

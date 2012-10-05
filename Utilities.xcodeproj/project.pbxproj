@@ -49,6 +49,53 @@
 		E63054C215DFDB7E00DC1F64 /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = E63054C015DFDB7E00DC1F64 /* SVProgressHUD.m */; };
 		E67E3DFA151BDB9300A2972D /* DejalActivityView.h in Headers */ = {isa = PBXBuildFile; fileRef = E67E3DF8151BDB9300A2972D /* DejalActivityView.h */; };
 		E67E3DFB151BDB9300A2972D /* DejalActivityView.m in Sources */ = {isa = PBXBuildFile; fileRef = E67E3DF9151BDB9300A2972D /* DejalActivityView.m */; };
+		E6929732161F031400DB1EAA /* UtilitiesMac-Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = E6929731161F031400DB1EAA /* UtilitiesMac-Prefix.pch */; };
+		E6929733161F036900DB1EAA /* NSData+Base64.h in Headers */ = {isa = PBXBuildFile; fileRef = E6A7C93815D0025800ACC440 /* NSData+Base64.h */; };
+		E6929734161F036900DB1EAA /* NSDate+RFC1123.h in Headers */ = {isa = PBXBuildFile; fileRef = E6A7C93915D0025800ACC440 /* NSDate+RFC1123.h */; };
+		E6929735161F036900DB1EAA /* NSDictionary+RequestEncoding.h in Headers */ = {isa = PBXBuildFile; fileRef = E6A7C93A15D0025800ACC440 /* NSDictionary+RequestEncoding.h */; };
+		E6929736161F036900DB1EAA /* NSString+MKNetworkKitAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = E6A7C93B15D0025800ACC440 /* NSString+MKNetworkKitAdditions.h */; };
+		E6929737161F036900DB1EAA /* UIAlertView+MKNetworkKitAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = E6A7C93C15D0025800ACC440 /* UIAlertView+MKNetworkKitAdditions.h */; };
+		E6929738161F036900DB1EAA /* Reachability.h in Headers */ = {isa = PBXBuildFile; fileRef = E6A7C93E15D0025800ACC440 /* Reachability.h */; };
+		E6929739161F036900DB1EAA /* MKNetworkEngine.h in Headers */ = {isa = PBXBuildFile; fileRef = E6A7C93F15D0025800ACC440 /* MKNetworkEngine.h */; };
+		E692973A161F036900DB1EAA /* MKNetworkKit.h in Headers */ = {isa = PBXBuildFile; fileRef = E6A7C94015D0025800ACC440 /* MKNetworkKit.h */; };
+		E692973B161F036900DB1EAA /* MKNetworkOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = E6A7C94115D0025800ACC440 /* MKNetworkOperation.h */; };
+		E692973F161F036900DB1EAA /* FileReader.h in Headers */ = {isa = PBXBuildFile; fileRef = E699FCF012B625C000931ADD /* FileReader.h */; };
+		E6929740161F036900DB1EAA /* MathHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = E69F416712AE4709004E4E70 /* MathHelper.h */; };
+		E6929744161F036900DB1EAA /* CoreGraphicsExt.h in Headers */ = {isa = PBXBuildFile; fileRef = E69F416012AE4709004E4E70 /* CoreGraphicsExt.h */; };
+		E6929747161F036900DB1EAA /* stb_truetype.h in Headers */ = {isa = PBXBuildFile; fileRef = E69F416D12AE4709004E4E70 /* stb_truetype.h */; };
+		E6929748161F036900DB1EAA /* SynthesizeSingleton.h in Headers */ = {isa = PBXBuildFile; fileRef = E69F416E12AE4709004E4E70 /* SynthesizeSingleton.h */; };
+		E692974A161F036900DB1EAA /* SynthesizeSingletonGCD.h in Headers */ = {isa = PBXBuildFile; fileRef = E6A7C93215CFE1BB00ACC440 /* SynthesizeSingletonGCD.h */; };
+		E692974B161F036900DB1EAA /* SysTools.h in Headers */ = {isa = PBXBuildFile; fileRef = E69F416F12AE4709004E4E70 /* SysTools.h */; };
+		E692974C161F036900DB1EAA /* NSStringExtended.h in Headers */ = {isa = PBXBuildFile; fileRef = E69F416912AE4709004E4E70 /* NSStringExtended.h */; };
+		E692974D161F036900DB1EAA /* TimerOBJ.h in Headers */ = {isa = PBXBuildFile; fileRef = E69F417012AE4709004E4E70 /* TimerOBJ.h */; };
+		E692974E161F036900DB1EAA /* Average.h in Headers */ = {isa = PBXBuildFile; fileRef = E69F415E12AE4709004E4E70 /* Average.h */; };
+		E692974F161F036900DB1EAA /* CocoaTouchDefines.h in Headers */ = {isa = PBXBuildFile; fileRef = E69F415F12AE4709004E4E70 /* CocoaTouchDefines.h */; };
+		E6929750161F036900DB1EAA /* DeviceInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = E69F416112AE4709004E4E70 /* DeviceInfo.h */; };
+		E6929751161F036900DB1EAA /* GeneralDefines.h in Headers */ = {isa = PBXBuildFile; fileRef = E69F416212AE4709004E4E70 /* GeneralDefines.h */; };
+		E6929752161F036900DB1EAA /* OSDefines.h in Headers */ = {isa = PBXBuildFile; fileRef = E62F162012AEEE9800617438 /* OSDefines.h */; };
+		E6929753161F036900DB1EAA /* GraphicsDefines.h in Headers */ = {isa = PBXBuildFile; fileRef = E62F162112AEEE9800617438 /* GraphicsDefines.h */; };
+		E6929754161F036900DB1EAA /* LogDefines.h in Headers */ = {isa = PBXBuildFile; fileRef = E62F162212AEEE9800617438 /* LogDefines.h */; };
+		E6929756161F03B400DB1EAA /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = E6A7C94E15D0026A00ACC440 /* NSData+Base64.m */; };
+		E6929757161F03B400DB1EAA /* NSDate+RFC1123.m in Sources */ = {isa = PBXBuildFile; fileRef = E6A7C94F15D0026A00ACC440 /* NSDate+RFC1123.m */; };
+		E6929758161F03B400DB1EAA /* NSDictionary+RequestEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = E6A7C95015D0026A00ACC440 /* NSDictionary+RequestEncoding.m */; };
+		E6929759161F03B400DB1EAA /* NSString+MKNetworkKitAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = E6A7C95115D0026A00ACC440 /* NSString+MKNetworkKitAdditions.m */; };
+		E692975A161F03B400DB1EAA /* UIAlertView+MKNetworkKitAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = E6A7C95215D0026A00ACC440 /* UIAlertView+MKNetworkKitAdditions.m */; };
+		E692975B161F03B400DB1EAA /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = E6A7C95415D0026A00ACC440 /* Reachability.m */; };
+		E692975C161F03B400DB1EAA /* MKNetworkEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = E6A7C95515D0026A00ACC440 /* MKNetworkEngine.m */; };
+		E692975D161F03B400DB1EAA /* MKNetworkOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = E6A7C95615D0026A00ACC440 /* MKNetworkOperation.m */; };
+		E6929761161F03B400DB1EAA /* FileReader.m in Sources */ = {isa = PBXBuildFile; fileRef = E699FCF112B625C000931ADD /* FileReader.m */; };
+		E6929762161F03B400DB1EAA /* MathHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = E69F417A12AE4709004E4E70 /* MathHelper.m */; };
+		E6929766161F03B400DB1EAA /* CoreGraphicsExt.m in Sources */ = {isa = PBXBuildFile; fileRef = E69F417612AE4709004E4E70 /* CoreGraphicsExt.m */; };
+		E692976A161F03B400DB1EAA /* SysTools.m in Sources */ = {isa = PBXBuildFile; fileRef = E60DF3F5145D638300531EEE /* SysTools.m */; };
+		E692976B161F03B400DB1EAA /* NSStringExtended.m in Sources */ = {isa = PBXBuildFile; fileRef = E69F417C12AE4709004E4E70 /* NSStringExtended.m */; };
+		E692976C161F03B400DB1EAA /* TimerOBJ.m in Sources */ = {isa = PBXBuildFile; fileRef = E69F418012AE4709004E4E70 /* TimerOBJ.m */; };
+		E692976D161F03B400DB1EAA /* Average.m in Sources */ = {isa = PBXBuildFile; fileRef = E69F417512AE4709004E4E70 /* Average.m */; };
+		E692976E161F03B400DB1EAA /* DeviceInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = E69F417712AE4709004E4E70 /* DeviceInfo.m */; };
+		E692977A161F04C900DB1EAA /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6929774161F04C900DB1EAA /* CoreFoundation.framework */; };
+		E692977D161F04C900DB1EAA /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6929777161F04C900DB1EAA /* SystemConfiguration.framework */; };
+		E692977F161F04E500DB1EAA /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E692977E161F04E500DB1EAA /* Security.framework */; };
+		E6929780161F074D00DB1EAA /* UIColorExtended.h in Headers */ = {isa = PBXBuildFile; fileRef = E69F417112AE4709004E4E70 /* UIColorExtended.h */; };
+		E6929781161F074D00DB1EAA /* UIColorExtended.m in Sources */ = {isa = PBXBuildFile; fileRef = E69F418112AE4709004E4E70 /* UIColorExtended.m */; };
 		E699FCF412B625C000931ADD /* FileReader.h in Headers */ = {isa = PBXBuildFile; fileRef = E699FCF012B625C000931ADD /* FileReader.h */; };
 		E699FCF512B625C000931ADD /* FileReader.m in Sources */ = {isa = PBXBuildFile; fileRef = E699FCF112B625C000931ADD /* FileReader.m */; };
 		E6A7C93415CFE1C600ACC440 /* SynthesizeSingletonGCD.h in Headers */ = {isa = PBXBuildFile; fileRef = E6A7C93215CFE1BB00ACC440 /* SynthesizeSingletonGCD.h */; };
@@ -97,6 +144,20 @@
 		E67FBD3E1199B7AF0096E950 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		E67FBD421199B7AF0096E950 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		E67FBD441199B7AF0096E950 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		E6929710161F02BF00DB1EAA /* libUtilitiesMac.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libUtilitiesMac.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		E6929711161F02BF00DB1EAA /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = Library/Frameworks/Cocoa.framework; sourceTree = DEVELOPER_DIR; };
+		E6929714161F02BF00DB1EAA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		E6929715161F02BF00DB1EAA /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		E6929716161F02BF00DB1EAA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		E6929725161F02CD00DB1EAA /* libUtilitiesMac_script.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libUtilitiesMac_script.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		E6929731161F031400DB1EAA /* UtilitiesMac-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UtilitiesMac-Prefix.pch"; sourceTree = "<group>"; };
+		E6929772161F04C900DB1EAA /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/CFNetwork.framework; sourceTree = DEVELOPER_DIR; };
+		E6929773161F04C900DB1EAA /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/Cocoa.framework; sourceTree = DEVELOPER_DIR; };
+		E6929774161F04C900DB1EAA /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/CoreFoundation.framework; sourceTree = DEVELOPER_DIR; };
+		E6929775161F04C900DB1EAA /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/CoreGraphics.framework; sourceTree = DEVELOPER_DIR; };
+		E6929776161F04C900DB1EAA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		E6929777161F04C900DB1EAA /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/SystemConfiguration.framework; sourceTree = DEVELOPER_DIR; };
+		E692977E161F04E500DB1EAA /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/Security.framework; sourceTree = DEVELOPER_DIR; };
 		E699FCF012B625C000931ADD /* FileReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FileReader.h; path = include/FileReader.h; sourceTree = "<group>"; };
 		E699FCF112B625C000931ADD /* FileReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FileReader.m; path = src/FileReader.m; sourceTree = "<group>"; };
 		E69F415D12AE4709004E4E70 /* AccelerometerFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AccelerometerFilter.h; path = include/AccelerometerFilter.h; sourceTree = "<group>"; };
@@ -164,6 +225,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		E692970D161F02BF00DB1EAA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E692977A161F04C900DB1EAA /* CoreFoundation.framework in Frameworks */,
+				E692977F161F04E500DB1EAA /* Security.framework in Frameworks */,
+				E692977D161F04C900DB1EAA /* SystemConfiguration.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -172,6 +243,8 @@
 			children = (
 				E62F14A612AEDAC000617438 /* libUtilities.a */,
 				E62F14F612AEDB9600617438 /* libUtilities_build.a */,
+				E6929710161F02BF00DB1EAA /* libUtilitiesMac.a */,
+				E6929725161F02CD00DB1EAA /* libUtilitiesMac_script.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -179,6 +252,13 @@
 		0867D691FE84028FC02AAC07 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				E692977E161F04E500DB1EAA /* Security.framework */,
+				E6929772161F04C900DB1EAA /* CFNetwork.framework */,
+				E6929773161F04C900DB1EAA /* Cocoa.framework */,
+				E6929774161F04C900DB1EAA /* CoreFoundation.framework */,
+				E6929775161F04C900DB1EAA /* CoreGraphics.framework */,
+				E6929776161F04C900DB1EAA /* Foundation.framework */,
+				E6929777161F04C900DB1EAA /* SystemConfiguration.framework */,
 				E6381D1C15FF54B6008FCAAA /* README.md */,
 				E6A7C96015D005DC00ACC440 /* CoreFoundation.framework */,
 				E6A7C96115D005DC00ACC440 /* Security.framework */,
@@ -202,6 +282,8 @@
 				E67FBD441199B7AF0096E950 /* UIKit.framework */,
 				E64EBB3E126DDC100033BA8D /* CoreGraphics.framework */,
 				E671A94F128DAB7400DA97FC /* OpenGLES.framework */,
+				E6929711161F02BF00DB1EAA /* Cocoa.framework */,
+				E6929713161F02BF00DB1EAA /* Other Frameworks */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -248,6 +330,7 @@
 		32C88DFF0371C24200C91783 /* Other Sources */ = {
 			isa = PBXGroup;
 			children = (
+				E6929731161F031400DB1EAA /* UtilitiesMac-Prefix.pch */,
 				AA747D9E0F9514B9006C5449 /* Utilities_Prefix.pch */,
 			);
 			name = "Other Sources";
@@ -307,6 +390,16 @@
 				E69F417D12AE4709004E4E70 /* OpenGLES_Tools.m */,
 			);
 			name = OpenGL;
+			sourceTree = "<group>";
+		};
+		E6929713161F02BF00DB1EAA /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E6929714161F02BF00DB1EAA /* AppKit.framework */,
+				E6929715161F02BF00DB1EAA /* CoreData.framework */,
+				E6929716161F02BF00DB1EAA /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
 			sourceTree = "<group>";
 		};
 		E69912C512A7A98A00DCB232 /* Cocoa Touch */ = {
@@ -426,6 +519,40 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		E692970E161F02BF00DB1EAA /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E6929733161F036900DB1EAA /* NSData+Base64.h in Headers */,
+				E6929734161F036900DB1EAA /* NSDate+RFC1123.h in Headers */,
+				E6929735161F036900DB1EAA /* NSDictionary+RequestEncoding.h in Headers */,
+				E6929736161F036900DB1EAA /* NSString+MKNetworkKitAdditions.h in Headers */,
+				E6929737161F036900DB1EAA /* UIAlertView+MKNetworkKitAdditions.h in Headers */,
+				E6929738161F036900DB1EAA /* Reachability.h in Headers */,
+				E6929739161F036900DB1EAA /* MKNetworkEngine.h in Headers */,
+				E692973A161F036900DB1EAA /* MKNetworkKit.h in Headers */,
+				E692973B161F036900DB1EAA /* MKNetworkOperation.h in Headers */,
+				E692973F161F036900DB1EAA /* FileReader.h in Headers */,
+				E6929740161F036900DB1EAA /* MathHelper.h in Headers */,
+				E6929744161F036900DB1EAA /* CoreGraphicsExt.h in Headers */,
+				E6929747161F036900DB1EAA /* stb_truetype.h in Headers */,
+				E6929748161F036900DB1EAA /* SynthesizeSingleton.h in Headers */,
+				E692974A161F036900DB1EAA /* SynthesizeSingletonGCD.h in Headers */,
+				E692974B161F036900DB1EAA /* SysTools.h in Headers */,
+				E692974C161F036900DB1EAA /* NSStringExtended.h in Headers */,
+				E692974D161F036900DB1EAA /* TimerOBJ.h in Headers */,
+				E692974E161F036900DB1EAA /* Average.h in Headers */,
+				E692974F161F036900DB1EAA /* CocoaTouchDefines.h in Headers */,
+				E6929750161F036900DB1EAA /* DeviceInfo.h in Headers */,
+				E6929751161F036900DB1EAA /* GeneralDefines.h in Headers */,
+				E6929752161F036900DB1EAA /* OSDefines.h in Headers */,
+				E6929753161F036900DB1EAA /* GraphicsDefines.h in Headers */,
+				E6929754161F036900DB1EAA /* LogDefines.h in Headers */,
+				E6929732161F031400DB1EAA /* UtilitiesMac-Prefix.pch in Headers */,
+				E6929780161F074D00DB1EAA /* UIColorExtended.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
@@ -461,6 +588,38 @@
 			productReference = E62F14F612AEDB9600617438 /* libUtilities_build.a */;
 			productType = "com.apple.product-type.library.static";
 		};
+		E692970F161F02BF00DB1EAA /* UtilitiesMac */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E692971F161F02BF00DB1EAA /* Build configuration list for PBXNativeTarget "UtilitiesMac" */;
+			buildPhases = (
+				E692970E161F02BF00DB1EAA /* Headers */,
+				E692970C161F02BF00DB1EAA /* Sources */,
+				E692970D161F02BF00DB1EAA /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = UtilitiesMac;
+			productName = UtilitiesMac;
+			productReference = E6929710161F02BF00DB1EAA /* libUtilitiesMac.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		E6929724161F02CD00DB1EAA /* UtilitiesMac_script */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E692972D161F02CD00DB1EAA /* Build configuration list for PBXNativeTarget "UtilitiesMac_script" */;
+			buildPhases = (
+				E6929730161F02DB00DB1EAA /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = UtilitiesMac_script;
+			productName = UtilitiesMac_script;
+			productReference = E6929725161F02CD00DB1EAA /* libUtilitiesMac_script.a */;
+			productType = "com.apple.product-type.library.static";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -487,6 +646,8 @@
 			targets = (
 				E62F14A512AEDAC000617438 /* Utilities */,
 				E62F14F512AEDB9600617438 /* Utilities_script */,
+				E692970F161F02BF00DB1EAA /* UtilitiesMac */,
+				E6929724161F02CD00DB1EAA /* UtilitiesMac_script */,
 			);
 		};
 /* End PBXProject section */
@@ -504,6 +665,19 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "#!/bin/sh\n\nTARGET=\"Utilities\"\n#undefine the following line if you want to move and properly unpack the .zip files into the destination folder specified with DEST_DIR\nSCRIPT_OPTIONS=\"MOVE_FILE\"\n#DEST_DIR=\"${PROJECT_DIR}/../SharedLibs\"\nDEST_DIR=~/Programming/SharedLibs\n\nmkdir -p ~/Programming\nmkdir -p ~/Programming/SharedLibs\n\nGIT_REVISION=$(git describe --tags `git rev-list --tags --max-count=1`)\nif [ ! -z $GIT_REVISION ]; then\n    LIB_VERSION=\"-Tag-$GIT_REVISION\"\nelse\n    LIB_VERSION=\"-unversioned\"\nfi\n\nLIBRARY_NAME=\"lib$TARGET.a\"\nLIBRARY_OUT_NAME_RELATIVE=\"lib$TARGET${LIB_VERSION}.a\"\nLIBRARY_OUT_NAME=\"lib/$LIBRARY_OUT_NAME_RELATIVE\"\nLATEST_SDK_DEVICE=$(xcodebuild -showsdks | grep iphoneos | awk 'BEGIN{FS=\"\\t\";}{print $3}' | cut -d ' ' -f 2 | tail -n 1)\nLATEST_SDK_SIMULATOR=$(xcodebuild -showsdks | grep iphonesimulator | awk 'BEGIN{FS=\"\\t\";}{print $3}' | cut -d ' ' -f 2 | tail -n 1)\n\nlocal_build_root=\"${PROJECT_DIR}/build\"\nbuild_styles=\"Debug Release\"\n\nfor current_style in $build_styles; do\nLIBRARY_ARCHIVE=\"$TARGET${LIB_VERSION}-${current_style}.zip\"\n\nif [ $current_style = \"Debug\" ]; then\nLIBRARY_ARCHIVE=\"$TARGET-${current_style}.zip\"\nelse\nLIBRARY_ARCHIVE=\"$TARGET.zip\"\nfi\n\n# remove existing output file\nrm -rf ${PROJECT_DIR}/lib\nmkdir -p ${PROJECT_DIR}/lib\n\n# Build library for simulator\nxcodebuild clean -target $TARGET -configuration $current_style -sdk $LATEST_SDK_SIMULATOR\nxcodebuild -target $TARGET -configuration $current_style -sdk $LATEST_SDK_SIMULATOR build\n\n# Build library for device\nxcodebuild clean -target $TARGET -configuration $current_style -sdk $LATEST_SDK_DEVICE\nxcodebuild -target $TARGET -configuration $current_style -sdk $LATEST_SDK_DEVICE build\n\n# Glue together libraries\nlipo \"${local_build_root}/${current_style}-iphoneos/$LIBRARY_NAME\" -arch i386 \"${local_build_root}/${current_style}-iphonesimulator/$LIBRARY_NAME\" -create -output \"${PROJECT_DIR}/$LIBRARY_OUT_NAME\"\n\n# Create symlink\ncd lib\nln -s \"$LIBRARY_OUT_NAME_RELATIVE\" \"$LIBRARY_NAME\"\ncd ..\n\nif [ $? -eq 0 ]; then\nzip -R -y \"${PROJECT_DIR}/$LIBRARY_ARCHIVE\" \"lib/*.a\"\nzip -r -y \"${PROJECT_DIR}/$LIBRARY_ARCHIVE\" \"resources\" \"include\" -x@zip_exclude.lst\n#zip \"${PROJECT_DIR}/$LIBRARY_ARCHIVE\" .packageid\nfi\n\nif [ $SCRIPT_OPTIONS = \"MOVE_FILE\" ]; then\n    BUILT_ZIP=\"${PROJECT_DIR}/$LIBRARY_ARCHIVE\"\n    NEW_ZIP=\"$DEST_DIR/$LIBRARY_ARCHIVE\"\n\n    if [ $current_style = \"Debug\" ]; then\n        OLD_FOLDER=\"$DEST_DIR/$TARGET-${current_style}\"\n    else  \n        OLD_FOLDER=\"$DEST_DIR/$TARGET\"\n    fi\n    rm -rf $OLD_FOLDER\n    mv $BUILT_ZIP \"$DEST_DIR/\"\n    unzip -o $NEW_ZIP -d $OLD_FOLDER/\n    rm -f $NEW_ZIP\nfi\n\ndone";
+		};
+		E6929730161F02DB00DB1EAA /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#!/bin/sh\n\nTARGET=\"UtilitiesMac\"\n#undefine the following line if you want to move and properly unpack the .zip files into the destination folder specified with DEST_DIR\nSCRIPT_OPTIONS=\"MOVE_FILE\"\n#DEST_DIR=\"${PROJECT_DIR}/../SharedLibs\"\nDEST_DIR=~/Programming/SharedLibsMac\n\nmkdir -p ~/Programming\nmkdir -p ~/Programming/SharedLibsMac\n\nGIT_REVISION=$(git describe --tags `git rev-list --tags --max-count=1`)\nif [ ! -z $GIT_REVISION ]; then\nLIB_VERSION=\"-Tag-$GIT_REVISION\"\nelse\nLIB_VERSION=\"-unversioned\"\nfi\n\nLIBRARY_NAME=\"lib$TARGET.a\"\nLIBRARY_OUT_NAME_RELATIVE=\"lib$TARGET${LIB_VERSION}.a\"\nLIBRARY_OUT_NAME=\"lib/$LIBRARY_OUT_NAME_RELATIVE\"\nLATEST_SDK=$(xcodebuild -showsdks | grep macosx | awk 'BEGIN{FS=\"\\t\";}{print $3}' | cut -d ' ' -f 2 | tail -n 1)\n\n# remove existing build dir\nrm -rf ${PROJECT_DIR}/build\nmkdir -p ${PROJECT_DIR}/build\nlocal_build_root=\"${PROJECT_DIR}/build\"\nbuild_styles=\"Debug Release\"\n\nfor current_style in $build_styles; do\nLIBRARY_ARCHIVE=\"$TARGET${LIB_VERSION}-${current_style}.zip\"\n\nif [ $current_style = \"Debug\" ]; then\nLIBRARY_ARCHIVE=\"$TARGET-${current_style}.zip\"\nelse\nLIBRARY_ARCHIVE=\"$TARGET.zip\"\nfi\n\n# remove existing output file\nrm -rf ${PROJECT_DIR}/lib\nmkdir -p ${PROJECT_DIR}/lib\n\n# Build library for MacOS X\nxcodebuild clean -target $TARGET -configuration $current_style -sdk $LATEST_SDK\nxcodebuild -target $TARGET -configuration $current_style -sdk $LATEST_SDK build\n\n# Glue together libraries\nlipo \"${local_build_root}/${current_style}/$LIBRARY_NAME\" -create -output \"${PROJECT_DIR}/$LIBRARY_OUT_NAME\"\n\n# Create symlink\ncd lib\nln -s \"$LIBRARY_OUT_NAME_RELATIVE\" \"$LIBRARY_NAME\"\ncd ..\n\nif [ $? -eq 0 ]; then\nzip -R -y \"${PROJECT_DIR}/$LIBRARY_ARCHIVE\" \"lib/*.a\"\nzip -r -y \"${PROJECT_DIR}/$LIBRARY_ARCHIVE\" \"resources\" \"include\" -x@zip_exclude.lst\n#zip \"${PROJECT_DIR}/$LIBRARY_ARCHIVE\" .packageid\nfi\n\nif [ $SCRIPT_OPTIONS = \"MOVE_FILE\" ]; then\nBUILT_ZIP=\"${PROJECT_DIR}/$LIBRARY_ARCHIVE\"\nNEW_ZIP=\"$DEST_DIR/$LIBRARY_ARCHIVE\"\n\nif [ $current_style = \"Debug\" ]; then\nOLD_FOLDER=\"$DEST_DIR/$TARGET-${current_style}\"\nelse\nOLD_FOLDER=\"$DEST_DIR/$TARGET\"\nfi\nrm -rf $OLD_FOLDER\nmv $BUILT_ZIP \"$DEST_DIR/\"\nunzip -o $NEW_ZIP -d $OLD_FOLDER/\nrm -f $NEW_ZIP\nfi\n\ndone";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -538,6 +712,30 @@
 				E6A7C95E15D0026A00ACC440 /* MKNetworkEngine.m in Sources */,
 				E6A7C95F15D0026A00ACC440 /* MKNetworkOperation.m in Sources */,
 				E63054C215DFDB7E00DC1F64 /* SVProgressHUD.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E692970C161F02BF00DB1EAA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E6929756161F03B400DB1EAA /* NSData+Base64.m in Sources */,
+				E6929757161F03B400DB1EAA /* NSDate+RFC1123.m in Sources */,
+				E6929758161F03B400DB1EAA /* NSDictionary+RequestEncoding.m in Sources */,
+				E6929759161F03B400DB1EAA /* NSString+MKNetworkKitAdditions.m in Sources */,
+				E692975A161F03B400DB1EAA /* UIAlertView+MKNetworkKitAdditions.m in Sources */,
+				E692975B161F03B400DB1EAA /* Reachability.m in Sources */,
+				E692975C161F03B400DB1EAA /* MKNetworkEngine.m in Sources */,
+				E692975D161F03B400DB1EAA /* MKNetworkOperation.m in Sources */,
+				E6929761161F03B400DB1EAA /* FileReader.m in Sources */,
+				E6929762161F03B400DB1EAA /* MathHelper.m in Sources */,
+				E6929766161F03B400DB1EAA /* CoreGraphicsExt.m in Sources */,
+				E692976A161F03B400DB1EAA /* SysTools.m in Sources */,
+				E692976B161F03B400DB1EAA /* NSStringExtended.m in Sources */,
+				E692976C161F03B400DB1EAA /* TimerOBJ.m in Sources */,
+				E692976D161F03B400DB1EAA /* Average.m in Sources */,
+				E692976E161F03B400DB1EAA /* DeviceInfo.m in Sources */,
+				E6929781161F074D00DB1EAA /* UIColorExtended.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -674,6 +872,111 @@
 			};
 			name = Release;
 		};
+		E692971D161F02BF00DB1EAA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SYSTEM_APPS_DIR)/Xcode.app/Contents/Developer/Library/Frameworks\"",
+				);
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "UtilitiesMac-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = "DEBUG=1";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		E692971E161F02BF00DB1EAA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SYSTEM_APPS_DIR)/Xcode.app/Contents/Developer/Library/Frameworks\"",
+				);
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "UtilitiesMac-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = "";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		E692972E161F02CD00DB1EAA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SYSTEM_APPS_DIR)/Xcode.app/Contents/Developer/Library/Frameworks\"",
+				);
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_PREFIX_HEADER = "";
+				GCC_PREPROCESSOR_DEFINITIONS = "DEBUG=1";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		E692972F161F02CD00DB1EAA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SYSTEM_APPS_DIR)/Xcode.app/Contents/Developer/Library/Frameworks\"",
+				);
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_PREFIX_HEADER = "";
+				GCC_PREPROCESSOR_DEFINITIONS = "";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				OTHER_CFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -703,6 +1006,22 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		E692971F161F02BF00DB1EAA /* Build configuration list for PBXNativeTarget "UtilitiesMac" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E692971D161F02BF00DB1EAA /* Debug */,
+				E692971E161F02BF00DB1EAA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		E692972D161F02CD00DB1EAA /* Build configuration list for PBXNativeTarget "UtilitiesMac_script" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E692972E161F02CD00DB1EAA /* Debug */,
+				E692972F161F02CD00DB1EAA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};

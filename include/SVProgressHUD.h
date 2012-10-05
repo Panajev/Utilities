@@ -7,6 +7,8 @@
 //  https://github.com/samvermette/SVProgressHUD
 //
 
+#ifdef __CC_PLATFORM_IOS
+
 #import <UIKit/UIKit.h>
 #import <AvailabilityMacros.h>
 
@@ -49,5 +51,6 @@ typedef NSUInteger SVProgressHUDMaskType;
 + (void)dismissWithError:(NSString*)errorString DEPRECATED_ATTRIBUTE;
 + (void)dismissWithError:(NSString*)errorString afterDelay:(NSTimeInterval)seconds DEPRECATED_ATTRIBUTE;
 
-
 @end
+
+#endif

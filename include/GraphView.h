@@ -45,6 +45,8 @@
  
 */
 
+#ifdef __CC_PLATFORM_IOS
+
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
 
@@ -60,3 +62,5 @@
 -(void)addX:(UIAccelerationValue)x y:(UIAccelerationValue)y z:(UIAccelerationValue)z;
 
 @end
+
+#endif
