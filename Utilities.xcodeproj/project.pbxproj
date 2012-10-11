@@ -91,9 +91,6 @@
 		E692976C161F03B400DB1EAA /* TimerOBJ.m in Sources */ = {isa = PBXBuildFile; fileRef = E69F418012AE4709004E4E70 /* TimerOBJ.m */; };
 		E692976D161F03B400DB1EAA /* Average.m in Sources */ = {isa = PBXBuildFile; fileRef = E69F417512AE4709004E4E70 /* Average.m */; };
 		E692976E161F03B400DB1EAA /* DeviceInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = E69F417712AE4709004E4E70 /* DeviceInfo.m */; };
-		E692977A161F04C900DB1EAA /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6929774161F04C900DB1EAA /* CoreFoundation.framework */; };
-		E692977D161F04C900DB1EAA /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6929777161F04C900DB1EAA /* SystemConfiguration.framework */; };
-		E692977F161F04E500DB1EAA /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E692977E161F04E500DB1EAA /* Security.framework */; };
 		E6929780161F074D00DB1EAA /* UIColorExtended.h in Headers */ = {isa = PBXBuildFile; fileRef = E69F417112AE4709004E4E70 /* UIColorExtended.h */; };
 		E6929781161F074D00DB1EAA /* UIColorExtended.m in Sources */ = {isa = PBXBuildFile; fileRef = E69F418112AE4709004E4E70 /* UIColorExtended.m */; };
 		E699FCF412B625C000931ADD /* FileReader.h in Headers */ = {isa = PBXBuildFile; fileRef = E699FCF012B625C000931ADD /* FileReader.h */; };
@@ -116,9 +113,6 @@
 		E6A7C95D15D0026A00ACC440 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = E6A7C95415D0026A00ACC440 /* Reachability.m */; };
 		E6A7C95E15D0026A00ACC440 /* MKNetworkEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = E6A7C95515D0026A00ACC440 /* MKNetworkEngine.m */; };
 		E6A7C95F15D0026A00ACC440 /* MKNetworkOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = E6A7C95615D0026A00ACC440 /* MKNetworkOperation.m */; };
-		E6A7C96315D005DC00ACC440 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6A7C96015D005DC00ACC440 /* CoreFoundation.framework */; };
-		E6A7C96415D005DC00ACC440 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6A7C96115D005DC00ACC440 /* Security.framework */; };
-		E6A7C96515D005DC00ACC440 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6A7C96215D005DC00ACC440 /* SystemConfiguration.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -213,29 +207,6 @@
 		E6A7C96115D005DC00ACC440 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		E6A7C96215D005DC00ACC440 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
-
-/* Begin PBXFrameworksBuildPhase section */
-		E62F14A412AEDAC000617438 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				E6A7C96315D005DC00ACC440 /* CoreFoundation.framework in Frameworks */,
-				E6A7C96415D005DC00ACC440 /* Security.framework in Frameworks */,
-				E6A7C96515D005DC00ACC440 /* SystemConfiguration.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		E692970D161F02BF00DB1EAA /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				E692977A161F04C900DB1EAA /* CoreFoundation.framework in Frameworks */,
-				E692977F161F04E500DB1EAA /* Security.framework in Frameworks */,
-				E692977D161F04C900DB1EAA /* SystemConfiguration.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		034768DFFF38A50411DB9C8B /* Products */ = {
@@ -562,7 +533,6 @@
 			buildPhases = (
 				E62F14A212AEDAC000617438 /* Headers */,
 				E62F14A312AEDAC000617438 /* Sources */,
-				E62F14A412AEDAC000617438 /* Frameworks */,
 			);
 			buildRules = (
 			);
@@ -594,7 +564,6 @@
 			buildPhases = (
 				E692970E161F02BF00DB1EAA /* Headers */,
 				E692970C161F02BF00DB1EAA /* Sources */,
-				E692970D161F02BF00DB1EAA /* Frameworks */,
 			);
 			buildRules = (
 			);
@@ -626,7 +595,7 @@
 		0867D690FE84028FC02AAC07 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0430;
+				LastUpgradeCheck = 0450;
 				ORGANIZATIONNAME = IGGS;
 			};
 			buildConfigurationList = 1DEB922208733DC00010E9CD /* Build configuration list for PBXProject "Utilities" */;
@@ -881,6 +850,7 @@
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -908,6 +878,7 @@
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -933,6 +904,7 @@
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -960,6 +932,7 @@
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				FRAMEWORK_SEARCH_PATHS = (
