@@ -34,6 +34,8 @@
 
 #define MARK	do{CMLog(@"MARKER");} while(0)
 
+#define QMARK	do{NSLog(@"MARKER: %s, (at %@:%d)", __PRETTY_FUNCTION__, [[NSString stringWithFormat:@"%s",__FILE__] lastPathComponent], __LINE__);} while(0)
+
 #define XASSERT(test, msg, ...) do {if (!(test)) error(__LINE__, __FILE__, \
 "Assertion failed: %s\n\n" msg, #test,  __VA_ARGS__);} while (0)
 
@@ -53,6 +55,7 @@
 #define CMLog(format, ...)
 #define DNSLog(format, ...)
 #define MARK
+#define QMARK
 #define XASSERT(test, msg, ...)
 #define START_TIMER
 #define END_TIMER(msg)
