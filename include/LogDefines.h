@@ -26,13 +26,13 @@
 
 #if DEBUG==1
 
-#define CMLog(format, ...) do{NSLog(@"(DEBUG_VERSION Logs)\n%s (at %@:%d):%@", __PRETTY_FUNCTION__, \
+#define CMLog(format, ...) do{NSLog(@"(DEBUG)\n\t%s (at %@:%d):\n\tLOG: %@\n", __PRETTY_FUNCTION__, \
 [[NSString stringWithFormat:@"%s",__FILE__] lastPathComponent], __LINE__, \
 [NSString stringWithFormat:format, ## __VA_ARGS__]);} while(0)
 
-#define MARK	do{CMLog(@"(DEBUG_VERSION Logs)\n%s, at %@:%d", __PRETTY_FUNCTION__, \
-[[NSString stringWithFormat:@"%s",__FILE__] lastPathComponent], \
-__LINE__);} while(0)
+#define DNSLog(format, ...) do{NSLog(@"%@\n",[NSString stringWithFormat:format, ## __VA_ARGS__]);} while(0)
+
+#define MARK	do{CMLog(@"MARKER");} while(0)
 
 #define XASSERT(test, msg, ...) do {if (!(test)) error(__LINE__, __FILE__, \
 "Assertion failed: %s\n\n" msg, #test,  __VA_ARGS__);} while (0)
@@ -51,6 +51,7 @@ __LINE__);} while(0)
 #define PRINT_BULLETVEC(str,v) printf("\n%s x= %f, y= %f, z = %f, w = %f\n", str, (v).x(), (v).y(), (v).z(), (v).w());
 #else
 #define CMLog(format, ...)
+#define DNSLog(format, ...)
 #define MARK
 #define XASSERT(test, msg, ...)
 #define START_TIMER
