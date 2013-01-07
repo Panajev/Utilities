@@ -52,23 +52,23 @@
 #define PRINT_SVEC4(str,v) printf("\n%s x= %f, y= %f, z = %f, w = %f\n", str, (v).x, (v).y, (v).z, (v).w);
 #define PRINT_BULLETVEC(str,v) printf("\n%s x= %f, y= %f, z = %f, w = %f\n", str, (v).x(), (v).y(), (v).z(), (v).w());
 #else
-#define CMLog(format, ...)
-#define DNSLog(format, ...)
-#define MARK
-#define QMARK
-#define XASSERT(test, msg, ...)
-#define START_TIMER
-#define END_TIMER(msg)
-#ifndef DPRINTF
-#define DPRINTF
+#define CMLog(format, ...) while(false){}
+#define DNSLog(format, ...) while(false){}
+#define MARK while(false){}
+#define QMARK while(false){}
+#define XASSERT(test, msg, ...) while(false){}
+#define START_TIMER while(false){}
+#define END_TIMER(msg) while(false){}
+#ifndef DPRINTF while(false){}
+#define DPRINTF while(false){}
 #endif
-#define PRINT_VEC(v)
-#define PRINT_SVEC(str,v)
-#define PRINT_VEC2(v) 
-#define PRINT_SVEC2(str,v) 
-#define PRINT_VEC4(v) 
-#define PRINT_SVEC4(str,v) 
-#define PRINT_BULLETVEC(str,v)
+#define PRINT_VEC(v) while(false){}
+#define PRINT_SVEC(str,v) while(false){}
+#define PRINT_VEC2(v) while(false){}
+#define PRINT_SVEC2(str,v) while(false){}
+#define PRINT_VEC4(v) while(false){}
+#define PRINT_SVEC4(str,v) while(false){}
+#define PRINT_BULLETVEC(str,v) while(false){}
 #endif
 
 #endif /*LOGDEFINES_H*/
